@@ -472,7 +472,7 @@ go-to: coalition_menu
 
 {!<tr><td>!} Catholic List: {!</td></tr>!}
 
-{!<tr><div class="box" style='background-color:#87CEFA'> </div>!} PPI: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#87CEFA'> </div>!} PPI: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
 
 {!<tr><td>!} Liberals, Democrats & Radicals: {!</td></tr>!}
 
