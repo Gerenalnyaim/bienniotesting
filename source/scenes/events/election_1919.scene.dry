@@ -311,51 +311,6 @@ Q.public_education_minister = 'Berenini';
 Q.public_education_minister_party = 'PSRI';
 
 Q.leverage = Q.psi_seating_disp;
-Q.bn_seating_disp = 0;
-Q.str_change_bn = 0;
-Q.bn_seating = 0;
-
-Q.old_bn_r = parseFloat(Q.bn_r);
-
-if (Q.bn_r != 0) {
-    Q.bn_r = 0;
-}
-
-if (Q.ul_in_bn == 1) {
-    Q.bn_seating_disp += parseFloat(Q.ul_seating_disp);
-    Q.str_change_bn += parseFloat(Q.change_ul_r);
-    Q.bn_seating += Q.ul_seating;
-    Q.bn_r += parseFloat(Q.ul_r);
-}
-if (Q.ds_in_bn == 1) {
-    Q.bn_seating_disp += parseFloat(Q.ds_seating_disp);
-    Q.str_change_bn += parseFloat(Q.change_ds_r);
-    Q.bn_seating += parseFloat(Q.ds_seating);
-    Q.bn_r += parseFloat(Q.ds_r);
-}
-if (Q.pnf_in_bn == 1) {
-    Q.bn_seating_disp += parseFloat(Q.pnf_seating_disp);
-    Q.str_change_bn += parseFloat(Q.change_pnf_r);
-    Q.bn_seating += parseFloat(Q.pnf_seating);
-    Q.bn_r += parseFloat(Q.pnf_r);
-}
-
-Q.change_bn_r = Q.bn_r - Q.old_bn_r;
-Q.str_change_bn = (Q.str_change_bn).toFixed(1);
-Q.bn_r = parseFloat(Q.bn_r).toFixed(1);
-
-var sign = Q.bn_r > 0 
-                ? '<img style ="height: 11px; width: 11px;" src="img/Increase2.png"> ' 
-                : Q['change_' + party + '_r'] < 0 
-                    ? '<img style ="height: 11px; width: 11px;" src="img/Decrease2.png"> ' 
-                    : '<img style ="height: 11px; width: 11px;" src="img/Steady2.png"> ';
-Q.change_bn_r = Math.abs(Q.change_bn_r);
-Q.str_change_bn = sign + parseFloat(Q.change_bn_r).toFixed(1);
-Q.bn_seating_disp = (Q.bn_seating_disp).toFixed(1);
-
-for (var p of Q.parties) {
-    Q[p + '_r'] = parseFloat(Q[p + '_r']).toFixed(1);
-}
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
 for (var party of Q.parties) {
@@ -417,7 +372,7 @@ data.push({
         "seats": Math.round(Q.psri_seating),
 });
 
-if (Q.ds_in_bn != 1 && Q.ds_seating_disp) {
+if (Q.ds_seating_disp) {
     data.push({
         "id": "ds",
         "legend": "DS",
@@ -440,16 +395,7 @@ data.push({
         "seats": Math.round(Q.ldr_seating),
 });
 
-if (Q.bn_formed === 1 && Q.bn_seating_disp) {
-    data.push({
-        "id": "bn",
-        "legend": "BN",
-        "name": "BN",
-        "seats": Math.round(Q.bn_seating), 
-    })
-}
-
-if (Q.ul_in_bn != 1 && Q.ul_seating_disp) {
+if (Q.ul_seating_disp) {
     data.push({
         "id": "ul",
         "legend": "UL",
@@ -458,7 +404,7 @@ if (Q.ul_in_bn != 1 && Q.ul_seating_disp) {
     });
 }
 
-if (Q.pnf_in_bn != 1 && Q.pnf_seating_disp) {
+if (Q.pnf_seating_disp) {
     data.push({
         "id": "pnf",
         "legend": "PNF",
@@ -498,34 +444,36 @@ go-to: coalition_menu
 {!<svg id="chamber" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!}
-{!<tr><td>Lists</td><td>Parties</td><td>Vote Share</td><td>% Change</td><td>Seats Given</td><td>% Seats</td></tr>!}
-{!<tr><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} PSI: {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
+{!<tr><td>Lists</td><td>Parties</td><td>Vote Share</td><td>% Change</td><td>% Seats</td></tr>!}
 
-[? if pcdi_formed : {!<tr><td><div class="box" style='background-color:#C72F35'> </div>!} PCd'I: {!</td><td>!} [+ pcdi_r +]% {!</td><td>!} [+ str_change_pcdi +]% {!</td><td>!} [+ pcdi_seating +] {!</td><td>!} [+ pcdi_seating_disp +]% {!</td></tr>!} ?]
+{!<tr><td>!} Socialists: {!</td></tr>!}
 
-[? if psu_formed : {!<tr><td><div class="box" style='background-color:#E35A5A'> </div>!} PSU: {!</td><td>!} [+ psu_r +]% {!</td><td>!} [+ str_change_psu +]% {!</td><td>!} [+ psu_seating +] {!</td><td>!} [+ psu_seating_disp +]% {!</td></tr>!} ?]
+{!<tr><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} PSI: {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
+
+[? if pcdi_formed : {!<tr><td><div class="box" style='background-color:#C72F35'> </div>!} PCd'I: {!</td><td>!} [+ pcdi_r +]% {!</td><td>!} [+ str_change_pcdi +]% {!</td><td>!} [+ pcdi_seating_disp +]% {!</td></tr>!} ?]
+
+[? if psu_formed : {!<tr><td><div class="box" style='background-color:#E35A5A'> </div>!} PSU: {!</td><td>!} [+ psu_r +]% {!</td><td>!} [+ str_change_psu +]% {!</td><td>!} [+ psu_seating_disp +]% {!</td></tr>!} ?]
 
 {!<tr><td>!} Reformist Socialists: {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FFC0CB'> </div>!} {!</td><td>!} PSRI {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating +] {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} {!</td><td><div class="box" style='background-color:#FFC0CB'> </div>!} PSRI {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
 
-[? if pri_prominent : {!<tr><td><div class="box" style='background-color:#3CB371'> </div>!} PRI: {!</td><td>!} [+ pri_r +]% {!</td><td>!} [+ str_change_pri +]% {!</td><td>!} [+ pri_seating +] {!</td><td>!} [+ pri_seating_disp +]% {!</td></tr>!} ?]
+{!<tr><td><div class="box" style='background-color:#87CEFA'> </div>!} PPI: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
 
-[? if not ds_in_bn : {!<tr><td><div class="box" style='background-color:#1E99C5'> </div>!} DS: {!</td><td>!} [+ ds_r +]% {!</td><td>!} [+ str_change_ds +]% {!</td><td>!} [+ ds_seating +] {!</td><td>!} [+ ds_seating_disp +]% {!</td></tr>!} ?]
+{!<tr><td>!} Liberals, Democrats & Radicals: {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#87CEFA'> </div>!} PPI: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating +] {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FFD700'> </div>!} PLDI: {!</td><td>!} [+ ldr_r +]% {!</td><td>!} [+ str_change_ldr +]% {!</td><td>!} [+ ldr_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FFD700'> </div>!} [+ ldr_name +]: {!</td><td>!} [+ ldr_r +]% {!</td><td>!} [+ str_change_ldr +]% {!</td><td>!} [+ ldr_seating +] {!</td><td>!} [+ ldr_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} National Bloc: {!</td></tr>!}
 
-[? if bn_formed : {!<tr><td><div class="box" style='background-color:#0047AB'> </div>!} BN: {!</td><td>!} [+ bn_r +]% {!</td><td>!} [+ str_change_bn +]% {!</td><td>!} [+ bn_seating +] {!</td><td>!} [+ bn_seating_disp +]% {!</td></tr>!} ?]
+{!<tr><td>!} {!<tr><td><div class="box" style='background-color:#1E99C5'> </div>!} PDSI: {!</td><td>!} [+ ds_r +]% {!</td><td>!} [+ str_change_ds +]% {!</td><td>!} [+ ds_seating_disp +]% {!</td></tr>!} ?]
 
-[? if not ul_in_bn : {!<tr><td><div class="box" style='background-color:#0047AB'> </div>!} [+ ul_name +]: {!</td><td>!} [+ ul_r +]% {!</td><td>!} [+ str_change_ul +]% {!</td><td>!} [+ ul_seating +] {!</td><td>!} [+ ul_seating_disp +]% {!</td></tr>!} ?]
+{!<tr><td>!} {!<tr><td><div class="box" style='background-color:#0047AB'> </div>!} Liberals: {!</td><td>!} [+ ul_r +]% {!</td><td>!} [+ str_change_ul +]% {!</td><td>!} [+ ul_seating_disp +]% {!</td></tr>!} ?]
 
-[? if not pnf_in_bn : {!<tr><td><div class="box" style='background-color:#000000'> </div>!} [+ pnf_name +]: {!</td><td>!} [+ pnf_r +]% {!</td><td>!} [+ str_change_pnf +]% {!</td><td>!} [+ pnf_seating +] {!</td><td>!} [+ pnf_seating_disp +]% {!</td></tr>!} ?]
+{!<tr><td>!} {!<tr><td><div class="box" style='background-color:#000000'> </div>!} [+ pnf_name +]: {!</td><td>!} [+ pnf_r +]% {!</td><td>!} [+ str_change_pnf +]% {!</td><td>!} [+ pnf_seating_disp +]% {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div>!} Others: {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td><td>!} [+ other_seating +] {!</td><td>!} [+ other_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div>!} Others: {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td><td>!} [+ other_seating_disp +]% {!</td></tr>!}
 
-[? if abstentionist_psi : {!<tr><td><div class="box" style='background-color:#FFFFFF'> </div>!} Vacant: {!</td><td>!} N/A {!</td><td>!} N/A {!</td><td>!} [+ vacant_seating +] {!</td><td>!} [+ vacant_seating_disp +]% {!</td></tr>!} ?]
 {!</table>!}
 
 **Potential Coalitions:**
