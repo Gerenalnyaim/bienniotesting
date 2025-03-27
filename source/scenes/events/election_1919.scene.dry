@@ -448,15 +448,13 @@ go-to: coalition_menu
 
 {!<tr><td>!} Socialists: {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} PSI: {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
-
-[? if pcdi_formed : {!<tr><td><div class="box" style='background-color:#C72F35'> </div>!} PCd'I: {!</td><td>!} [+ pcdi_r +]% {!</td><td>!} [+ str_change_pcdi +]% {!</td><td>!} [+ pcdi_seating_disp +]% {!</td></tr>!} ?]
-
-[? if psu_formed : {!<tr><td><div class="box" style='background-color:#E35A5A'> </div>!} PSU: {!</td><td>!} [+ psu_r +]% {!</td><td>!} [+ str_change_psu +]% {!</td><td>!} [+ psu_seating_disp +]% {!</td></tr>!} ?]
+{!<tr><td>!} {!</td><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} PSI: {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
 
 {!<tr><td>!} Reformist Socialists: {!</td></tr>!}
 
 {!<tr><td>!} {!</td><td><div class="box" style='background-color:#FFC0CB'> </div>!} PSRI {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
+
+{!<tr><td>!} Catholics: {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#87CEFA'> </div>!} PPI: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
 
@@ -466,13 +464,13 @@ go-to: coalition_menu
 
 {!<tr><td>!} National Bloc: {!</td></tr>!}
 
-{!<tr><td>!} {!<tr><td><div class="box" style='background-color:#1E99C5'> </div>!} PDSI: {!</td><td>!} [+ ds_r +]% {!</td><td>!} [+ str_change_ds +]% {!</td><td>!} [+ ds_seating_disp +]% {!</td></tr>!} 
+{!<tr><td>!} {!</td><td><div class="box" style='background-color:#1E99C5'> </div>!} PDSI: {!</td><td>!} [+ ds_r +]% {!</td><td>!} [+ str_change_ds +]% {!</td><td>!} [+ ds_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td>!} {!<tr><td><div class="box" style='background-color:#0047AB'> </div>!} Liberals: {!</td><td>!} [+ ul_r +]% {!</td><td>!} [+ str_change_ul +]% {!</td><td>!} [+ ul_seating_disp +]% {!</td></tr>!} 
+{!<tr><td>!} {!</td><td><div class="box" style='background-color:#0047AB'> </div>!} Liberals: {!</td><td>!} [+ ul_r +]% {!</td><td>!} [+ str_change_ul +]% {!</td><td>!} [+ ul_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td>!} {!<tr><td><div class="box" style='background-color:#000000'> </div>!} [+ pnf_name +]: {!</td><td>!} [+ pnf_r +]% {!</td><td>!} [+ str_change_pnf +]% {!</td><td>!} [+ pnf_seating_disp +]% {!</td></tr>!} 
+{!<tr><td>!} {!</td><td><div class="box" style='background-color:#000000'> </div>!} [+ pnf_name +]: {!</td><td>!} [+ pnf_r +]% {!</td><td>!} [+ str_change_pnf +]% {!</td><td>!} [+ pnf_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td>!} {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div>!} Others: {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td><td>!} [+ other_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} {!</td><td><div class="box" style='background-color:#a0a0a0'> </div>!} Others: {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td><td>!} [+ other_seating_disp +]% {!</td></tr>!}
 
 {!</table>!}
 
