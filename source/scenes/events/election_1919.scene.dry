@@ -211,6 +211,22 @@ if (Q.radicalisation >= 7) {
     Q.psri_min_relations += 25;
 }
 
+Q.pri_rep_r = parseFloat(Q.other_r * 0.7)
+Q.pri_rep_seating_disp = parseFloat(Q.other_seating_disp * 0.7)
+Q.str_change_pri_rep = parseFloat(Q.str_change_other * 0.7)
+
+Q.pri_rad_r = parseFloat(Q.other_r * 0.2)
+Q.pri_rad_seating_disp = parseFloat(Q.other_seating_disp * 0.2)
+Q.str_change_pri_rad = parseFloat(Q.str_change_other * 0.2)
+
+Q.ancr_r = parseFloat(Q.other_r * 0.05)
+Q.ancr_seating_disp = parseFloat(Q.other_seating_disp * 0.05)
+Q.str_change_ancr = parseFloat(Q.str_change_other * 0.05)
+
+Q.indsoc_r = parseFloat(Q.other_r * 0.05)
+Q.indsoc_seating_disp = parseFloat(Q.other_seating_disp * 0.05)
+Q.str_change_indsoc = parseFloat(Q.str_change_other * 0.05)
+
 // coalitions
 Q.left_wing_coalition_r = Q.psi_seating_disp + Q.psri_seating_disp;
 Q.centre_left_coalition_r = Q.psi_seating_disp + Q.ldr_seating_disp + Q.psri_seating_disp;
@@ -472,13 +488,13 @@ go-to: coalition_menu
 
 {!<tr><td>!} Others: {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#28B260'> </div>!} PRI (Rep.): {!</td><td>!} [+ other_r * 0.7 +]% {!</td><td>!} [+ str_change_other * 0.7 +]% {!</td><td>!} [+ other_seating_disp * 0.7 +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#28B260'> </div>!} PRI (Rep.): {!</td><td>!} [+ pri_rep_r +]% {!</td><td>!} [+ str_change_pri_rep +]% {!</td><td>!} [+ pri_rep_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#008000'> </div>!} PRI (Rad.): {!</td><td>!} [+ other_r * 0.2 +]% {!</td><td>!} [+ str_change_other * 0.2 +]% {!</td><td>!} [+ other_seating_disp * 0.2 +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#008000'> </div>!} PRI (Rad.): {!</td><td>!} [+ pri_rad_r +]% {!</td><td>!} [+ str_change_pri_rad +]% {!</td><td>!} [+ pri_rad_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#8B4513'> </div>!} ANCR: {!</td><td>!} [+ other_r * 0.05 +]% {!</td><td>!} [+ str_change_other * 0.05 +]% {!</td><td>!} [+ other_seating_disp * 0.05 +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B4513'> </div>!} ANCR: {!</td><td>!} [+ ancr_r +]% {!</td><td>!} [+ str_change_ancr +]% {!</td><td>!} [+ ancr_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#ED2855'> </div>!} Socialists (Ind.): {!</td><td>!} [+ other_r * 0.05 +]% {!</td><td>!} [+ str_change_other * 0.05 +]% {!</td><td>!} [+ other_seating_disp * 0.05 +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#ED2855'> </div>!} Socialists (Ind.): {!</td><td>!} [+ indsoc_r +]% {!</td><td>!} [+ str_change_indsoc +]% {!</td><td>!} [+ indsoc_seating_disp +]% {!</td></tr>!}
 
 {!</table>!}
 
