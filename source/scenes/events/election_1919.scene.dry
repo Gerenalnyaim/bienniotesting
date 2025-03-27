@@ -446,13 +446,13 @@ go-to: coalition_menu
 {!<table>!}
 {!<tr><td>Lists</td><td>Parties</td><td>Vote Share</td><td>% Change</td><td>% Seats</td></tr>!}
 
-{!<tr><td>!} Socialists: {!</td></tr>!}
+{!<tr><td>!} **Socialists:** {!</td></tr>!}
 
 {!<tr><td>!} {!</td><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} PSI: {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
 
 {!<tr><td>!} Reformist Socialists: {!</td></tr>!}
 
-{!<tr><td>!} {!</td><td><div class="box" style='background-color:#FFC0CB'> </div>!} PSRI {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} {!</td><td><div class="box" style='background-color:#FFC0CB'> </div>!} PSRI: {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
 
 {!<tr><td>!} Catholics: {!</td></tr>!}
 
@@ -470,7 +470,7 @@ go-to: coalition_menu
 
 {!<tr><td>!} {!</td><td><div class="box" style='background-color:#000000'> </div>!} [+ pnf_name +]: {!</td><td>!} [+ pnf_r +]% {!</td><td>!} [+ str_change_pnf +]% {!</td><td>!} [+ pnf_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td>!} {!</td><td><div class="box" style='background-color:#a0a0a0'> </div>!} Others: {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td><td>!} [+ other_seating_disp +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div>!} Others: {!</td></tr>!} {!</td><td>!} {!</td><td>!} {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td><td>!} [+ other_seating_disp +]% {!</td></tr>!}
 
 {!</table>!}
 
