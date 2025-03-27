@@ -1,5 +1,5 @@
 title: [+ pnf_leader +] appointed Prime Minister
-set-bg: MussoliniBg.jpg
+set-bg: img/MussoliniBG.png
 view-if: march_succeeded = 1
 on-arrival: {!
 
@@ -14,6 +14,10 @@ Q.psi_in_government = 0;
 Q.psu_in_government = 0;
 Q.ldr_in_government = 0;
 Q.psri_in_government = 0;
+
+Q.in_coalition = 0;
+Q.in_unstable_coalition = 0;
+Q.coalition_dissent = 0;
 
 Q.anti_socialist_coalition = 1;
 Q.pnf_in_government = 1;
@@ -42,6 +46,11 @@ Q.public_education_minister_party = "I";
 Q.public_education_minister = "Gentile";
 Q.public_works_minister_party = "DS";
 Q.public_works_minister = "Carnazza";
+
+Q.next_election_year = 1924; 
+Q.next_election_month = 4;
+
+Q.pnf_in_power = 1;
 !}
 tags: event
 max-visits: 1

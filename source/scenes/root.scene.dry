@@ -52,17 +52,17 @@ Q.dissent_percent = 5;
 Q.party_approach = "Unclear";
 
 // factions
-Q.factions = ['communist', 'maximalist', 'syndicalist', 'reformist'];
+Q.factions = ['communist', 'maximalist', 'syndicalist', 'reformist', 'labour'];
 // should this be normalised to 100%?
 Q.communist_strength = 17;
-Q.communist_dissent = 30;
+Q.communist_dissent = 30; 
 Q.maximalist_strength = 35;
 Q.maximalist_dissent = 10;
 Q.labour_strength = 15;
 Q.labour_dissent = 15;
 Q.reformist_strength = 12;
 Q.reformist_dissent = 25;
-Q.syndicalist_strength = 0;
+Q.syndicalist_strength = 0; 
 Q.syndicalist_dissent = 0;
 
 // in the event dissent gets too high
@@ -70,6 +70,7 @@ Q.unions_break = 0;
 Q.maximalists_resign = 0;
 Q.communist_split = 0;
 Q.reformists_defect = 0;
+Q.syndicalist_break = 0;
 
 // Depending on how the Congress goes
 Q.reformists_expelled = 0;
@@ -124,11 +125,11 @@ Q.rg_strength = 100;
 Q.rg_militancy = 0.20;
 Q.rg_banned = 0;
 
-Q.fdc_strength = 30;
+Q.fdc_strength = 14;
 Q.fdc_militancy = 0.30;
 Q.fdc_banned = 0;
 
-Q.ard_strength = 15;
+Q.ard_strength = 5;
 Q.ard_militancy = 0.50;
 Q.ard_banned = 0;
 
@@ -136,7 +137,7 @@ Q.adp_strength = 0;
 Q.adp_militancy = 0.25;
 Q.adp_banned = 0;
 
-Q.abl_strength = 10;
+Q.abl_strength = 3;
 Q.abl_militancy = 0.15;
 Q.abl_banned = 0;
 
@@ -159,12 +160,13 @@ Q.nationalist_sentiment = 37;
 Q.anti_monarchist_sentiment = Q.republican_sentiment+Q.socialist_sentiment;
 Q.democratisation = 0;
 
-// revolution vs radicalism
-Q.revolutionary_fervor = 60;
+// revolution vs radicalisation
+Q.revolutionary_fervour = 60;
+Q.revolutionary_exhaustion = 1; 
 
 // pacifism vs war
 Q.pacifism = 0;
-acerbo_law_passed = 0;
+Q.acerbo_law_passed = 0;
 
 // capital strikes happen when you upset the industrialists & landowners too much with your policies. they're an additional check on your policies, when purely electoral checks don't suffice.
 // coup progress happens when you piss off the fasci too much too quickly + if they have enough troops
@@ -176,7 +178,7 @@ Q.sonnino_avenged = 0;
 // if fasci_coup_progress reaches 10 before historical, march on rome event is triggered
 Q.fasci_coup_progress = 0;
 
-Q.budget = -2;
+Q.budget = -4;
 Q.in_default = 0;
 
 // Proportion of different social groups
@@ -191,11 +193,12 @@ Q.women = 0;
 Q.inflation = 19.2;
 Q.economic_growth = -3.7;
 Q.unemployment = 13.5;
+Q.improvements_seen = 0; 
 
 Q.classes = ['workers', 'middle_class', 'industrialists', 'rural', 'veterans', 'catholic', 'women'];
 Q.parties = ['psi', 'ul', 'ldr', 'ds', 'ppi', 'psri', 'pnf', 'other', 'pcdi', 'psu', 'pri'];
 
-// Communist split from the party
+// splits from the party
 Q.pcdi_formed = 0;
 Q.psu_formed = 0
 Q.psri_reconciled = 0;
@@ -288,6 +291,22 @@ Q.women_pnf = 6;
 Q.women_psri = 8;
 Q.women_other = 14;
 
+Q.workers_clc = 0;
+Q.middle_class_clc = 0;
+Q.industrialists_clc = 0;
+Q.rural_clc = 0;
+Q.veterans_clc = 0;
+Q.catholic_clc = 0;
+Q.women_clc = 0;
+
+Q.workers_scc = 0;
+Q.middle_class_scc = 0;
+Q.industrialists_scc = 0;
+Q.rural_scc = 0;
+Q.veterans_scc = 0;
+Q.catholic_scc = 0;
+Q.women_scc = 0;
+
 // Current Chamber of Deputies composition
 // % of Chamber of Deputies in Jan 1919
 // source: wikipedia
@@ -312,9 +331,11 @@ Q.pri_r = 0;
 Q.ldr_r = 10.4;
 Q.ds_r = 8.2;
 Q.ul_r = 47.6;
-Q.pnf_r = 0;
+Q.pnf_r = 0; 
 Q.psri_r = 3.9;
 Q.other_r = 6.3;
+
+Q.bn_r = 0;
 
 // diff from prev
 Q.old_pcdi_r = 0;
@@ -393,6 +414,7 @@ Q.public_education_minister_party = 'PSRI';
 Q.judicial_reform = 0;
 Q.womens_rights = 0;
 Q.womens_work = 0;
+Q.family_law = 0;
 Q.nationalisation_progress = 0;
 Q.councils_empowered = 0;
 
@@ -400,10 +422,10 @@ Q.councils_empowered = 0;
 Q.welfare = 0;
 Q.unemployment_insurance_founded = 0;
 Q.work_councils = 0;
-Q.workers_safety = 0;
-Q.works_program = 0;
+Q.workers_safety = 0; 
+Q.judicial_reform = 0;
 
-// level of support for farmers
+// level of support for farmers 
 Q.agricultural_policy = 0;
 Q.land_seizures = 0;
 
@@ -423,9 +445,22 @@ Q.ds_left = 0;
 Q.ds_moderates = 5;
 Q.ds_right = 0;
 
+// national bloc stuff
+Q.bn_formed = 0; 
+Q.ds_in_bn  = 0;
+Q.ul_in_bn = 0;
+Q.pnf_in_bn = 0;
+
+Q.violent_prevalence = 0.47;
+Q.psi_time_in_gov = 0;
+Q.psi_left_wing_time = 0;
+Q.psi_inc_strife = 1;
+Q.psi_inc_economic = 1;
+
 // International Relations
 Q.soviet_relation = 2;
 Q.entente_relation = 4;
+Q.american_relation = 6;
 Q.balkan_relation = 2;
 Q.papal_relation = 3
 Q.pope = "Della Chiesa";
@@ -443,6 +478,12 @@ Q.wage_increase = 0;
 Q.working_hours = 0;
 Q.education_reformed = 0;
 
+// child labour 
+Q.child_safety = 0;
+Q.child_attendance = 0;
+Q.child_labour_laws = 0;
+Q.child_welfare = 0; 
+
 // southern Question
 Q.southern_resolved = 0;
 Q.mafia_strength = 3;
@@ -451,16 +492,22 @@ Q.southern_infrastructure_funded = 0;
 Q.southern_land_reformed = 0;
 
 // Tax rates relative to 1919 baseline
-Q.lower_tax_rates = 0;
+Q.lower_tax_rates = 2;
 Q.upper_tax_rates = 0;
 Q.tariffs = 0;
+
+Q.american_debts = 5;
+Q.uk_debts = 3;
+
+Q.us_debts_over = 0;
+Q.uk_debts_over = 0;
 
 // economic Plans
 Q.moderate_plan_support = 0;
 Q.nationalisation_support = 1;
 
 // timers for the russian civil war
-Q.soviet_end_timer = 90;
+Q.soviet_end_timer = 45;
 Q.soviet_recovery_timer = 0;
 
 // our conduct in the government, and the conduct of our coalition opponents.
@@ -478,7 +525,7 @@ Q.timers = ['advisor_action', 'ideology', 'media', 'judiciary_reform', 'party_or
             'womens_rights', 'fiscal_policy', 'inter_party_relationships', 
             'international_relations', 'shuffle_leadership', 'para_funding', 
             'constitutional_reform', 'urgency', 'foreign_policy', 'shuffle_cabinet', 
-            'soviet_recovery', 'liberal_crackdown', 'catholic_papacy', 'insurance_payments', 
+            'soviet_recovery', 'liberal_crackdown', 'catholic_papacy', 'insurance_payments_veterans', 
             'fdc_ban', 'ard_ban', 'abl_ban', 'demobilise', 'soviet_end', 
             'agricultural_policy', 'coalition_affairs', 'unemployment_gov', 'welfare_gov', 
             'economic_democracy', 'education_policy', 'fiscal_policy', 'labour_rights', 
@@ -486,8 +533,9 @@ Q.timers = ['advisor_action', 'ideology', 'media', 'judiciary_reform', 'party_or
             'red_guards', 'targeting', 'enemies', 'fundraising', 'king_relation', 
             'party_disunity', 'rally', 'revolutionary', 'urgency', 'welfare_party', 'interior_policy', 'deficit',
             'adriatic', 'ul_emergency', 'ldr_emergency', 'ds_emergency', 'mussolini_trial', 'sonnino_southern',
-            'crisis_program', 'economic_policy', 'gov_cooldown', 'gov_foreign', 'gov_interior', 'gov_justice', 'gov_pm',
-            'gov_army', 'rg_orders'];
+            'crisis_program', 'economic_policy', 'gov_cooldown', 'gov_foreign', 'gov_interior', 'gov_justice', 'gov_treasury',
+            'gov_army', 'gov_finance', 'gov_public_works', 'gov_public_education', 'gov_labour', 'rg_orders', 'child_labour', 
+            'radicalisation', 'psu_negotiating', 'party_demands', 'class1', 'class2', 'king_dismissed', 'insurance_payments_workers'];
 // all timers
 Q.advisor_action_timer = 0;
 Q.ideology_timer = 0;
@@ -501,13 +549,14 @@ Q.interior_policy_timer = 0;
 Q.international_relations_timer = 0;
 Q.shuffle_leadership_timer = 0;
 Q.para_funding_timer = 0;
-Q.constitutional_reform_timer = 0;
+Q.constitutional_reform_timer = 0; 
 Q.foreign_policy_timer = 0;
 Q.shuffle_cabinet_timer = 0;
 Q.soviet_recovery_timer = 0;
 Q.liberal_crackdown_timer = 0;
 Q.cathoic_papacy_timer = 0;
-Q.insurance_payments_timer = 0;
+Q.insurance_payments_veterans_timer = 0;
+Q.insurance_payments_workers_timer = 0;
 Q.fdc_ban_timer = 0;
 Q.ard_ban_timer = 0;
 Q.abl_ban_timer = 0;
@@ -528,7 +577,7 @@ Q.preparing_revolution_timer = 0;
 Q.red_guards_timer = 0;
 Q.targeting_timer = 0;
 Q.enemies_timer = 0;
-Q.fundraising_timer = 0;
+Q.fundraising_timer = 3;
 Q.king_relation_timer = 0;
 Q.party_disunity_timer = 0;
 Q.rally_timer = 0;
@@ -536,10 +585,10 @@ Q.revolutionary_timer = 0;
 Q.urgency_timer = 0;
 Q.welfare_party_timer = 0;
 Q.deficit_timer = 0;
-Q.adriatic_timer = 44;
-Q.ul_emergency_timer = 18;
-Q.ldr_emergency_timer = 18;
-Q.ds_emergency_timer = 18;
+Q.adriatic_timer = 22;
+Q.ul_emergency_timer = 9;
+Q.ldr_emergency_timer = 9;
+Q.ds_emergency_timer = 9;
 Q.mussolini_trial_timer = 0;
 Q.sonnino_southern_timer = 0;
 Q.crisis_program_timer = 0;
@@ -548,9 +597,38 @@ Q.gov_cooldown_timer = 14;
 Q.gov_foreign_timer = 14;
 Q.gov_interior_timer = 14;
 Q.gov_justice_timer = 14;
-Q.gov_pm_timer = 14;
+Q.gov_treasury_timer = 14;
+Q.gov_finance_timer = 14;
 Q.gov_army_timer = 14;
+Q.gov_public_education_timer = 14;
+Q.gov_public_works_timer = 14;
+Q.gov_labour_timer = 14;
 Q.giolitti_tenure = 0;
+Q.radicalisation_timer = 6;
+Q.psu_negotiating_timer = 0;
+Q.king_dismissed_timer = 0;
+Q.class1_timer = 0;
+Q.class2_timer = 0;
+Q.party_demands_timer = 0;
+
+// wow 
+Q.mussolini_dies = 0;
+Q.royal_coup = 0;
+Q.friendly_king = 0;
+
+// demands
+Q.class1_num = 0;
+Q.class1_set = "";
+Q.class2_num = 0;
+Q.class2_set = "";
+
+Q.workers_demand_failed = 0;
+Q.middle_class_demand_failed = 0;
+Q.rural_demand_failed = 0;
+Q.veterans_demand_failed = 0;
+Q.industrialists_demand_failed = 0;
+Q.catholic_demand_failed = 0;
+Q.women_demand_failed = 0;
 
 // n_elections is the number of elections that have happened since the start of the game.
 Q.n_elections = 0;
@@ -582,10 +660,22 @@ Q.bombacci_advisor = 0; // Nicola Bombacci
 // Reformist advisors
 Q.kuliscioff_advisor = 0; // Anna Kuliscioff
 Q.salvemini_advisor = 0; // Gaetano Salvemini
+Q.altobelli_advisor = 0; // Argentina Altobelli
+Q.buozzi_advisor = 0; // Bruno Buozzi
+Q.matteotti_advisor = 0; // Giacomo Matteotti
 
-// Trade Unionist advisors
+// Labour advisors
 Q.treves_advisor = 0; // Claudio Treves
 Q.rigola_advisor = 0; // Rinaldo Rigola
+Q.daragona_advisor = 0; // Ludovico D'Aragona
+
+// Syndicalist Advisors
+Q.deambris_advisor = 0; // Alceste De Ambris
+Q.divittorio_advisor = 0; // Giuseppe Di Vittorio
+
+// Non-factional Advisors
+Q.picelli_advisor = 0; // Guido Picelli
+
 !}
 new-page: true
 
@@ -597,12 +687,18 @@ This is a game of alternate history. While historical accuracy is a major concer
 
 For more information on the politics and of the Italian Kingdom, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
 
-This is an **overhaul** mod for Autumn Chen's *Social Democracy: An Alternate History* mod, that you should check out <a href="https://red-autumn.itch.io/social-democracy">here</a> if you have not done so already.
+This is an **overhaul** mod for Autumn Chen's *Social Democracy: An Alternate History* mod, that you should check out <a href="https://red-autumn.itch.io/social-democracy" style="color: #900;">**here**</a> if you have not done so already.
 
+- @1919_mod: Begin (mod difficulty)
 - @1919_easy: Begin (easy difficulty)
 - @1919_main: Begin (normal difficulty)
 - @1919_hard: Begin (hard difficulty)
 - @1919_historical: Begin (historical mode)
+
+@1919_mod
+subtitle: The difficulty of a normal game, with the mechanics of an easy one.
+on-arrival: difficulty = -1; 
+go-to: 1919_main
 
 @1919_easy
 on-arrival: difficulty = -1; resources = 4; dues = 3; rg_strength = 150; ppi_relation = 55; ldr_relation = 55; psri_relation = 65; budget = -2;
@@ -617,7 +713,7 @@ subtitle: Saving, loading, and polls will be disabled. [? if not achievement_gam
 on-arrival: {!
 Q.difficulty = 2;
 Q.historical_mode = 1;
-Q.resources = 2;
+Q.resources = 2; 
 Q.dues = 1;
 Q.rg_strength = 62;
 Q.reformist_dissent = 35;
@@ -627,7 +723,7 @@ Q.maximalist_dissent = 25;
 Q.ppi_relation = 15;
 Q.ds_relation = 20;
 Q.psri_relation = 25;
-Q.budget = -4;
+Q.budget = -6;
 this.state.disableSaves = true;
 !}
 go-to: 1919_main

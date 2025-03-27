@@ -123,7 +123,7 @@ if (Q.tax_reformed == 3 && Q.min_compensation == 3 && Q.min_public_works == 3 &&
     this.achieve('piano_minimo_completato');
 }
 
-if (Q.unions_break == 1 && Q.maximalists_resign == 1 && Q.communist_split == 1 && Q.reformists_defect == 1) {
+if (Q.unions_break == 1 && Q.maximalists_resign == 1 && Q.communist_split == 1 && Q.reformists_defect == 1 && Q.syndicalist_break == 1) {
     this.achieve('fronte_diviso');
 }
 !}
@@ -134,6 +134,7 @@ if (Q.unions_break == 1 && Q.maximalists_resign == 1 && Q.communist_split == 1 &
 @eg_menu
 
 - #endings
+- @achievements
 - @end_game: End game.
 
 @mussolini_wins
@@ -160,7 +161,7 @@ title: [+ pnf_leader +] does not yet control Italy...
 tags: endings
 go-to: eg_menu
 
-Mussolini does not yet control Italy.
+[+ pnf_leader +] does not yet control Italy.
 
 @reformist_civil_war_won
 title: We have won the civil war.
@@ -198,15 +199,15 @@ We have won the war against the bourgeois forces and fascists, establishing a So
 
 @italy_government_lost
 title: We have failed to topple the Monarchy.
-view-if: soviet_victory == 0
+view-if: soviet_victory == 0 and monarchy_gone == 0
 tags: endings
 go-to: eg_menu
 
-Italy remains a Kingdom, gripped by the autocrat Vittorio Emanuele III, his cabinet of corrupt Liberals, and under threat of the fascist [+ pnf_leader +] and his far-right bloc.
+Italy remains a Kingdom, gripped by the autocrat Vittorio Emanuele III, [? if psi_in_government : under a government led by us,?][? if not psi_in_government and not pnf_in_government : under an incompetent government,?][? if pnf_in_government : under a fascist dictatorship. ?] [? if not pnf_in_government : and under threat of the fascist [+ pnf_leader +] and his far-right bloc. ?]
 
 @psi_victorious
 title: PSI still in government
-view-if: psi_in_government == 1 and chancellor_party == "PSI" and total_defeat == 0 and long_war == 0
+view-if: psi_in_government == 1 and prime_minister_party == "PSI" and total_defeat == 0 and long_war == 0
 tags: endings
 go-to: eg_menu
 
@@ -286,7 +287,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_seconda_era_giolitti: **Seconda Era Giolitti** - Keep Giolitti as Prime Minister for the entire game. ?]
 
-[? if game_achievement_rivoluzione_permanente: **Rivoluzione Permanente** - Successfully establish a Soviet Republic while having full relatons with the RSFSR. ?]
+[? if game_achievement_rivoluzione_permanente: **Rivoluzione Permanente** - Successfully establish a Soviet Republic while having full relations with the RSFSR. ?]
 
 [? if game_achievement_Far_viaggiare_i_treni_in_orario: **Far Viaggiare i Treni in Orario** - Significantly improve Public Works. ?]
 
@@ -368,7 +369,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_seconda_era_giolitti: **Seconda Era Giolitti** - Keep Giolitti as Prime Minister for the entire game. ?]
 
-[? if achievement_rivoluzione_permanente: **Rivoluzione Permanente** - Successfully establish a Soviet Republic while having full relatons with the RSFSR. ?]
+[? if achievement_rivoluzione_permanente: **Rivoluzione Permanente** - Successfully establish a Soviet Republic while having full relations with the RSFSR. ?]
 
 [? if achievement_Far_viaggiare_i_treni_in_orario: **Far Viaggiare i Treni in Orario** - Significantly improve Public Works. ?]
 

@@ -1,7 +1,7 @@
 title: Banca d'Italia reports critical deficit!
 new-page: true
 tags: event
-view-if: (budget <= -5 and psi_in_government) or (budget <= -5 and psi_in_government and deficit_timer <= 0 and deficit_extension == 1)
+view-if: (budget <= -5 and psi_in_government and deficit_extension == 0) or (budget <= -5 and psi_in_government and deficit_timer <= 0 and deficit_extension == 1)
 
 = Banca d'Italia reports critical deficit!
 
@@ -42,6 +42,8 @@ subtitle: Thankfully, they seem receptive, at least...
 choose-if: entente_relation >= 6 and deficit_extension == 0
 unavailable-subtitle: [? if entente_relation <= 5: Our relations are too low. ?][? if deficit_extension == 1: We have already asked them for an extension. ?]
 on-arrival: deficit_timer = 6; deficit_extension = 1; 
+
+We are able to convince the Entente to grant us another 6 months to resolve this.
 
 @deficit_renege
 view-if: welfare < 1 and unemployment_insurance_founded == 0 and upper_tax_rates <= 5 and lower_tax_rates <= 5 and ((entente_relation < 6 and deficit_extension == 0) or deficit_extension == 1)
