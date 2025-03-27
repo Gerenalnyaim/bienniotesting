@@ -456,17 +456,17 @@ go-to: coalition_menu
 
 {!<tr><td>!} Catholics: {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#87CEFA'> </div>!} PPI: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} {!</td><td><div class="box" style='background-color:#87CEFA'> </div>!} PPI: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
 
 {!<tr><td>!} Liberals, Democrats & Radicals: {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FFD700'> </div>!} PLDI: {!</td><td>!} [+ ldr_r +]% {!</td><td>!} [+ str_change_ldr +]% {!</td><td>!} [+ ldr_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} {!</td><td><div class="box" style='background-color:#FFD700'> </div>!} PLDI: {!</td><td>!} [+ ldr_r +]% {!</td><td>!} [+ str_change_ldr +]% {!</td><td>!} [+ ldr_seating_disp +]% {!</td></tr>!}
 
 {!<tr><td>!} National Bloc: {!</td></tr>!}
 
 {!<tr><td>!} {!</td><td><div class="box" style='background-color:#1E99C5'> </div>!} PDSI: {!</td><td>!} [+ ds_r +]% {!</td><td>!} [+ str_change_ds +]% {!</td><td>!} [+ ds_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td>!} {!</td><td><div class="box" style='background-color:#0047AB'> </div>!} Liberals: {!</td><td>!} [+ ul_r +]% {!</td><td>!} [+ str_change_ul +]% {!</td><td>!} [+ ul_seating_disp +]% {!</td></tr>!} 
+{!<tr><td>!} {!</td><td><div class="box" style='background-color:#0047AB'> </div>!} PLI: {!</td><td>!} [+ ul_r +]% {!</td><td>!} [+ str_change_ul +]% {!</td><td>!} [+ ul_seating_disp +]% {!</td></tr>!} 
 
 {!<tr><td>!} {!</td><td><div class="box" style='background-color:#000000'> </div>!} [+ pnf_name +]: {!</td><td>!} [+ pnf_r +]% {!</td><td>!} [+ str_change_pnf +]% {!</td><td>!} [+ pnf_seating_disp +]% {!</td></tr>!} 
 
