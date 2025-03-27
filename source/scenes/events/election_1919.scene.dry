@@ -507,7 +507,7 @@ go-to: coalition_menu
 
 {!<tr><td>!} Reformist Socialists: {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FFC0CB'> </div>!} Reformist Socialist List: {!</td><td>!} {!<tr><td>!} PSRI {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating +] {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FFC0CB'> </div>!} {!</td><td>!} PSRI {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating +] {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
 
 [? if pri_prominent : {!<tr><td><div class="box" style='background-color:#3CB371'> </div>!} PRI: {!</td><td>!} [+ pri_r +]% {!</td><td>!} [+ str_change_pri +]% {!</td><td>!} [+ pri_seating +] {!</td><td>!} [+ pri_seating_disp +]% {!</td></tr>!} ?]
 
