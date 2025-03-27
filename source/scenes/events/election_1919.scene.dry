@@ -130,6 +130,18 @@ if (Q.year >= 1921) {
     total_available_seats = 535;
 }
 
+if (Q.prime_minister_party == Q.pnf_name) {
+    Q.pnf_r += parseFloat(Q.ppi_r * 0.2);
+    Q.pnf_r += parseFloat(Q.ul_r * 0.7);
+    Q.pnf_r += parseFloat(Q.ds_r * 0.3);
+    Q.pnf_r += parseFloat(Q.ldr_r * 0.5);
+
+    Q.ppi_r -= parseFloat(Q.ppi_r * 0.2)
+    Q.ul_r -= parseFloat(Q.ul_r * 0.7);
+    Q.ds_r -= parseFloat(Q.ds_r * 0.3);
+    Q.ldr_r -= parseFloat(Q.ldr_r * 0.5); 
+}
+
 if (Q.acerbo_law_passed) {
     // acerbo law
 
