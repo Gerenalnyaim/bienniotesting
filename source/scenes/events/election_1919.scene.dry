@@ -444,33 +444,41 @@ go-to: coalition_menu
 {!<svg id="chamber" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!}
-{!<tr><td>Lists</td><td>Parties</td><td>Vote Share</td><td>% Change</td><td>% Seats</td></tr>!}
+{!<tr><td>Lists/Parties</td><td>Vote Share</td><td>% Change</td><td>% Seats</td></tr>!}
 
-{!<tr><td>!} **Socialists:** {!</td></tr>!}
+{!<tr><td>!} **Socialist List:** {!</td></tr>!}
 
-{!<tr><td>!} {!</td><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} PSI: {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} PSI: {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
 
-{!<tr><td>!} Reformist Socialists: {!</td></tr>!}
+{!<tr><td>!} Reformist Socialist List: {!</td></tr>!}
 
-{!<tr><td>!} {!</td><td><div class="box" style='background-color:#FFC0CB'> </div>!} PSRI: {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FFC0CB'> </div>!} PSRI: {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td>!} Catholics: {!</td></tr>!}
+{!<tr><td>!} Catholic List: {!</td></tr>!}
 
-{!<tr><td>!} {!</td><td><div class="box" style='background-color:#87CEFA'> </div>!} PPI: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
+{!<tr><div class="box" style='background-color:#87CEFA'> </div>!} PPI: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
 
 {!<tr><td>!} Liberals, Democrats & Radicals: {!</td></tr>!}
 
-{!<tr><td>!} {!</td><td><div class="box" style='background-color:#FFD700'> </div>!} PLDI: {!</td><td>!} [+ ldr_r +]% {!</td><td>!} [+ str_change_ldr +]% {!</td><td>!} [+ ldr_seating_disp +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FFD700'> </div>!} PLDI: {!</td><td>!} [+ ldr_r +]% {!</td><td>!} [+ str_change_ldr +]% {!</td><td>!} [+ ldr_seating_disp +]% {!</td></tr>!}
 
 {!<tr><td>!} National Bloc: {!</td></tr>!}
 
-{!<tr><td>!} {!</td><td><div class="box" style='background-color:#1E99C5'> </div>!} PDSI: {!</td><td>!} [+ ds_r +]% {!</td><td>!} [+ str_change_ds +]% {!</td><td>!} [+ ds_seating_disp +]% {!</td></tr>!} 
+{!<tr>><td><div class="box" style='background-color:#1E99C5'> </div>!} PDSI: {!</td><td>!} [+ ds_r +]% {!</td><td>!} [+ str_change_ds +]% {!</td><td>!} [+ ds_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td>!} {!</td><td><div class="box" style='background-color:#0047AB'> </div>!} PLI: {!</td><td>!} [+ ul_r +]% {!</td><td>!} [+ str_change_ul +]% {!</td><td>!} [+ ul_seating_disp +]% {!</td></tr>!} 
+{!<tr><td><div class="box" style='background-color:#0047AB'> </div>!} PLI: {!</td><td>!} [+ ul_r +]% {!</td><td>!} [+ str_change_ul +]% {!</td><td>!} [+ ul_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td>!} {!</td><td><div class="box" style='background-color:#000000'> </div>!} [+ pnf_name +]: {!</td><td>!} [+ pnf_r +]% {!</td><td>!} [+ str_change_pnf +]% {!</td><td>!} [+ pnf_seating_disp +]% {!</td></tr>!} 
+{!<tr><td><div class="box" style='background-color:#000000'> </div>!} [+ pnf_name +]: {!</td><td>!} [+ pnf_r +]% {!</td><td>!} [+ str_change_pnf +]% {!</td><td>!} [+ pnf_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div>!} Others: {!</td><td>!} N/A {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td><td>!} [+ other_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} Others: {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#28B260'> </div>!} PRI (Rep.): {!</td><td>!} [+ other_r * 0.7 +]% {!</td><td>!} [+ str_change_other * 0.7 +]% {!</td><td>!} [+ other_seating_disp * 0.7 +]% {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#008000'> </div>!} PRI (Rad.): {!</td><td>!} [+ other_r * 0.2 +]% {!</td><td>!} [+ str_change_other * 0.2 +]% {!</td><td>!} [+ other_seating_disp * 0.2 +]% {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#8B4513'> </div>!} ANCR: {!</td><td>!} [+ other_r * 0.05 +]% {!</td><td>!} [+ str_change_other * 0.05 +]% {!</td><td>!} [+ other_seating_disp * 0.05 +]% {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#ED2855'> </div>!} Socialists (Ind.): {!</td><td>!} [+ other_r * 0.05 +]% {!</td><td>!} [+ str_change_other * 0.05 +]% {!</td><td>!} [+ other_seating_disp * 0.05 +]% {!</td></tr>!}
 
 {!</table>!}
 
