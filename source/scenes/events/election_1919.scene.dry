@@ -476,15 +476,15 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} **Socialist List:** {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
 
-{!<tr><td>!} - Italian Socialist Party: {!</td></tr>!}
+{!<tr><td>!} - Italian Socialist Party {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#FFC0CB'> </div>!} Reformist Socialist List: {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td>!} - Italian Reformist Socialist Party: {!</td></tr>!}
+{!<tr><td>!} - Italian Reformist Socialist Party {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#87CEFA'> </div>!} Catholic List: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td>!} - Italian Popular Party: {!</td></tr>!}
+{!<tr><td>!} - Italian Popular Party {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#FFD700'> </div>!} Liberals, Democrats & Radicals: {!</td><td>!} [+ ldr_r +]% {!</td><td>!} [+ str_change_ldr +]% {!</td><td>!} [+ ldr_seating_disp +]% {!</td></tr>!}
 
