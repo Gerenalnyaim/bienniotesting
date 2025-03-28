@@ -476,85 +476,85 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} **Socialist List:** {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
 
-{!<tr><td>!} Italian Socialist Party: {!</td></tr>!}
+{!<tr><td>!} - Italian Socialist Party: {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#FFC0CB'> </div>!} Reformist Socialist List: {!</td><td>!} [+ psri_r +]% {!</td><td>!} [+ str_change_psri +]% {!</td><td>!} [+ psri_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td>!} Italian Reformist Socialist Party: {!</td></tr>!}
+{!<tr><td>!} - Italian Reformist Socialist Party: {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#87CEFA'> </div>!} Catholic List: {!</td><td>!} [+ ppi_r +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td>!} Italian Popular Party: {!</td></tr>!}
+{!<tr><td>!} - Italian Popular Party: {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#FFD700'> </div>!} Liberals, Democrats & Radicals: {!</td><td>!} [+ ldr_r +]% {!</td><td>!} [+ str_change_ldr +]% {!</td><td>!} [+ ldr_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td>!} Liberal Democratic Party {!</td></tr>!}
+{!<tr><td>!} - Liberal Democratic Party {!</td></tr>!}
 
-{!<tr><td>!} Democratic Liberal Party {!</td></tr>!}
+{!<tr><td>!} - Democratic Liberal Party {!</td></tr>!}
 
-{!<tr><td>!} Liberal Democrat Bloc {!</td></tr>!}
+{!<tr><td>!} - Liberal Democrat Bloc {!</td></tr>!}
 
-{!<tr><td>!} Liberal Democratic Bloc {!</td></tr>!}
+{!<tr><td>!} - Liberal Democratic Bloc {!</td></tr>!}
 
-{!<tr><td>!} Independent Liberal Democrat Party {!</td></tr>!}
+{!<tr><td>!} - Independent Liberal Democrat Party {!</td></tr>!}
 
-{!<tr><td>!} Independent Liberal Bloc {!</td></tr>!}
+{!<tr><td>!} - Independent Liberal Bloc {!</td></tr>!}
 
-{!<tr><td>!} Radical Liberal Party {!</td></tr>!}
+{!<tr><td>!} - Radical Liberal Party {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#1E99C5'> </div>!} Democratic List: {!</td><td>!} [+ ds_r +]% {!</td><td>!} [+ str_change_ds +]% {!</td><td>!} [+ ds_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td>!} Constitutional Democratic Party {!</td></tr>!}
+{!<tr><td>!} - Constitutional Democratic Party {!</td></tr>!}
 
-{!<tr><td>!} Constitutional Democratic Reform Party {!</td></tr>!}
+{!<tr><td>!} - Constitutional Democratic Reform Party {!</td></tr>!}
 
-{!<tr><td>!} Democratic Party {!</td></tr>!}
+{!<tr><td>!} - Democratic Party {!</td></tr>!}
 
-{!<tr><td>!} Democratic Bloc {!</td></tr>!}
+{!<tr><td>!} - Democratic Bloc {!</td></tr>!}
 
-{!<tr><td>!} Democratic Concentration Bloc {!</td></tr>!}
+{!<tr><td>!} - Democratic Concentration Bloc {!</td></tr>!}
 
-{!<tr><td>!} Bloc of Democrats and Fighters {!</td></tr>!}
+{!<tr><td>!} - Bloc of Democrats and Fighters {!</td></tr>!}
 
-{!<tr><td>!} Party of Independent Democrats {!</td></tr>!}
+{!<tr><td>!} - Party of Independent Democrats {!</td></tr>!}
 
-{!<tr><td>!} People's Democratic Party {!</td></tr>!}
+{!<tr><td>!} - People's Democratic Party {!</td></tr>!}
 
-{!<tr><td>!} Social Democratic Union {!</td></tr>!}
+{!<tr><td>!} - Social Democratic Union {!</td></tr>!}
 
-{!<tr><td>!} Christian Democratic Party {!</td></tr>!}
+{!<tr><td>!} - Christian Democratic Party {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#0047AB'> </div>!} Liberal List: {!</td><td>!} [+ ul_r +]% {!</td><td>!} [+ str_change_ul +]% {!</td><td>!} [+ ul_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td>!} Liberal Party {!</td></tr>!}
+{!<tr><td>!} - Liberal Party {!</td></tr>!}
 
-{!<tr><td>!} Liberal Monarchist Party {!</td></tr>!}
+{!<tr><td>!} - Liberal Monarchist Party {!</td></tr>!}
 
-{!<tr><td>!} Liberal Nationalist Party {!</td></tr>!}
+{!<tr><td>!} - Liberal Nationalist Party {!</td></tr>!}
 
-{!<tr><td>!} Constitutional Party {!</td></tr>!}
+{!<tr><td>!} - Constitutional Party {!</td></tr>!}
 
-{!<tr><td>!} Constitutional Liberal Party {!</td></tr>!}
+{!<tr><td>!} - Constitutional Liberal Party {!</td></tr>!}
 
-{!<tr><td>!} Constitutional Concentration Party {!</td></tr>!}
+{!<tr><td>!} - Constitutional Concentration Party {!</td></tr>!}
 
-{!<tr><td>!} Independent Liberal Party {!</td></tr>!}
+{!<tr><td>!} - Independent Liberal Party {!</td></tr>!}
 
-{!<tr><td>!} Bloc of Independent Liberals {!</td></tr>!}
+{!<tr><td>!} - Bloc of Independent Liberals {!</td></tr>!}
 
-{!<tr><td>!} Bloc of constitutionalists and fighters {!</td></tr>!}
+{!<tr><td>!} - Bloc of Constitutionalists and Fighters {!</td></tr>!}
 
-{!<tr><td>!} Others: {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div>!} Others: {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td><td>!} [+ other_seating_disp +]% {!</td></tr>!} 
 
-{!<tr><td><div class="box" style='background-color:#000000'> </div>!} [+ pnf_name +]: {!</td><td>!} [+ pnf_r +]% {!</td><td>!} [+ str_change_pnf +]% {!</td><td>!} [+ pnf_seating_disp +]% {!</td></tr>!} 
+{!<tr><td>!} - Fasci Italiani di Combattimento {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#28B260'> </div>!} PRI (Rep.): {!</td><td>!} [+ pri_rep_r +]% {!</td><td>!} [+ str_change_pri_rep +]% {!</td><td>!} [+ pri_rep_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} - Italian Republican Party {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#008000'> </div>!} PRI (Rad.): {!</td><td>!} [+ pri_rad_r +]% {!</td><td>!} [+ str_change_pri_rad +]% {!</td><td>!} [+ pri_rad_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} - Italian Radical Party {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#8B4513'> </div>!} ANCR: {!</td><td>!} [+ ancr_r +]% {!</td><td>!} [+ str_change_ancr +]% {!</td><td>!} [+ ancr_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} - Economic Party {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#ED2855'> </div>!} Socialists (Ind.): {!</td><td>!} [+ indsoc_r +]% {!</td><td>!} [+ str_change_indsoc +]% {!</td><td>!} [+ indsoc_seating_disp +]% {!</td></tr>!}
+{!<tr><td>!} - Independent Socialists {!</td></tr>!}
 
 {!</table>!}
 
