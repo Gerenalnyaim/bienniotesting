@@ -9,8 +9,6 @@ go-to: start_menu_2
 = Biennio Rosso: An Alternate History
 
 @start_menu_2
-choose-if: false
-unavailable-subtitle: No.
 
 - @start: Start game
 - @election_simulation: Election Simulation
@@ -22,6 +20,8 @@ unavailable-subtitle: No.
 go-to: game_over.achievements
 
 @start
+choose-if: false
+unavailable-subtitle: No.
 on-arrival: {!
 Q.started = 1;
 // time elapsed (in months)
