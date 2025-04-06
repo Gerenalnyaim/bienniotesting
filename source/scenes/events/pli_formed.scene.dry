@@ -1,6 +1,6 @@
 title: Formation of the Italian Liberal Party
-on-arrival: ul_name = "PLI"; ul_full_italian = "Partito Liberale Italiano"; ul_full_name = "Italian Liberal Party"; pli_formed = 1; prime_minister_party = ul_name if prime_minister_party == "UL"
-view-if: year = 1922 and month = 10 and pli_formed = 0
+on-arrival: ul_name = "PLI"; ul_full_italian = "Partito Liberale Italiano"; ul_full_name = "Italian Liberal Party"; ul_party = 1; ul_list = 0; prime_minister_party = ul_name if prime_minister_party == "UL"; pli_formed = 1
+view-if: year = 1922 and month = 10 and week = 1 and ul_list = 1
 new-page: true
 max-visits: 1
 tags: event
@@ -8,4 +8,130 @@ face-image: img/PLI.png
 
 = Formation of the Italian Liberal Party
 
-The Liberal Union, also known as Unione Liberale, under Giovanni Giolitti, has reorganised itself under a new party, known as the Italian Liberal Party. The party still represents its former ideals, though it seems to be significantly more friendly to our enemies in the far-right.
+The Italian Liberal Party has been formed. A merger of the parties under the Liberal List, a consolidated party for the liberals has been formed, alongside the Italian Democratic Liberal Party.
+
+In fact, there has been strong support from both sides of the party to form a united party, in order to further consolidate the liberal vote in the face of the Socialists and Catholics.
+
+- @merger_check: The party votes...
+
+@merger_check 
+on-arrival: {!
+
+if (Q.ldr_moderates < 0) {
+    Q.ldr_moderates = 0;
+}
+
+if (Q.ldr_right < 0) {
+    Q.ldr_right = 0;
+}
+
+if (Q.ldr_r > Q.ul_r) {
+    Q.ldr_right *= 1.2; 
+} else if (Q.ul_r > Q.ldr_r) {
+    Q.ldr_moderates *= 1.2;
+}
+
+if (Q.radicalisation >= 8 || Q.not_participating == 1) {
+    Q.ldr_moderates *= 1.2;
+} else if (Q.participating == 1) {
+    Q.ldr_right *= 0.8;
+}
+
+if (Q.ldr_relation >= 65) {
+    Q.ldr_moderates *= 0.8;
+} else if (Q.ldr_relation < 15) {
+    Q.ldr_moderates *= 1.2;
+}
+
+Q.merge_support = Q.ldr_moderates; 
+Q.merge_oppose = Q.ldr_right;
+
+!}
+go-to: pldi_merge if merge_support > merge_oppose; pldi_refuse if merge_oppose > merge_support
+
+@pldi_merge
+on-arrival: {!
+
+Q.ldr_total = Q.ldr_moderates + Q.ldr_right;
+Q.ldr_defectors = Q.ldr_right / Q.ldr_total;
+
+Q.ldr_defunct = 1;
+
+Q.workers_ul += Q.workers_ldr * Q.ldr_defectors;
+Q.middle_class_ul += Q.middle_class_ldr * Q.ldr_defectors;
+Q.industrialists_ul += Q.industrialists_ldr * Q.ldr_defectors;
+Q.rural_ul += Q.rural_ldr * Q.ldr_defectors;
+Q.veterans_ul += Q.veterans_ldr * Q.ldr_defectors;
+Q.catholic_ul += Q.catholic_ldr * Q.ldr_defectors;
+Q.women_ul += Q.women_ldr * Q.ldr_defectors;
+
+Q.workers_ldr -= Q.workers_ldr * Q.ldr_defectors;
+Q.middle_class_ldr -= Q.middle_class_ldr * Q.ldr_defectors;
+Q.industrialists_ldr -= Q.industrialists_ldr * Q.ldr_defectors;
+Q.rural_ldr -= Q.rural_ldr * Q.ldr_defectors;
+Q.veterans_ldr -= Q.veterans_ldr * Q.ldr_defectors;
+Q.catholic_ldr -= Q.catholic_ldr * Q.ldr_defectors;
+Q.women_ldr -= Q.women_ldr * Q.ldr_defectors;
+
+Q.ul_r += Q.ldr_r * Q.ldr_defectors;
+Q.ldr_r -= Q.ldr_r * Q.ldr_defectors;
+
+Q.ul_r = parseFloat(Q.ul_r.toFixed(1));
+Q.ldr_r = parseFloat(Q.ldr_r.toFixed(1));
+
+Q.ul_seating_disp += Q.ldr_seating_disp * Q.ldr_defectors;
+Q.ldr_seating_disp -= Q.ldr_seating_disp * Q.ldr_defectors;
+
+Q.ul_seating_disp = parseFloat(Q.ul_seating_disp.toFixed(1));
+Q.ldr_seating_disp = parseFloat(Q.ldr_seating_disp.toFixed(1));
+
+Q.ul_seating += Q.ldr_seating * Q.ldr_defectors;
+Q.ldr_seating -= Q.ldr_seating * Q.ldr_defectors;
+
+Q.ul_seating = parseFloat(Q.ul_seating.toFixed(1));
+Q.ldr_seating = parseFloat(Q.ldr_seating.toFixed(1));
+
+if (Q.foreign_minister_party == "PLDI") {
+    Q.foreign_minister_party = "PLI";
+}
+
+if (Q.labour_minister_party == "PLDI") {
+    Q.labour_minister_party = "PLI";
+}
+
+if (Q.justice_minister_party == "PLDI") {
+    Q.justice_minister_party = "PLI";
+}
+
+if (Q.public_education_minister_party == "PLDI") {
+    Q.public_education_minister_party = "PLI";
+}
+
+if (Q.treasury_minister_party == "PLDI") {
+    Q.treasury_minister_party = "PLI";
+}
+
+if (Q.agriculture_minister_party == "PLDI") {
+    Q.agriculture_minister_party = "PLI";
+}
+
+Q.ul_congress_trigger = 1;
+
+if (Q.ldr_leader === "Salandra") {
+    Q.ldr_leader = "Orlando"
+}
+
+!}
+
+As expected, the [+ ldr_name +] have merged with the [+ ul_name +], consolidating the liberal vote into one political party that will stand against the other parties in the Chamber of Deputies. The PLDI will continue to exist as a weakened, defunct party, as figures such as Francesco Saverio Nitti and Vittorio Emanuele Orlando refuse to join the PLI.
+
+- @root: Interesting.
+
+@pldi_refuse
+on-arrival: ul_congress_trigger = 1; ldr_leader = "Orlando" if ldr_leader == "Salandra"
+
+Surprisingly, whether it is because of the poor relations, the PLDI's ideological differences with the [+ ul_name +] or something else, the [+ ldr_name +] have refused to merge with the [+ ul_name +], remaining as an independent party running its own electoral list.
+
+In response, however, Antonio Salandra and his right-wing bloc have defected to the PLI, seeing the PLDI as a sinking ship. The PLI will hold its first Party Congress shortly. 
+
+- @root: Interesting.

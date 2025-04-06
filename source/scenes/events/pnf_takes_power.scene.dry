@@ -1,8 +1,10 @@
 title: [+ pnf_leader +] appointed Prime Minister
+audio: shuffle music/pnf_power/FischiaIlVento.mp3 music/pnf_power/CanzoneDeiPartigianiReggiani.mp3 music/pnf_power/ChiNonVuolChinarLaTesta.mp3 music/pnf_power/EIoEroSandokan.mp3 music/pnf_power/SonProletariIPartigiani.mp3
 set-bg: img/MussoliniBG.png
 view-if: march_succeeded = 1
 on-arrival: {!
 
+Q.psi_majority = 0;
 Q.centre_left_coalition = 0;
 Q.left_wing_coalition = 0;
 Q.socialist_catholic_coalition = 0;
@@ -51,6 +53,7 @@ Q.next_election_year = 1924;
 Q.next_election_month = 4;
 
 Q.pnf_in_power = 1;
+Q.violent_pnf = 1;
 !}
 tags: event
 max-visits: 1

@@ -1,7 +1,7 @@
 title: The Liberals calls a vote of no confidence against the current government!
 subtitle: We have angered our coalition partners too much...
 new-page: true
-view-if: psi_in_government = 1 and centre_left_coalition and coalition_dissent >= 4 and psi_seating_disp < 50
+view-if: psi_in_government = 1 and centre_left_coalition and coalition_dissent >= 4 and psi_seating_disp < 50 and ldr_in_government
 tags: event
 go-to: vonc_menu
 
@@ -68,8 +68,6 @@ Q.catholic_nationalisation_accepted = 0;
 Q.catholic_papacy_accepted = 0;
 Q.catholic_women_accepted = 0;
 
-Q.sonnino_southern_accepted = 0;
-
 Q.coalition_dissent = 0;
 
 Q.crackdown_far_left = 0;
@@ -87,6 +85,7 @@ Q.in_unstable_coalition = 0;
 Q.southern_development = 0;
 
 // reset coalitions
+Q.psi_majority = 0;
 Q.centre_left_coalition = 0;
 Q.left_wing_coalition = 0;
 Q.socialist_catholic_coalition = 0;
@@ -106,6 +105,8 @@ Q.pnf_in_government = 0;
 
 Q.government_collapse += 1;
 Q.party_demands_timer = 6;
+
+Q.leverage = Q.psi_seating_disp;
 !}
 go-to: election_1919.left_wing_coalition
 unavailable-subtitle: [? if psri_relation < 40 : The PSRI is not friendly enough with us. ?] [? if left_wing_coalition < 50: The PSRI does not have enough votes. ?]
@@ -118,14 +119,15 @@ on-departure: {!
 Q.rural_psi -= 3; 
 Q.middle_class_psi -= 2; 
 Q.workers_psi -= 3; 
-Q.middle_class_pnf += 2; Q.
-catholic_pnf += 4; 
+Q.middle_class_pnf += 2;
+
 if (Q.socialist_catholic_coalition == 1) {
     Q.catholic_ppi -= 4;
+    Q.catholic_pnf += 4; 
 }
-Q.industrialists_pnf += 4; 
 if (Q.centre_left_coalition == 1) {
     industrialists_ldr -= 4;
+    Q.industrialists_pnf += 4; 
 }
 
 Q.ldr_relation -= 8;
@@ -170,8 +172,6 @@ Q.catholic_nationalisation_accepted = 0;
 Q.catholic_papacy_accepted = 0;
 Q.catholic_women_accepted = 0;
 
-Q.sonnino_southern_accepted = 0;
-
 Q.coalition_dissent = 0;
 
 Q.crackdown_far_left = 0;
@@ -189,6 +189,7 @@ Q.in_unstable_coalition = 0;
 Q.southern_development = 0;
 
 // reset coalitions
+Q.psi_majority = 0;
 Q.centre_left_coalition = 0;
 Q.left_wing_coalition = 0;
 Q.socialist_catholic_coalition = 0;
