@@ -162,7 +162,6 @@ max-cards: 3
 - @party
 - @paramilitary
 - @govt
-- @def
 - @debug
 - #advisor
 - @shuffle_leadership_pinned
@@ -331,7 +330,6 @@ max-cards: 4
 - @party
 - @paramilitary
 - @govt
-- @def
 - @debug
 - #advisor
 - @shuffle_leadership_pinned
@@ -350,14 +348,6 @@ card-image: img/redguarddeck.jpg
 is-deck: true
 
 - #para_affairs
-
-@def
-title: National Defence
-view-if: violent_revolution
-is-deck: true
-card-image: img/redguarddeck.jpg
-
-- #def_affairs
 
 @govt
 title: Government Affairs
