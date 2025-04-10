@@ -512,7 +512,7 @@ data.push({
     }
 !}
 
-= Chamber of Deputies composition
+= [? if not violent_revolution : Chamber of Deputies composition ?][? if violent_revolution : Supreme Soviet composition ?]
 
 {!<svg id="chamber" style="width: 500px; height: 250px;"> </svg>!}
 

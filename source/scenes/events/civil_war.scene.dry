@@ -213,7 +213,7 @@ The war settles into fixed battle lines. This will not be a quick coup, but a lo
 - @game_over: Game over.
 
 @socialist_victory
-on-arrival: prime_minister = "Bacci" if prime_minister_party = "PNF"; prime_minister_party = "PSI" if prime_minister_party = "PNF";
+on-arrival: prime_minister = "Bacci" if prime_minister_party = "PNF"; prime_minister_party = "PSI" if prime_minister_party = "PNF"; fdc_banned = 1; ard_banned = 1; abl_banned = 1;
 achievement: vittoria_monarchica
 
 = Victory for the Kingdom
@@ -222,10 +222,10 @@ The battle lines hold, and the Fasci, Arditismo, and pro-coup Regio Esercito for
 
 Italy holds strong, against fascism.
 
-- @game_over
+- @post_war_cv: It is time to decide the new agenda.
 
 @communist_victory
-on-arrival: soviet_victory = 1; prime_minister = "Bacci"; prime_minister_party = "PSI";
+on-arrival: soviet_victory = 1; prime_minister = "Bacci"; prime_minister_party = "PSI"; fdc_banned = 1; ard_banned = 1; abl_banned = 1;
 achievement: vittoria_sovietica
 
 = Victory for the Socialists
@@ -234,5 +234,5 @@ The bourgeois and fascists lines shatter, as their forces are quickly overwhelme
 
 Italy has toppled its bourgeois oppressors and established a revolutionary state.
 
-- @game_over
+- @post_war_force: It is time to decide the new agenda.
 

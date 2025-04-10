@@ -327,8 +327,11 @@ max-cards: 4
 [? if year = 1927 and month = 11 and week = 1 : Leon Trotsky is expelled from the Communist Party of the Soviet Union. ?]
 
 - @party
+- @factionalism
 - @paramilitary
 - @govt
+- @def
+- @debug
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -339,6 +342,13 @@ card-image: img/partydeck.jpg
 is-deck: true
 
 - #party_affairs
+
+@factionalism
+title: Factional Affairs
+view-if: violent_revolution
+is-deck: true
+
+- #factional_affairs
 
 @paramilitary
 title: Paramilitary Affairs
@@ -354,3 +364,16 @@ card-image: img/governmentdeck.jpg
 is-deck: true
 
 - #govt_affairs
+
+@def
+title: National Defence
+view-if: violent_revolution
+is-deck: true
+
+- #def_affairs
+
+@debug
+title: Debugging stuff
+is-deck: true
+
+- #debug_affairs

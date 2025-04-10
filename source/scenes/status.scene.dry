@@ -45,9 +45,9 @@ Our Approach: [+ party_approach +]
 
 = Government
 
-King: [+ king +]
+[? if not king_abolished : King: [+ king +] ?]
 
-King Approval: [+ king_relation : relationships +]
+[? if not king_abolished and king_powerless : King Approval: [+ king_relation : relationships +] ?]
 
 Prime Minister: [+ prime_minister +] ([+ prime_minister_party +])
 
