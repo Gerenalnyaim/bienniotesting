@@ -108,6 +108,7 @@ Q.public_works_minister = "Vella";
 Q.violent_seen = 0;
 !}
 max-visits: 1
+go-to: violent_menu
 
 = [+ year +] National Congress
 

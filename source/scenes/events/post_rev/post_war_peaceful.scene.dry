@@ -62,6 +62,7 @@ Q.pnf_in_government = 0;
 Q.party_demands_timer = 6;
 !}
 max-visits: 1
+go-to: peaceful_menu
 
 = [+ year +] National Congress
 
