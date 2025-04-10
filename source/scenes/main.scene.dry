@@ -162,6 +162,8 @@ max-cards: 3
 - @party
 - @paramilitary
 - @govt
+- @def
+- @debug
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -327,14 +329,12 @@ max-cards: 4
 [? if year = 1927 and month = 11 and week = 1 : Leon Trotsky is expelled from the Communist Party of the Soviet Union. ?]
 
 - @party
-- @factionalism
 - @paramilitary
 - @govt
 - @def
 - @debug
 - #advisor
 - @shuffle_leadership_pinned
-
 
 @party
 title: Party Affairs
@@ -343,19 +343,21 @@ is-deck: true
 
 - #party_affairs
 
-@factionalism
-title: Factional Affairs
-view-if: violent_revolution
-is-deck: true
-
-- #factional_affairs
-
 @paramilitary
 title: Paramilitary Affairs
+view-if: not violent_revolution
 card-image: img/redguarddeck.jpg
 is-deck: true
 
 - #para_affairs
+
+@def
+title: National Defence
+view-if: violent_revolution
+is-deck: true
+card-image: img/redguarddeck.jpg
+
+- #def_affairs
 
 @govt
 title: Government Affairs
@@ -364,13 +366,6 @@ card-image: img/governmentdeck.jpg
 is-deck: true
 
 - #govt_affairs
-
-@def
-title: National Defence
-view-if: violent_revolution
-is-deck: true
-
-- #def_affairs
 
 @debug
 title: Debugging stuff
