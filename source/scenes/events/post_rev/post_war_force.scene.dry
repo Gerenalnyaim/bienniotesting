@@ -106,6 +106,23 @@ Q.public_works_minister_party = "PSI";
 Q.public_works_minister = "Vella";
 
 Q.violent_seen = 0;
+
+Q.reformist_r = 0;
+Q.reformist_seating = 0;
+Q.reformist_seating_disp = 0;
+
+Q.maximalist_r = 0;
+Q.maximalist_seating = 0;
+Q.maximalist_seating_disp = 0;
+
+Q.labour_r = 0;
+Q.labour_seating = 0;
+Q.labour_seating_disp = 0;
+
+Q.communist_r = 0;
+Q.communist_seating = 0;
+Q.communist_seating_disp = 0;
+
 !}
 max-visits: 1
 go-to: violent_menu
@@ -124,6 +141,7 @@ We have done it. Like our Russian allies to the east, we too have overthrown our
 
 @violent_monarchy
 on-arrival: violent_seen += 1; king_abolished = 1
+max-visits: 1
 
 Placeholder
 
@@ -131,6 +149,7 @@ Placeholder
 
 @violent_party
 on-arrival: violent_seen += 1;
+max-visits: 1
 
 Placeholder
 
@@ -142,6 +161,7 @@ go-to: violent_menu
 
 @violent_chamber
 on-arrival: violent_seen += 1;
+max-visits: 1
 
 Placeholder
 
@@ -150,6 +170,7 @@ Placeholder
 @violent_elections
 on-arrival: violent_seen += 1; violent_elections_seen = 1; next_election_time = time + 3 if next_election_time >= time + 3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_in_government = 0; in_popular_front = 0; in_left_front = 0; chancellor = "Brüning"; chancellor_party = "Z "; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; coalition_dissent = 0; kpd_coalitipn_dissent = 0; pro_republic -= 5; old_middle_spd -= 3; new_middle_spd -= 2; workers_spd -= 3 if pro_republic < 50; workers_spd -= 4 if pro_republic < 40; old_middle_nsdap += 4 if pro_republic < 50; new_middle_nsdap += 3 if pro_republic < 50
 go-to: violent_menu
+max-visits: 1
 
 Placeholder
 
