@@ -365,7 +365,7 @@ Amadeo Bordiga is elected as Secretary-General of the PSI, and Prime Minister of
 
 @serrati
 choose-if: serrati_support >= 50
-subtitle: Serrati leads the Maximalists, and is able to sway the Maximalists and Labour.
+subtitle: Serrati leads the Maximalists and is able to sway the Communists and Labour.
 unavailable-subtitle: The Maximalists, Communists and Labour do not have enough votes.
 on-arrival: prime_minister = "Serrati"
 
@@ -374,7 +374,7 @@ Giacinto Menotti Serrati is elected as Secretary-General of the PSI, and Prime M
 @daragona
 choose-if: daragona_support >= 50
 subtitle: D'Aragona leads the Labour faction, and is able to sway the Reformists.
-unavailable-subtitle: The Labour faction and Reformists doesn't have have enough votes.
+unavailable-subtitle: Labour and Reformists doesn't have have enough votes.
 on-arrival: prime_minister = "D'Aragona"
 
 Ludovico D'Aragona is elected as Secretary-General of the PSI, and Prime Minister of Italy.
