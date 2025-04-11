@@ -382,7 +382,7 @@ on-arrival: prime_minister = "Turati"
 Filippo Turati is elected as Secretary-General of the PSI, and Prime Minister of Italy.
 
 @bacci
-view-if: communist_seating_disp < 50 and (maximalist_seating_disp + (communist_seating_disp / 2) + (labour_seating_disp / 2)) < 50 and (labour_seating_disp + (maximalist_seating_disp / 2) + (reformist_seating_disp / 2)) < 50 and (reformist_seating_disp + (labour_seating_disp / 2)) < 50
+view-if: communist_seating_disp + maximalist_seating_disp < 50 and (maximalist_seating_disp + communist_seating_disp + (labour_seating_disp / 2)) < 50 and (labour_seating_disp + (maximalist_seating_disp / 2) + (reformist_seating_disp / 2)) < 50 and (reformist_seating_disp + (labour_seating_disp / 2)) < 50
 subtitle: Giovanni Bacci will lead as a compromise Secretary-General and Prime Minister.
 on-arrival: prime_minister = "Bacci"
 
