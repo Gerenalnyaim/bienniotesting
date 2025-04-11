@@ -119,19 +119,19 @@ if (Q.syndicalist_active) {
 
 Q.reformist_r = ((Q.reformist_strength / Q.strength_elections) * 100).toFixed(1);
 Q.reformist_seating = Math.round((Q.reformist_strength / Q.strength_elections) * total_available_seats);
-Q.reformist_seating_disp = (Q.reformist_strength / total_available_seats).toFixed(1);
+Q.reformist_seating_disp = (Q.reformist_seating / total_available_seats).toFixed(1);
 
 Q.maximalist_r = ((Q.maximalist_strength / Q.strength_elections) * 100).toFixed(1);
 Q.maximalist_seating = Math.round((Q.maximalist_strength / Q.strength_elections) * total_available_seats);
-Q.maximalist_seating_disp = (Q.maximalist_strength / total_available_seats).toFixed(1);
+Q.maximalist_seating_disp = (Q.maximalist_seating / total_available_seats).toFixed(1);
 
 Q.labour_r = ((Q.labour_strength / Q.strength_elections) * 100).toFixed(1);
 Q.labour_seating = Math.round((Q.labour_strength / Q.strength_elections) * total_available_seats);
-Q.labour_seating_disp = (Q.labour_strength / total_available_seats).toFixed(1);
+Q.labour_seating_disp = (Q.labour_seating / total_available_seats).toFixed(1);
 
 Q.communist_r = ((Q.communist_strength / Q.strength_elections) * 100).toFixed(1);
 Q.communist_seating = Math.round((Q.communist_strength / Q.strength_elections) * total_available_seats);
-Q.communist_seating_disp = (Q.communist_strength / total_available_seats).toFixed(1);
+Q.communist_seating_disp = (Q.communist_seating / total_available_seats).toFixed(1);
 
 // Other Calculation
 for (var party of Q.parties) {
@@ -278,13 +278,13 @@ go-to: coalition_menu
 {!<svg id="chamber" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!}
-{!<tr><td>**Italian Socialist Party**</td><td>[+ psi_r +]</td><td>[+ str_change_psi +]</td><td>[+ psi_seating +]</td><td>[+ psi_seating_disp +]</td></tr>!}
+{!<tr><td>!} **Italian Socialist Party** {!</td><td>!} **[+ psi_r +]** {!</td><td>!} **[+ str_change_psi +]** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]** {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#8B0000; outline: 2px; outline-style: solid;'> </div>!} Communists: {!</td><td>!} **[+ communist_r +]%** {!</td><td>!} **[+ str_change_communist +]%** {!</td><td>!} **[+ communist_seating +]** {!</td><td>!} **[+ communist_seating_disp +]%** {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#DC143C; outline: 2px; outline-style: solid;'> </div>!} Maximalists: {!</td><td>!} **[+ maximalist_r +]%** {!</td><td>!} **[+ str_change_maximalist +]%** {!</td><td>!} **[+ maximalist_seating +]** {!</td><td>!} **[+ maximalist_seating_disp +]%** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#B22222; outline: 2px; outline-style: solid;'> </div>!} Labour: {!</td><td>!} **[+ labour_r +]%** {!</td><td>!} **[+ str_change_labour +]%** {!</td><td>!} **[+ labour_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#B22222; outline: 2px; outline-style: solid;'> </div>!} Labour: {!</td><td>!} **[+ labour_r +]%** {!</td><td>!} **[+ str_change_labour +]%** {!</td><td>!} **[+ labour_seating +]** {!</td><td>!} **[+ labour_seating_disp +]%** {!</td></tr>!}
 
 [? if syndicalist_active : {!<tr><td><div class="box" style='background-color:#2F2F2F; outline: 2px; outline-style: solid;'> </div>!} Syndicalists: {!</td><td>!} **[+ syndicalist_r +]%** {!</td><td>!} **[+ str_change_syndicalist +]%** {!</td><td>!} **[+ syndicalist_seating +]** {!</td><td>!} **[+ syndicalist_seating_disp +]%** {!</td></tr>!} ?]
 
