@@ -123,6 +123,10 @@ Q.communist_r = 0;
 Q.communist_seating = 0;
 Q.communist_seating_disp = 0;
 
+Q.syndicalist_r = 0;
+Q.syndicalist_seating = 0;
+Q.syndicalist_seating_disp = 0;
+
 !}
 max-visits: 1
 go-to: violent_menu
@@ -145,7 +149,9 @@ max-visits: 1
 
 Placeholder
 
-- @violent_menu: Naturally, the King will be forced to abdicate and exiled.
+- @king_exiled: Naturally, the King will be forced to abdicate and exiled.
+- @king_imprisoned: Naturally, the King will be forced to abdicate and arrested.
+- @king_killed: Naturally, the King will be forced to abdicate and be executed.
 
 @violent_party
 on-arrival: violent_seen += 1;

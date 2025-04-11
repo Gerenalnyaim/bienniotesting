@@ -107,10 +107,10 @@ Q.psi_r = 100.0;
 Q.psi_seating_disp = 100.0;
 Q.psi_seating = total_available_seats;
 
-Q.strength_elections = Q.reformist_strength + Q.maximalist_strength + Q.labour_strength + Q.communist_strength
+Q.strength_elections = Q.reformist_strength + Q.maximalist_strength + Q.labour_strength + Q.communist_strength;
 
 if (Q.syndicalist_active) {
-    Q.strength_elections += Q.syndicalist_strength
+    Q.strength_elections += Q.syndicalist_strength;
 
     Q.syndicalist_r = ((Q.syndicalist_strength / Q.strength_elections) * 100).toFixed(1);
     Q.syndicalist_seating = Math.round((Q.syndicalist_strength / Q.strength_elections) * total_available_seats);
