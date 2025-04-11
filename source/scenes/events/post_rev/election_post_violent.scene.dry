@@ -114,24 +114,24 @@ if (Q.syndicalist_active) {
 
     Q.syndicalist_r = ((Q.syndicalist_strength / Q.strength_elections) * 100).toFixed(1);
     Q.syndicalist_seating = Math.round((Q.syndicalist_strength / Q.strength_elections) * total_available_seats);
-    Q.syndicalist_seating_disp = (Q.syndicalist_seating / total_available_seats).toFixed(1);
+    Q.syndicalist_seating_disp = ((Q.syndicalist_seating / total_available_seats) * 100).toFixed(1);
 }
 
 Q.reformist_r = ((Q.reformist_strength / Q.strength_elections) * 100).toFixed(1);
 Q.reformist_seating = Math.round((Q.reformist_strength / Q.strength_elections) * total_available_seats);
-Q.reformist_seating_disp = (Q.reformist_seating / total_available_seats).toFixed(1);
+Q.reformist_seating_disp = ((Q.reformist_seating / total_available_seats) * 100).toFixed(1);
 
 Q.maximalist_r = ((Q.maximalist_strength / Q.strength_elections) * 100).toFixed(1);
 Q.maximalist_seating = Math.round((Q.maximalist_strength / Q.strength_elections) * total_available_seats);
-Q.maximalist_seating_disp = (Q.maximalist_seating / total_available_seats).toFixed(1);
+Q.maximalist_seating_disp = ((Q.maximalist_seating / total_available_seats) * 100).toFixed(1);
 
 Q.labour_r = ((Q.labour_strength / Q.strength_elections) * 100).toFixed(1);
 Q.labour_seating = Math.round((Q.labour_strength / Q.strength_elections) * total_available_seats);
-Q.labour_seating_disp = (Q.labour_seating / total_available_seats).toFixed(1);
+Q.labour_seating_disp = ((Q.labour_seating / total_available_seats) * 100).toFixed(1);
 
 Q.communist_r = ((Q.communist_strength / Q.strength_elections) * 100).toFixed(1);
 Q.communist_seating = Math.round((Q.communist_strength / Q.strength_elections) * total_available_seats);
-Q.communist_seating_disp = (Q.communist_seating / total_available_seats).toFixed(1);
+Q.communist_seating_disp = ((Q.communist_seating / total_available_seats) * 100).toFixed(1);
 
 // Other Calculation
 for (var party of Q.parties) {
