@@ -147,15 +147,26 @@ We have done it. Like our Russian allies to the east, we too have overthrown our
 on-arrival: violent_seen += 1; king_abolished = 1
 max-visits: 1
 
-Placeholder
+The first and foremost issue is regarding the King, Vittorio Emanuele III, the throne of Italy and the House of Savoy. All factions of the party agree on one thing; the Monarchy must be abolished. What to do with the King and the House of Savoy, however, is a contentious topic. The reformists on the right suggest merely exiling the King, making them never set foot on Italian soil ever again. The communists on the left, on the other hand, demand the King be put on trial and executed for his crimes against the Italian workers, while the maximalists are divided between the two as well. What should we do?
 
-- @violent_menu: Naturally, the King will be forced to abdicate and exiled.
+- @king_exile: Naturally, the King will be forced to abdicate and exiled.
+- @king_shot: Naturally, the King will be forced to abdicated and executed.
+
+@king_exile
+on-arrival: reformist_strength += 10;
+subtitle: The reformists will benefit from this.
+go-to: violent_menu
+
+@king_shot
+on-arrival: communist_strength += 10;
+subtitle: The communists will benefit from this.
+go-to: violent_menu
 
 @violent_party
 on-arrival: violent_seen += 1;
 max-visits: 1
 
-Placeholder
+Next up on the list is political parties of Italy, ranging from us all the way to the far-right PNF. Naturally, 
 
 - @all_banned: All parties with the exception of the PSI are to be outlawed.
 

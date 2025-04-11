@@ -315,27 +315,7 @@ title: PSI Majority
 subtitle: PSI: [+ psi_seating_disp +]%
 on-arrival: {!
 
-if (Q.reformists_defect == 0 && Q.reformist_strength > Q.communist_strength && Q.reformist_strength > Q.maximalist_strength || Q.communist_split == 1 && Q.maximalists_resign == 1) {
-    Q.prime_minister = "Turati"; 
-    Q.prime_minister_party = "PSI";
-}
-
-if (Q.communist_split == 0 && Q.communist_strength > Q.reformist_strength && Q.communist_strength > Q.maximalist_strength || Q.reformists_defect == 1 && Q.maximalists_resign == 1) {
-    Q.prime_minister = "Bordiga"; 
-    Q.prime_minister_party = "PSI";
-}
-
-if (Q.maximalists_resign == 0 && Q.maximalist_strength > Q.communist_strength && Q.maximalist_strength > Q.reformist_strength || Q.communist_split == 1 && Q.reformists_defect == 1) {
-    Q.prime_minister = "Serrati"; 
-    Q.prime_minister_party = "PSI";
-}
-
-if (Q.reformists_defect == 1 && Q.communist_split == 1 && Q.maximalists_resign == 1) {
-    Q.prime_minister = "Bacci";
-    Q.prime_minister_party = "PSI";
-    Q.workers_psi -= 4*(1-Q.dissent);
-    Q.middle_class_psi -= 5*(1-Q.dissent);
-}
+Q.prime_minister_party = "PSI";
 
 Q.psi_in_government = 1; 
 Q.psi_majority = 1; 
@@ -361,6 +341,49 @@ Q.public_works_minister = "Vella";
 !}
 achievement: governo_monocolore
 
-The PSI will continue its sole governance.
+The PSI will continue its rule over Italy.
 
-[+ prime_minister +] is elected within the party to become Prime Minister.
+- @bordiga: Amadeo Bordiga is elected Secretary-General and Prime Minister.
+- @serrati: Giacinto Menotti Serrati is elected Secretary-General and Prime Minister.
+- @daragona: Ludovico D'Aragona is elected Secretary-General and Prime Minister.
+- @turati: Filippo Turati is elected Secretary-General and Prime Minister.
+- @bacci: No leader is able to secure a majority!
+
+@bordiga
+choose-if: communist_seating_disp >= 50
+subtitle: Bordiga represents the left of the Communists.
+unavailable-subtitle: The Communists do not have enough votes.
+on-arrival: prime_minister = "Bordiga"
+
+Amadeo Bordiga is elected as Secretary-General of the PSI, and Prime Minister of Italy.
+
+@serrati
+choose-if: (maximalist_seating_disp + (communist_seating_disp / 2) + (labour_seating_disp / 2)) >= 50
+subtitle: Serrati leads the Maximalists, and is able to sway some of the Maximalists and Labour.
+unavailable-subtitle: The Maximalists and Communists do not have enough votes.
+on-arrival: prime_minister = "Serrati"
+
+Giacinto Menotti Serrati is elected as Secretary-General of the PSI, and Prime Minister of Italy.
+
+@daragona
+choose-if: (labour_seating_disp + (maximalist_seating_disp / 2) + (reformist_seating_disp / 2)) >= 50
+subtitle: D'Aragona leads the Labour faction, and is able to sway some of the Maximalists and Reformists.
+unavailable-subtitle: The Labour faction doesn't have have enough votes.
+on-arrival: prime_minister = "D'Aragona"
+
+Ludovico D'Aragona is elected as Secretary-General of the PSI, and Prime Minister of Italy.
+
+@turati
+choose-if: (reformist_seating_disp + (labour_seating_disp / 2)) >= 50
+subtitle: Turati leads the Reformists, and is able to sway some of the Labour faction.
+unavailable-subtitle: The Reformists do not have have enough votes.
+on-arrival: prime_minister = "Turati"
+
+Filippo Turati is elected as Secretary-General of the PSI, and Prime Minister of Italy.
+
+@bacci
+view-if: communist_seating_disp < 50 and (communist_seating_disp + (maximalist_seating_disp / 2)) < 50 and (maximalist_seating_disp + (communist_seating_disp / 2) + (labour_seating_disp / 2)) < 50 and (labour_seating_disp + (maximalist_seating_disp / 2) + (reformist_seating_disp / 2)) < 50 and (reformist_seating_disp + (labour_seating_disp / 2)) < 50
+subtitle: Giovanni Bacci will lead as a compromise Secretary-General and Prime Minister.
+on-arrival: prime_minister = "Bacci"
+
+Giovanni Bacci is elected as Secretary-General of the PSI, and Prime Minister of Italy.
