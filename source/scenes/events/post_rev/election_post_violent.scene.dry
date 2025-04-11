@@ -278,7 +278,7 @@ go-to: coalition_menu
 {!<svg id="chamber" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!}
-{!<tr><td>!} **Italian Socialist Party** {!</td><td>!} **[+ psi_r +]** {!</td><td>!} **[+ str_change_psi +]** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]** {!</td></tr>!}
+{!<tr><td>!} **Italian Socialist Party** {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#8B0000; outline: 2px; outline-style: solid;'> </div>!} Communists: {!</td><td>!} **[+ communist_r +]%** {!</td><td>!} **[+ str_change_communist +]%** {!</td><td>!} **[+ communist_seating +]** {!</td><td>!} **[+ communist_seating_disp +]%** {!</td></tr>!}
 
