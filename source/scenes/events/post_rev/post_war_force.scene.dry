@@ -150,8 +150,6 @@ max-visits: 1
 Placeholder
 
 - @violent_menu: Naturally, the King will be forced to abdicate and exiled.
-- @violent_menu: Naturally, the King will be forced to abdicate and arrested.
-- @violent_menu: Naturally, the King will be forced to abdicate and be executed.
 
 @violent_party
 on-arrival: violent_seen += 1;
