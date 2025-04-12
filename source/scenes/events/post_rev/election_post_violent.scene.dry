@@ -67,9 +67,6 @@ var new_party_sum = 0;
 var new_party_seating = 0;
 var new_party_seating_disp = 0;
 Q.party_banned = 0;
-for (var party of Q.parties) {
-    Q['old_' + party + '_r'] = Q[party + '_r'];
-}
 
 for (var faction of Q.factions) {
     Q['old_' + faction + '_r'] = Q[faction + '_r'];
@@ -90,44 +87,49 @@ if (Q.year >= 1921) {
 }
 
 if (Q.opposition || Q.benevolence) {
-    Q.total_r = Q.psi_r + Q.psri_r;
+    Q.total_r = parseFloat(Q.psi_r) + parseFloat(Q.psri_r);
 
     if (Q.pcdi_formed) {
-        Q.total_r += Q.pcdi_r;
+        Q.total_r += parseFloat(Q.pcdi_r);
     }
 
     if (Q.psu_formed) {
-        Q.total_r += Q.psu_r;
+        Q.total_r += parseFloat(Q.psu_r);
     }
 
     if (Q.benevolence) {
-        Q.total_r += Q.pri_r;
+        Q.total_r += parseFloat(Q.pri_r);
     }
 
-    Q.psi_r = ((Q.psi_r / Q.total_r) * 100).toFixed(1);
-    Q.psi_seating = Math.round((Q.psi_r / Q.total_r) * total_available_seats);
+    Q.psi_r = ((parseFloat(Q.psi_r) / Q.total_r) * 100);
+    Q.psi_seating = Math.round(Q.psi_r / 100 * total_available_seats);
     Q.psi_seating_disp = ((Q.psi_seating / total_available_seats) * 100).toFixed(1);
+    Q.psi_r = Q.psi_r.toFixed(1);
 
-    Q.psri_r = ((Q.psri_r / Q.total_r) * 100).toFixed(1);
-    Q.psri_seating = Math.round((Q.psri_r / Q.total_r) * total_available_seats);
+    Q.psri_r = ((parseFloat(Q.psri_r) / Q.total_r) * 100);
+    Q.psri_seating = Math.round(Q.psri_r / 100 * total_available_seats);
     Q.psri_seating_disp = ((Q.psri_seating / total_available_seats) * 100).toFixed(1);
+    Q.psri_r = Q.psri_r.toFixed(1);
 
     if (Q.pcdi_formed) {
-        Q.pcdi_r = ((Q.pcdi_r / Q.total_r) * 100).toFixed(1);
-        Q.pcdi_seating = Math.round((Q.pcdi_r / Q.total_r) * total_available_seats);
+        Q.pcdi_r = ((parseFloat(Q.pcdi_r) / Q.total_r) * 100);
+        Q.pcdi_seating = Math.round(Q.pcdi_r / 100 * total_available_seats);
         Q.pcdi_seating_disp = ((Q.pcdi_seating / total_available_seats) * 100).toFixed(1);
+        Q.pcdi_r = Q.pcdi_r.toFixed(1);
     }
 
     if (Q.psu_formed) {
-        Q.psu_r = ((Q.psu_r / Q.total_r) * 100).toFixed(1);
-        Q.psu_seating = Math.round((Q.psu_r / Q.total_r) * total_available_seats);
+        Q.psu_r = ((parseFloat(Q.psu_r) / Q.total_r) * 100);
+        Q.psu_seating = Math.round(Q.psu_r / 100 * total_available_seats);
         Q.psu_seating_disp = ((Q.psu_seating / total_available_seats) * 100).toFixed(1);
+        Q.psu_r = Q.psu_r.toFixed(1);
     }
 
     if (Q.benevolence) {
-        Q.pri_r = ((Q.pri_r / Q.total_r) * 100).toFixed(1);
-        Q.pri_seating = Math.round((Q.pri_r / Q.total_r) * total_available_seats);
+        Q.pri_r = ((parseFloat(Q.pri_r) / Q.total_r) * 100);
+        Q.pri_seating = Math.round(Q.pri_r / 100 * total_available_seats);
         Q.pri_seating_disp = ((Q.pri_seating / total_available_seats) * 100).toFixed(1);
+        Q.pri_r = Q.pri_r.toFixed(1);
     }
 
 } else {
@@ -141,34 +143,38 @@ Q.strength_elections = Q.reformist_strength + Q.maximalist_strength + Q.labour_s
 if (Q.syndicalist_active) {
     Q.strength_elections += Q.syndicalist_strength;
 
-    Q.syndicalist_r = ((Q.syndicalist_strength / Q.strength_elections) * 100).toFixed(1);
+    Q.syndicalist_r = ((Q.syndicalist_strength / Q.strength_elections) * 100);
     Q.syndicalist_seating = Math.round((Q.syndicalist_strength / Q.strength_elections) * Q.psi_seating);
     Q.syndicalist_seating_disp = ((Q.syndicalist_seating / Q.psi_seating) * 100).toFixed(1);
+    Q.syndicalist_r = Q.syndicalist_r.toFixed(1);
 }
 
-Q.reformist_r = ((Q.reformist_strength / Q.strength_elections) * 100).toFixed(1);
+Q.reformist_r = ((Q.reformist_strength / Q.strength_elections) * 100);
 Q.reformist_seating = Math.round((Q.reformist_strength / Q.strength_elections) * Q.psi_seating);
 Q.reformist_seating_disp = ((Q.reformist_seating / Q.psi_seating) * 100).toFixed(1);
+Q.reformist_r = Q.reformist_r.toFixed(1);
 
-Q.maximalist_r = ((Q.maximalist_strength / Q.strength_elections) * 100).toFixed(1);
+Q.maximalist_r = ((Q.maximalist_strength / Q.strength_elections) * 100);
 Q.maximalist_seating = Math.round((Q.maximalist_strength / Q.strength_elections) * Q.psi_seating);
 Q.maximalist_seating_disp = ((Q.maximalist_seating / Q.psi_seating) * 100).toFixed(1);
+Q.maximalist_r = Q.maximalist_r.toFixed(1);
 
-Q.labour_r = ((Q.labour_strength / Q.strength_elections) * 100).toFixed(1);
+Q.labour_r = ((Q.labour_strength / Q.strength_elections) * 100);
 Q.labour_seating = Math.round((Q.labour_strength / Q.strength_elections) * Q.psi_seating);
 Q.labour_seating_disp = ((Q.labour_seating / Q.psi_seating) * 100).toFixed(1);
+Q.labour_r = Q.labour_r.toFixed(1);
 
-Q.communist_r = ((Q.communist_strength / Q.strength_elections) * 100).toFixed(1);
+Q.communist_r = ((Q.communist_strength / Q.strength_elections) * 100);
 Q.communist_seating = Math.round((Q.communist_strength / Q.strength_elections) * Q.psi_seating);
 Q.communist_seating_disp = ((Q.communist_seating / Q.psi_seating) * 100).toFixed(1);
+Q.communist_r = Q.communist_r.toFixed(1);
 
 // Other Calculation
 for (var party of Q.parties) {
-    // if we use decimals, then we might want to truncate the numbers
     if (Q.use_decimals) {
-        Q[party + '_r_disp'] = Q[party+'_r'].toFixed(1);
-    }  else {
-            Q[party + '_r_disp'] = Q[party+'_r'];
+        Q[party + '_r_disp'] = parseFloat(Q[party + '_r']).toFixed(1);
+    } else {
+        Q[party + '_r_disp'] = Q[party + '_r'];
     }
     Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
     var sign = Q['change_' + party + '_r'] > 0 
@@ -179,11 +185,12 @@ for (var party of Q.parties) {
     Q['change_' + party + '_r'] = Math.abs(Q['change_' + party + '_r']);
     Q['str_change_' + party] = sign + parseFloat(Q['change_' + party + '_r']).toFixed(1);
 }
+
 // calculate new party sum if parties are banned
 
 for (var faction of Q.factions) {
     // if we use decimals, then we might want to truncate the numbers
-    Q['change_' + faction + '_r'] = Q[party + '_r'] - Q['old_' + faction + '_r'];
+    Q['change_' + faction + '_r'] = Q[faction + '_r'] - Q['old_' + faction + '_r'];
     var sign = Q['change_' + faction + '_r'] > 0 
                 ? '<img style ="height: 11px; width: 11px;" src="img/Increase2.png"> ' 
                 : Q['change_' + faction + '_r'] < 0 

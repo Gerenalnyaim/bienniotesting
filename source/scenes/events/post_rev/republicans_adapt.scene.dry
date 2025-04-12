@@ -1,7 +1,7 @@
 title: Emergence of Republican Paramilitaries
 subtitle: We have seen 
 tags: event
-view-if: republicans_adapt >= time
+view-if: republicans_adapt <= time
 max-visits: 1
 
 = Emergence of Republican Paramilitaries

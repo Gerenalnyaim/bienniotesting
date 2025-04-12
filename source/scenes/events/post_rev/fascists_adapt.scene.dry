@@ -1,7 +1,7 @@
 title: Fascist Paramilitaries Adapt
 subtitle: The paramilitaries have taken a significantly violent turn.
 tags: event
-view-if: fascists_adapt >= time
+view-if: fascists_adapt <= time
 max-visits: 1
 
 = Fascist Paramilitaries Adapt
