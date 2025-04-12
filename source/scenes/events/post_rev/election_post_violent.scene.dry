@@ -278,6 +278,15 @@ on-departure: fasci_urgency += 1 if (fasci_urgency <= 2 and pnf_seating_disp >= 
 on-display: {!
 data = []
 
+if (Q.opposition && Q.pcdi_formed) {
+    data.push({
+        "id": "pcdi",
+        "legend": "PCDI",
+        "name": "PCDI",
+        "seats": Math.round(Q.pcdi_seating),
+    }); 
+}
+
 data.push({
     "id": "communist",
     "legend": "Communist",
@@ -315,12 +324,30 @@ data.push({
     "seats": Math.round(Q.reformist_seating),
 });
 
+if (Q.opposition && Q.psu_formed) {
+    data.push({
+        "id": "psu",
+        "legend": "PSU",
+        "name": "PSU",
+        "seats": Math.round(Q.psu_seating),
+    }); 
+}
+
 if (Q.opposition) {
     data.push({
-        "id": "other",
-        "legend": "Other",
-        "name": "Other",
-        "seats": Math.round(Q.other_seating),
+        "id": "psri",
+        "legend": "PSRI",
+        "name": "PSRI",
+        "seats": Math.round(Q.psri_seating),
+    }); 
+}
+
+if (Q.benevolence) {
+    data.push({
+        "id": "pri",
+        "legend": "PRI",
+        "name": "PRI",
+        "seats": Math.round(Q.pri_seating),
     });   
 }
 
