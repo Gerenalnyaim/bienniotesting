@@ -242,7 +242,7 @@ max-visits: 1
 
 Snap elections will be called in order to bring new, sweeping members of the Soviet to power who will be able to govern the country and will be held on [+ next_election_month : month +] [+ year +].
 
-@violent_menu: Excellent.
+- @violent_menu: Excellent.
 
 @violent_done
 view-if: violent_seen >= 4
