@@ -127,6 +127,43 @@ Q.syndicalist_r = 0;
 Q.syndicalist_seating = 0;
 Q.syndicalist_seating_disp = 0;
 
+Q.fascists_adapt = Q.time + 4;
+
+if (Q.pri_prominent != 1) {
+    Q.workers_pri += Q.workers_other * 0.6;
+    Q.middle_class_pri += Q.middle_class_other * 0.6; 
+    Q.industrialists_pri = Q.industrialists_other * 0.6;
+    Q.rural_pri = Q.rural_other * 0.7;
+    Q.veterans_pri = Q.veterans_other * 0.6;
+    Q.catholic_pri = Q.catholic_other * 0.6;
+    Q.women_pri = Q.women_other * 0.6;
+
+    Q.workers_other -= Q.workers_other * 0.6;
+    Q.middle_class_other -= Q.middle_class_other * 0.6;
+    Q.industrialists_other -= Q.industrialists_other * 0.6;
+    Q.rural_other -= Q.rural_other * 0.7;
+    Q.veterans_other -= Q.veterans_other * 0.6;
+    Q.catholic_other -= Q.catholic_other * 0.6;
+    Q.women_other -= Q.women_other * 0.6;
+
+    Q.old_pri_r += Q.old_other_r * 0.6;
+    Q.pri_r += Q.other_r * 0.6;
+    Q.pri_seating += Q.other_seating * 0.6;
+    Q.pri_seating_disp += Q.other_seating_disp * 0.6;
+
+    Q.old_other_r -= Q.old_other_r * 0.6;
+    Q.other_r -= Q.other_r * 0.6;
+    Q.other_seating -= Q.other_seating * 0.6;
+    Q.other_seating_disp -= Q.other_seating_disp * 0.6;
+
+    if (Q.not_participating == 1) {
+        Q.pri_relation -= 15;
+    }
+
+    Q.pri_prominent = 1;
+    Q.republican_sentiment += 4;
+}
+
 !}
 max-visits: 1
 go-to: violent_menu
@@ -147,47 +184,69 @@ We have done it. Like our Russian allies to the east, we too have overthrown our
 on-arrival: violent_seen += 1; king_abolished = 1
 max-visits: 1
 
-The first and foremost issue is regarding the King, Vittorio Emanuele III, the throne of Italy and the House of Savoy. All factions of the party agree on one thing; the Monarchy must be abolished. What to do with the King and the House of Savoy, however, is a contentious topic. The reformists on the right suggest merely exiling the King, making them never set foot on Italian soil ever again. The communists on the left, on the other hand, demand the King be put on trial and executed for his crimes against the Italian workers, while the maximalists are divided between the two as well. What should we do?
+The first and foremost issue is regarding the King, Vittorio Emanuele III, the throne of Italy and the House of Savoy. All factions of the party agree on one thing; the Monarchy must be abolished. What to do with the King and the House of Savoy, however, is a contentious topic. The reformists on the right suggest merely stripping the King and the House of Savoy of its titles. The communists on the left, on the other hand, demand the King be put on trial and executed for his crimes against the Italian workers, while the maximalists are suggest merely exiling the King, making them never set foot on Italian soil ever again. What should we do?
 
+- @king_stripped: Naturally, the King should be forced to abdicate and be stripped of his titles.
 - @king_exile: Naturally, the King will be forced to abdicate and exiled.
-- @king_shot: Naturally, the King will be forced to abdicated and executed.
+- @king_shot: Naturally, the King will be forced to abdicate and executed.
+
+@king_stripped
+on-arrival: reformist_strength += 10;
+subtitle: The Reformists will benefit from this.
+go-to: violent_menu
 
 @king_exile
-on-arrival: reformist_strength += 10;
-subtitle: The reformists will benefit from this.
+on-arrival: maximalist_strength += 10;
+subtitle: The Maximalists will benefit from this.
 go-to: violent_menu
 
 @king_shot
 on-arrival: communist_strength += 10;
-subtitle: The communists will benefit from this.
+subtitle: The Communists will benefit from this.
 go-to: violent_menu
 
 @violent_party
 on-arrival: violent_seen += 1;
 max-visits: 1
 
-Next up on the list is political parties of Italy, ranging from us all the way to the far-right PNF. Naturally, 
+Next up on the list is political parties of Italy, ranging from us all the way to the far-right PNF. Naturally and agreed upon by all factions, Italy and the PSI will need a strong mandate to govern and stabilise the nation. Some on the left are in favour of a one-party state, while others on the right are more in favour of keeping an constitutional opposition to allow at least some freedom of choice.
 
 - @all_banned: All parties with the exception of the PSI are to be outlawed.
+- @right_banned: The Chamber of Deputies will allow a permanent percentage of seats dedicated to the opposition, including only the PSRI and other leftists.
+- @none_banned: The Chamber of Deputies will allow a permanent percentage of seats dedicated to the opposition, including the PSRI, leftists and the PRI.
 
 @all_banned
-on-arrival: pcdi_banned = 1; psu_banned = 1; psri_banned = 1; pll_banned = 1; pri_banned = 1; ds_banned = 1; ppi_banned = 1; ldr_banned = 1; ul_banned = 1; pcs_banned = 1; pnf_banned = 1; other_banned = 1
+choose-if: communist_strength > (maximalist_strength + reformist_strength)
+unavailable-subtitle: The Communists do not have enough influence.
+subtitle: This might result in our opposition taking more extreme measures.
+on-arrival: republicans_adapt = time + 6; dictatorship = 1; pcdi_banned = 1; psu_banned = 1; psri_banned = 1; pll_banned = 1; pri_banned = 1; ds_banned = 1; ppi_banned = 1; ldr_banned = 1; ul_banned = 1; pcs_banned = 1; pnf_banned = 1; other_banned = 1
+go-to: violent_menu
+
+@right_banned
+subtitle: This might weaken our ability to effectively govern, though appeases the republicans.
+on-arrival: republicans_adapt = time + 24; opposition = 1; pcdi_banned = 1; psu_banned = 1; psri_banned = 1; pll_banned = 1; pri_banned = 1; ds_banned = 1; ppi_banned = 1; ldr_banned = 1; ul_banned = 1; pcs_banned = 1; pnf_banned = 1; other_banned = 1
 go-to: violent_menu
 
 @violent_chamber
-on-arrival: violent_seen += 1;
+subtitle: This will significantly weaken our ability to effectively govern, but will ensure republican dissent is minimal.
+on-arrival: violent_seen += 1; benevolence = 1; pcdi_banned = 1; psu_banned = 1; psri_banned = 1; pll_banned = 1; pri_banned = 1; ds_banned = 1; ppi_banned = 1; ldr_banned = 1; ul_banned = 1; pcs_banned = 1; pnf_banned = 1; other_banned = 1
 max-visits: 1
 
-Placeholder
+Another thing on the list is the Chamber of Deputies. The party suggests that it be replaced by a Supreme Soviet, emulating the governing bodies of the Russian Soviet Federative Socialist Republic.
 
 - @violent_menu: The Chamber of Deputies will be abolished and a Supreme Soviet will take its place.
 
 @violent_elections
 on-arrival: violent_seen += 1; violent_elections_seen = 1; next_election_time = time + 3 if next_election_time >= time + 3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_in_government = 0; in_popular_front = 0; in_left_front = 0; chancellor = "Brüning"; chancellor_party = "Z "; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; coalition_dissent = 0; kpd_coalitipn_dissent = 0; pro_republic -= 5; old_middle_spd -= 3; new_middle_spd -= 2; workers_spd -= 3 if pro_republic < 50; workers_spd -= 4 if pro_republic < 40; old_middle_nsdap += 4 if pro_republic < 50; new_middle_nsdap += 3 if pro_republic < 50
-go-to: violent_menu
 max-visits: 1
 
-Placeholder
+Snap elections will be called in order to bring new, sweeping members of the Soviet to power who will be able to govern the country and will be held on [+ next_election_month : month +] [+ year +].
+
+@violent_menu: Excellent.
 
 @violent_done
 view-if: violent_seen >= 4
+
+We have done all we can to bring revolution to Italy, and we have succeeded. What lies ahead is uncertain, but at the very least, we are certain we will succeed.
+
+@root: There's much to be done.

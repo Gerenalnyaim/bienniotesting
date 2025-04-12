@@ -1,0 +1,11 @@
+title: Fascist Paramilitaries Adapt
+subtitle: The paramilitaries have taken a significantly violent turn.
+tags: event
+view-if: fascists_adapt >= time
+max-visits: 1
+
+= Fascist Paramilitaries Adapt
+
+In response to the changing political landscape, the fascist paramilitaries have adapted their strategies once more, abandoning their parliamentary route of the [+ pnf_name +], instead seeking to bring about fascism by subverting the state and democracy. 
+
+Already, we have seen their methods become more ruthless, killings, assassinations and threats of bombings across Italy have tied up our interior Ministry, and it is unlikely these will halt very soon.

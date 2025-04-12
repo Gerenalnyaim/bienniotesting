@@ -95,7 +95,7 @@ if (Q.public_works_funded > 3 || Q.min_public_works == 3) {
     this.achieve('far_viaggiare_i_treni_in_orario');
 }
 
-if (Q.ppi_leader == "De Gasperi" && Q.ldr_leader == "Salandra" && Q.ds_leader == "Carnazza") {
+if (Q.ppi_leader == "De Gasperi" && Q.ul_leader == "Salandra" && Q.ds_leader == "Carnazza") {
     this.achieve('nemico_di_tutti');
 }
 

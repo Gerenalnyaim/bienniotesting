@@ -60,6 +60,8 @@ Q.psri_in_government = 0;
 Q.pnf_in_government = 0; 
 
 Q.party_demands_timer = 6;
+
+Q.fascists_adapt = Q.time + 4;
 !}
 max-visits: 1
 go-to: peaceful_menu
@@ -114,20 +116,21 @@ view-if: pnf_banned = 0
 on-arrival: pnf_banned = 1 if not pcdi_formed
 go-to: pcdi_demand if pcdi_formed; peaceful_party if not pcdi_formed
 
-Placeholder :3
+[? if not pcdi_formed : We ban the fascists, with limited outcry from right-wing liberals who criticise our so-called 'suppression' of parties. ?]
 
 @pcdi_demand
 
-Placeholder :3
+Our decision to ban the National Fascist Party is unsurprisingly decried by right-wing liberals, but also joined in by moderate liberals, who demand the PCd'I should be banned as well due to being anti-democratic as well.
 
 - @pcdi_ban: Very well. Ban the Communist Party of Italy as well.
 - @peaceful_party: Forget it, then.
 
 @pcdi_ban
-on-arrival: pcdi_banned = 1; pnf_banned = 1 if pcdi_formed
+subtitle: The left-wing of the party won't be happy about this.
+on-arrival: pcdi_banned = 1; pnf_banned = 1 if pcdi_formed; maximalist_dissent += 10; communist_dissent += 20; rg_strength *= 0.8
 go-to: peaceful_party
 
-Placeholder :3
+The left-wing of the party is understandably outraged by our willingness to betray the parties on the left, as many leave the party and call on other members to leave as well. More noticably, we see a drop in Red Guard membership. 
 
 @peaceful_elections
 on-arrival: peaceful_elections_seen = 1; next_election_time = time + 3 if next_election_time >= time + 3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_in_government = 0; in_popular_front = 0; in_left_front = 0; chancellor = "Brüning"; chancellor_party = "Z "; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; coalition_dissent = 0; kpd_coalitipn_dissent = 0; pro_republic -= 5; old_middle_spd -= 3; new_middle_spd -= 2; workers_spd -= 3 if pro_republic < 50; workers_spd -= 4 if pro_republic < 40; old_middle_nsdap += 4 if pro_republic < 50; new_middle_nsdap += 3 if pro_republic < 50

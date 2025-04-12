@@ -12,4 +12,10 @@ We have come a long way from 1919. The March on Rome, the relentless strife of s
 
 Only time will tell how we go from here.
 
+- @nah: Continue anyways.
 - @game_over: Game over.
+
+@nah
+subtitle: There is no content past this point. - D'Aragona's ability will now include a game over action.
+on-arrival: nah_triggered = 1
+go-to: root
