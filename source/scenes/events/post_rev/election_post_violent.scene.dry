@@ -68,9 +68,6 @@ var new_party_seating = 0;
 var new_party_seating_disp = 0;
 Q.party_banned = 0;
 for (var party of Q.parties) {
-    if (Q[party + '_banned']) {
-        Q.party_banned = 1;
-    }
     Q['old_' + party + '_r'] = Q[party + '_r'];
 }
 
@@ -80,18 +77,7 @@ for (var faction of Q.factions) {
 
 for (var party of Q.parties) {
     Q['old_' + party + '_r'] = Q[party + '_r'];
-    if (Q.party_banned == 1) {
-        if (Q[party + '_banned']) {
-            Q[party + '_r'] = 0;
-            Q[party + '_seating'] = 0;
-            Q[party + '_seating_disp'] = 0;
-        }
-        new_party_sum += Q[party + '_r'];
-        new_party_seating += Q[party + '_seating'];
-        new_party_seating_disp += Q[party + '_seating_disp'];
-    } else {
-        Q[party + '_r'] = Q[party + '_votes'];
-    }
+    Q[party + '_r'] = Q[party + '_votes'];
 }
 
 var total_available_seats = 0;
