@@ -132,6 +132,29 @@ if (Q.opposition || Q.benevolence) {
         Q.pri_r = Q.pri_r.toFixed(1);
     }
 
+    Q.opposition_r = parseFloat(Q.psi_r) + parseFloat(Q.psri_r);
+    Q.opposition_seating = parseFloat(Q.psi_seating) + parseFloat(Q.psri_seating);
+    Q.opposition_seating_disp = parseFloat(Q.psi_seating_disp) + parseFloat(Q.psri_seating_disp);
+
+    if (Q.pcdi_formed) {
+        Q.opposition_r += parseFloat(Q.pcdi_r);
+        Q.opposition_seating += parseFloat(Q.pcdi_seating);
+        Q.opposition_seating_disp += parseFloat(Q.pcdi_seating_disp);
+    }
+
+    if (Q.psu_formed) {
+        Q.opposition_r += parseFloat(Q.psu_r);
+        Q.opposition_seating += parseFloat(Q.psu_seating);
+        Q.opposition_seating_disp += parseFloat(Q.psu_seating_disp);
+    }
+
+    if (Q.benevolence) {
+        Q.opposition_r += parseFloat(Q.pri_r);
+        Q.opposition_seating += parseFloat(Q.pri_seating);
+        Q.opposition_seating_disp += parseFloat(Q.pri_seating_disp);
+    }
+
+
 } else {
     Q.psi_r = 100.0;
     Q.psi_seating_disp = 100.0;
@@ -168,6 +191,8 @@ Q.communist_r = ((Q.communist_strength / Q.strength_elections) * 100);
 Q.communist_seating = Math.round((Q.communist_strength / Q.strength_elections) * Q.psi_seating);
 Q.communist_seating_disp = ((Q.communist_seating / Q.psi_seating) * 100).toFixed(1);
 Q.communist_r = Q.communist_r.toFixed(1);
+
+Q.str_change_opposition = Q.change_psi_r = Q.
 
 // Other Calculation
 for (var party of Q.parties) {
@@ -335,7 +360,7 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#FF6961; outline: 2px; outline-style: solid;'> </div>!} Reformists: {!</td><td>!} **[+ reformist_r +]%** {!</td><td>!} **[+ str_change_reformist +]%** {!</td><td>!} **[+ reformist_seating +]** {!</td><td>!} **[+ reformist_seating_disp +]%** {!</td></tr>!}
 
-[? if (opposition or benevolence) : {!<tr><td>!} **Constitutional Opposition** {!</td><td>!} **[+ other_r +]%** {!</td><td>!} **[+ str_change_other +]%** {!</td><td>!} **[+ other_seating +]** {!</td><td>!} **[+ other_seating_disp +]%** {!</td></tr>!} ?]
+[? if (opposition or benevolence) : {!<tr><td>!} **Constitutional Opposition** {!</td><td>!} **[+ opposition_r +]%** {!</td><td>!} **[+ str_change_opposition +]%** {!</td><td>!} N/A {!</td><td>!} **[+ opposition_seating_disp +]%** {!</td></tr>!} ?]
 
 [? if (opposition or benevolence) and pcdi_formed : {!<tr><td><div class="box" style='background-color:#C72F35; outline: 2px; outline-style: solid;'> </div>!} PCd'I: {!</td><td>!} **[+ pcdi_r +]%** {!</td><td>!} **[+ str_change_pcdi +]%** {!</td><td>!} **[+ pcdi_seating +]** {!</td><td>!} **[+ pcdi_seating_disp +]%** {!</td></tr>!} ?]
 
