@@ -189,8 +189,6 @@ Q.communist_seating = Math.round((Q.communist_strength / Q.strength_elections) *
 Q.communist_seating_disp = ((Q.communist_seating / Q.psi_seating) * 100).toFixed(1);
 Q.communist_r = Q.communist_r.toFixed(1);
 
-Q.str_change_opposition = Q.change_psi_r = Q.
-
 // Other Calculation
 for (var party of Q.parties) {
     if (Q.use_decimals) {
