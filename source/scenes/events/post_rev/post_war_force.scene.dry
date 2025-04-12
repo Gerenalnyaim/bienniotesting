@@ -227,9 +227,12 @@ subtitle: This might weaken our ability to effectively govern, though appeases t
 on-arrival: republicans_adapt = time + 24; opposition = 1; pcdi_banned = 1; psu_banned = 1; psri_banned = 1; pll_banned = 1; pri_banned = 1; ds_banned = 1; ppi_banned = 1; ldr_banned = 1; ul_banned = 1; pcs_banned = 1; pnf_banned = 1; other_banned = 1
 go-to: violent_menu
 
-@violent_chamber
+@none_banned
 subtitle: This will significantly weaken our ability to effectively govern, but will ensure republican dissent is minimal.
 on-arrival: violent_seen += 1; benevolence = 1; pcdi_banned = 1; psu_banned = 1; psri_banned = 1; pll_banned = 1; pri_banned = 1; ds_banned = 1; ppi_banned = 1; ldr_banned = 1; ul_banned = 1; pcs_banned = 1; pnf_banned = 1; other_banned = 1
+go-to: violent_menu
+
+@violent_chamber
 max-visits: 1
 
 Another thing on the list is the Chamber of Deputies. The party suggests that it be replaced by a Supreme Soviet, emulating the governing bodies of the Russian Soviet Federative Socialist Republic.
