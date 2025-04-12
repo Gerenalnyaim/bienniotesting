@@ -382,7 +382,7 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#FF6961; outline: 2px; outline-style: solid;'> </div>!} Reformists: {!</td><td>!} **[+ reformist_r +]%** {!</td><td>!} **[+ str_change_reformist +]%** {!</td><td>!} **[+ reformist_seating +]** {!</td><td>!} **[+ reformist_seating_disp +]%** {!</td></tr>!}
 
-[? if (opposition or benevolence) : {!<tr><td>!} **Constitutional Opposition** {!</td><td>!} **[+ opposition_r +]%** {!</td><td>!} N/A {!</td><td>!} **[+ opposition_seating +] {!</td><td>!} **[+ opposition_seating_disp +]%** {!</td></tr>!} ?]
+[? if (opposition or benevolence) : {!<tr><td>!} **Constitutional Opposition** {!</td><td>!} **[+ opposition_r +]%** {!</td><td>!} N/A {!</td><td>!} **[+ opposition_seating +]** {!</td><td>!} **[+ opposition_seating_disp +]%** {!</td></tr>!} ?]
 
 [? if (opposition or benevolence) and pcdi_formed : {!<tr><td><div class="box" style='background-color:#C72F35; outline: 2px; outline-style: solid;'> </div>!} PCd'I: {!</td><td>!} **[+ pcdi_r +]%** {!</td><td>!} **[+ str_change_pcdi +]%** {!</td><td>!} **[+ pcdi_seating +]** {!</td><td>!} **[+ pcdi_seating_disp +]%** {!</td></tr>!} ?]
 
