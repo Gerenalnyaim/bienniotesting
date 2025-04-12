@@ -249,4 +249,4 @@ view-if: violent_seen >= 4
 
 We have done all we can to bring revolution to Italy, and we have succeeded. What lies ahead is uncertain, but at the very least, we are certain we will succeed.
 
-@root: There's much to be done.
+- @root: There's much to be done.
