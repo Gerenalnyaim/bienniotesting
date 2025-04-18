@@ -357,6 +357,14 @@ is-deck: true
 
 - #govt_affairs
 
+@natdef 
+title: National Defence
+view-if: violent_revolution
+card-image: img/redguarddeck.jpg
+is-deck: true
+
+- #national_def
+
 @debug
 title: Debugging stuff
 is-deck: true

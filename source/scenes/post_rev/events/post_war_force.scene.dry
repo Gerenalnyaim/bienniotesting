@@ -1,5 +1,6 @@
 title: [+ year +] National Congress
 new-page: true
+set-bg: img/RevBg.jpg
 on-arrival: {!
 Q.national_congress_seen = 1;
 Q.violent_revolution = 1;
@@ -128,6 +129,7 @@ Q.syndicalist_seating = 0;
 Q.syndicalist_seating_disp = 0;
 
 Q.fascists_adapt = parseFloat(Q.time + 4);
+Q.soviet_aid_timer = parseFloat(Q.time + 8);
 
 if (Q.pri_prominent != 1) {
     Q.workers_pri += Q.workers_other * 0.6;
@@ -164,6 +166,11 @@ if (Q.pri_prominent != 1) {
     Q.republican_sentiment += 4;
 }
 
+Q.soviet_relation += 3;
+Q.entente_relation -= 3;
+
+Q.army_loyalty = 0.8;
+Q.interior_budget = 2;
 !}
 max-visits: 1
 go-to: violent_menu
