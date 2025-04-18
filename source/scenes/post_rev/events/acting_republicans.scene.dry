@@ -1,7 +1,7 @@
 title: Republicans Attack!
 subtitle: The Republicans are clashing against our institutions! 
 tags: event
-view-if: republican_bomb_timer <= time
+view-if: republican_bomb_timer <= time and republican_terror
 on-arrival: {!
 Q.republican_coup_progress += 1; 
 Q.republican_bomb_timer = Q.time + 12;

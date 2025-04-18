@@ -1,7 +1,7 @@
 title: Red Guards Attack!
 subtitle: The Red Guards have begun attacks on our institutions.
 tags: event
-view-if: communist_bomb_timer <= time
+view-if: communist_bomb_timer <= time and communist_terror
 on-arrival: {!
 Q.communist_coup_progress += 1; 
 Q.communist_bomb_timer = Q.time + 12;

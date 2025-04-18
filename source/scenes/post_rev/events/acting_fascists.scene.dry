@@ -1,7 +1,7 @@
 title: Fascists Attack!
 subtitle: The Fascists are clashing against our institutions! 
 tags: event
-view-if: fascist_bomb_timer <= time
+view-if: fascist_bomb_timer <= time and fascist_terror
 on-arrival: {!
 Q.fascist_coup_progress += 1; 
 Q.fascist_bomb_timer = Q.time + 12;
