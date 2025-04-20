@@ -4,7 +4,7 @@ on-arrival: week_actions += 1
 view-if: not_participating = 0
 is-card: true
 card-image: img/Campaigning.jpg
-frequency: 100
+frequency: 1500
 tags: party_affairs
 
 = Campaigning
