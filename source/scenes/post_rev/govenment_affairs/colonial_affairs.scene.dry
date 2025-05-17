@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 view-if: psi_in_government and colonial_policy_timer <= 0 and violent_revolution
 on-arrival: week_actions += 1; colonial_policy_timer = 6
-card-image: img/MilitaryInfluence.jpg
+card-image: img/ColonialPolicy.jpg
 tags: govt_affairs
 max-visits: 1
 

@@ -11,28 +11,32 @@ Not_KGBread for providing, translating Italian sources, as well as playtesting &
 
 Luis Duh Fifth for playtesting & feedback,
 
-and Vuk for playtesting & feedback.
+Vuk for playtesting & feedback,
+
+and notmitsukiyolol for writing some of the events in the mod.
 
 @mod_info_menu
 
 - @ideas_and_feedback: Ideas & Feedback
 - @update_log: Update Log
 - @future_plans: Future Plans
-- @enable_wacky: Enable the more insane options in game.
-- @disable_wacky: Disable the more insane options in game.
 - @root: Back
 
 @ideas_and_feedback
 
-If you have any ideas, feedback or bug reports (even the tiniest spelling error!), please don't hesitate to contact me on Discord under 'AwesDes' or on Reddit under 'u/Alternative-Dig-944'.
+If you have any ideas, feedback or bug reports (even the tiniest spelling error), please don't hesitate to contact me on Discord under 'AwesDes' or on Reddit under 'u/Alternative-Dig-944'.
 
 - @mod_info_menu: Back
 
 @update_log
 
 25/01/2025 - v0.0.1: Initial Mod Concept & Mockup
+
 23/02/2025 - v0.2.0: Initial Playtesting Release
-22/03/2025 - v0.4.0: Broader Playtesting Release
+
+22/03/2025 - v0.4.0: Discord Playtesting Release
+
+19/04/2025 - v0.5.0: Full Mod Release
 
 - @mod_info_menu: Back
 
@@ -41,15 +45,3 @@ If you have any ideas, feedback or bug reports (even the tiniest spelling error!
 I'll probably be doing QoL stuff mainly, maybe adding some other features if any receives overwhelming support.
 
 - @mod_info_menu: Back
-
-@enable_wacky
-subtitle: :3
-view-if: wacky_on = 0
-on-arrival: wacky_on = 1
-go-to: mod_info_menu
-
-@disable_wacky
-subtitle: 3:
-view-if: wacky_on = 1
-on-arrival: wacky_on = 0
-go-to: mod_info_menu

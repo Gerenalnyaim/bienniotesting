@@ -1,9 +1,11 @@
 title: [+ year +] National Congress
 new-page: true
 set-bg: img/DemBg.jpg
+audio: clear shuffle music/post_rev/GuardaGiuDallaPianura.mp3 music/post_rev/Innodeilavoratoridelmare.mp3 music/post_rev/InnodeiPezzenti.mp3 music/post_rev/InnodelleBarricate.mp3 music/post_rev/LaBrigataGaribaldi.mp3 music/post_rev/Sonlamondina.mp3
 on-arrival: {!
 Q.national_congress_seen = 1;
 Q.peaceful_revolution = 1;
+Q.pnf_in_power = 0;
 
 Q.ldr_promise_failed = 0;
 Q.ppi_promise_failed = 0;
@@ -63,6 +65,11 @@ Q.pnf_in_government = 0;
 Q.party_demands_timer = 6;
 
 Q.fascists_adapt = Q.time + 4;
+Q.yearly_interior_gain = 1;
+Q.interior_budget = 4;
+
+Q.resources += Q.para_resources;
+Q.para_resources = 0;
 !}
 max-visits: 1
 go-to: peaceful_menu
@@ -84,7 +91,7 @@ max-visits: 1
 
 The main, and perhaps most important of the matters is the issue of the Italian throne, the House of Savoy, and Vittorio Emanuele III. The King, during this period of crisis, has shown not only inaction, but incompetence, as violence erupts in the streets, unemployment skyrocketed and poverty and crime run rampant.
 
-There are two main factions of the National Congress regarding the King. The first, simply, is to abolish the Monarchy and transfer the majority of its powers to the Office of the Prime Minister. This would finally bring hundreds of years of autocratic rule to an end, freeing Italy. This is, naturally, supported by the PSI, [? if psu_formed : the PSU, ?] [? if pcdi_formed : the PCd'I, ?] [? if pri_prominent : the PRI, ?] the PSRI, alongside some left-wing liberals and catholics.
+There are two main factions of the National Congress regarding the King. The first, simply, is to abolish the Monarchy and transfer the majority of its powers to the Office of the Prime Minister. This would finally bring hundreds of years of autocratic rule to an end, freeing Italy. This is, naturally, supported by the [+ psi_name +], [? if psu_formed : the PSU, ?] [? if pcdi_formed : the PCd'I, ?] [? if pri_prominent : the PRI, ?] the PSRI, alongside some left-wing liberals and catholics.
 
 The other faction has instead offered a compromise; to keep the Monarchy as a figurehead of stability, forcing Vittorio Emanuele III to abdicate in favour of his son and stripping the powers of the throne. This is a less radical option, supported by the right-wing of the political sphere as a compromise to the question of the Monarchy.
 
@@ -134,11 +141,13 @@ go-to: peaceful_party
 The left-wing of the party is understandably outraged by our willingness to betray the parties on the left, as many leave the party and call on other members to leave as well. More noticably, we see a drop in Red Guard membership. 
 
 @peaceful_elections
-on-arrival: peaceful_elections_seen = 1; next_election_time = time + 3 if next_election_time >= time + 3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_in_government = 0; in_popular_front = 0; in_left_front = 0; chancellor = "Brüning"; chancellor_party = "Z "; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; coalition_dissent = 0; kpd_coalitipn_dissent = 0; pro_republic -= 5; old_middle_spd -= 3; new_middle_spd -= 2; workers_spd -= 3 if pro_republic < 50; workers_spd -= 4 if pro_republic < 40; old_middle_nsdap += 4 if pro_republic < 50; new_middle_nsdap += 3 if pro_republic < 50
+on-arrival: peaceful_elections_seen = 1; next_election_time = time + 3 if next_election_time >= time + 3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
 go-to: peaceful_menu
 max-visits: 1
 
 In an agreed upon measure, elections have been scheduled following the end of the National Congress in order to elect a new set of deputies, and if needed, replace deputies from parties that have now been outlawed.
+
+The Chamber of Deputies has been dissolved, and we have resigned our positions in government.
 
 New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
 

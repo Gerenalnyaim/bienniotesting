@@ -1,9 +1,11 @@
 title: [+ year +] National Congress
 new-page: true
+audio: clear shuffle music/post_rev/GuardaGiuDallaPianura.mp3 music/post_rev/Innodeilavoratoridelmare.mp3 music/post_rev/InnodeiPezzenti.mp3 music/post_rev/InnodelleBarricate.mp3 music/post_rev/LaBrigataGaribaldi.mp3 music/post_rev/Sonlamondina.mp3
 set-bg: img/RevBg.jpg
 on-arrival: {!
 Q.national_congress_seen = 1;
 Q.violent_revolution = 1;
+Q.pnf_in_power = 0;
 
 Q.ldr_promise_failed = 0;
 Q.ppi_promise_failed = 0;
@@ -64,22 +66,22 @@ Q.party_demands_timer = 6;
 
 if (Q.reformists_defect == 0 && Q.reformist_strength > Q.communist_strength && Q.reformist_strength > Q.maximalist_strength || Q.communist_split == 1 && Q.maximalists_resign == 1) {
     Q.prime_minister = "Turati"; 
-    Q.prime_minister_party = "PSI";
+    Q.prime_minister_party = Q.psi_name;
 }
 
 if (Q.communist_split == 0 && Q.communist_strength > Q.reformist_strength && Q.communist_strength > Q.maximalist_strength || Q.reformists_defect == 1 && Q.maximalists_resign == 1) {
     Q.prime_minister = "Bordiga"; 
-    Q.prime_minister_party = "PSI";
+    Q.prime_minister_party = Q.psi_name;
 }
 
 if (Q.maximalists_resign == 0 && Q.maximalist_strength > Q.communist_strength && Q.maximalist_strength > Q.reformist_strength || Q.communist_split == 1 && Q.reformists_defect == 1) {
     Q.prime_minister = "Serrati"; 
-    Q.prime_minister_party = "PSI";
+    Q.prime_minister_party = Q.psi_name;
 }
 
 if (Q.reformists_defect == 1 && Q.communist_split == 1 && Q.maximalists_resign == 1) {
     Q.prime_minister = "Bacci";
-    Q.prime_minister_party = "PSI";
+    Q.prime_minister_party = Q.psi_name;
     Q.workers_psi -= 4*(1-Q.dissent);
     Q.middle_class_psi -= 5*(1-Q.dissent);
 }
@@ -87,23 +89,23 @@ if (Q.reformists_defect == 1 && Q.communist_split == 1 && Q.maximalists_resign =
 Q.psi_in_government = 1; 
 Q.psi_majority = 1; 
 
-Q.foreign_minister_party = "PSI"; 
+Q.foreign_minister_party = Q.psi_name; 
 Q.foreign_minister = "Matteotti";
-Q.interior_minister_party = "PSI";
+Q.interior_minister_party = Q.psi_name;
 Q.interior_minister = "Turati"; 
-Q.justice_minister_party = "PSI";
+Q.justice_minister_party = Q.psi_name;
 Q.justice_minister = "Treves";
-Q.labour_minister_party = "PSI"; 
+Q.labour_minister_party = Q.psi_name; 
 Q.labour_minister = "Rigola";
-Q.finance_minister_party = "PSI";
+Q.finance_minister_party = Q.psi_name;
 Q.finance_minister = "Lazzari";
-Q.treasury_minister_party = "PSI";
+Q.treasury_minister_party = Q.psi_name;
 Q.treasury_minister = "Modigliani";
-Q.agriculture_minister_party = "PSI";
+Q.agriculture_minister_party = Q.psi_name;
 Q.agriculture_minister = "Graziadei"; 
-Q.public_education_minister_party = "PSI"; 
+Q.public_education_minister_party = Q.psi_name; 
 Q.public_education_minister = "Togliatti";
-Q.public_works_minister_party = "PSI";
+Q.public_works_minister_party = Q.psi_name;
 Q.public_works_minister = "Vella";
 
 Q.violent_seen = 0;
@@ -130,7 +132,7 @@ Q.syndicalist_seating_disp = 0;
 
 Q.fascists_adapt = parseFloat(Q.time + 4);
 Q.soviet_aid_timer = parseFloat(Q.time + 8);
-Q.foreign_invasion_time = parseFloat(Q.time + 24);
+Q.foreign_invasion_time = parseFloat(Q.time + 36);
 
 if (Q.pri_prominent != 1) {
     Q.workers_pri += Q.workers_other * 0.6;
@@ -171,7 +173,13 @@ Q.soviet_relation += 3;
 Q.entente_relation -= 3;
 
 Q.army_loyalty = 0.8;
-Q.interior_budget = 2;
+Q.interior_budget = 4;
+Q.yearly_interior_gain = 1;
+
+Q.resources += Q.para_resources;
+Q.para_resources = 0;
+
+Q.officer_trial = Q.time + 2;
 !}
 max-visits: 1
 go-to: violent_menu
@@ -186,6 +194,8 @@ We have done it. Like our Russian allies to the east, we too have overthrown our
 - @violent_party: The Political Parties.
 - @violent_chamber: The Chamber of Deputies.
 - @violent_elections: The Elections.
+- @violent_judiciary: The Judiciary.
+- @violent_bank: The Banks.
 - @violent_done: We have done all that we can.
 
 @violent_monarchy
@@ -217,9 +227,9 @@ go-to: violent_menu
 on-arrival: violent_seen += 1;
 max-visits: 1
 
-Next up on the list is political parties of Italy, ranging from us all the way to the far-right PNF. Naturally and agreed upon by all factions, Italy and the PSI will need a strong mandate to govern and stabilise the nation. Some on the left are in favour of a one-party state, while others on the right are more in favour of keeping an constitutional opposition to allow at least some freedom of choice.
+Next up on the list is political parties of Italy, ranging from us all the way to the far-right PNF. Naturally and agreed upon by all factions, Italy and the [+ psi_name +] will need a strong mandate to govern and stabilise the nation. Some on the left are in favour of a one-party state, while others on the right are more in favour of keeping an constitutional opposition to allow at least some freedom of choice.
 
-- @all_banned: All parties with the exception of the PSI are to be outlawed.
+- @all_banned: All parties with the exception of the [+ psi_name +] are to be outlawed.
 - @right_banned: The Chamber of Deputies will allow a permanent percentage of seats dedicated to the opposition, including only the PSRI and other leftists.
 - @none_banned: The Chamber of Deputies will allow a permanent percentage of seats dedicated to the opposition, including the PSRI, leftists and the PRI.
 
@@ -237,26 +247,58 @@ go-to: violent_menu
 
 @none_banned
 subtitle: This will significantly weaken our ability to effectively govern, but will ensure republican dissent is minimal.
-on-arrival: violent_seen += 1; benevolence = 1; pcdi_banned = 1; psu_banned = 1; psri_banned = 1; pll_banned = 1; pri_banned = 1; ds_banned = 1; ppi_banned = 1; ldr_banned = 1; ul_banned = 1; pcs_banned = 1; pnf_banned = 1; other_banned = 1
+on-arrival: republicans_adapt = time + 48; violent_seen += 1; benevolence = 1; pcdi_banned = 1; psu_banned = 1; psri_banned = 1; pll_banned = 1; pri_banned = 1; ds_banned = 1; ppi_banned = 1; ldr_banned = 1; ul_banned = 1; pcs_banned = 1; pnf_banned = 1; other_banned = 1
 go-to: violent_menu
 
 @violent_chamber
+on-arrival: violent_seen += 1;
 max-visits: 1
 
 Another thing on the list is the Chamber of Deputies. The party suggests that it be replaced by a Supreme Soviet, emulating the governing bodies of the Russian Soviet Federative Socialist Republic.
 
 - @violent_menu: The Chamber of Deputies will be abolished and a Supreme Soviet will take its place.
 
+@violent_bank
+on-arrival: violent_seen += 1
+max-visits: 1
+
+With the socialist revolution, one subject that is brought up is regarding the assets of the rich. Many on the left advocate for a mass seizure of assets belonging to the rich, alongside the banks and distributing it to strengthen the transition between a capitalist and socialist economy.
+
+- @bank_seize: Seize the assets of the Banca d'Italia and the rich.
+- @violent_menu: Allow the bank and rich to retain their assets.
+
+@bank_seize
+subtitle: +6 Budget
+on-arrival: upper_tax_rates += 3; workers_psi += 6*(1-dissent); veterans_psi += 6*(1-dissent); ppi_relation -= 10; ul_relation -= 16; ldr_relation -= 12; socialist_sentiment -= 8; budget += 6; capital_strike_progress = 10; industrialists_psi *= 0.25; middle_class_psi *= 0.6
+go-to: violent_menu
+
 @violent_elections
-on-arrival: violent_seen += 1; violent_elections_seen = 1; next_election_time = time + 3 if next_election_time >= time + 3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_in_government = 0; in_popular_front = 0; in_left_front = 0; chancellor = "Brüning"; chancellor_party = "Z "; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; coalition_dissent = 0; kpd_coalitipn_dissent = 0; pro_republic -= 5; old_middle_spd -= 3; new_middle_spd -= 2; workers_spd -= 3 if pro_republic < 50; workers_spd -= 4 if pro_republic < 40; old_middle_nsdap += 4 if pro_republic < 50; new_middle_nsdap += 3 if pro_republic < 50
+on-arrival: violent_seen += 1; violent_elections_seen = 1; next_election_time = time + 3 if next_election_time >= time + 3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_in_government = 0; in_popular_front = 0; in_left_front = 0; 
 max-visits: 1
 
 Snap elections will be called in order to bring new, sweeping members of the Soviet to power who will be able to govern the country and will be held on [+ next_election_month : month +] [+ year +].
 
 - @violent_menu: Excellent.
 
+@violent_judiciary
+on-arrival: violent_seen += 1
+max-visits: 1
+
+With our successful revolution against the Kingdom, the reactionaries have begun to entrench themselves in the judiciary, posing a threat to any socialist reform that the PSI might desire to implement. All but a few people within the Party have supported a complete overhaul of the judicial apparatus, sacking any judges with potential sympathies to the reactionaries and radically reforming the courts into a more equitable system. This usurpation of the reactionary’s presence in government will certainly come with a price, but one that will make our rule ever more secure.
+
+- @judiciary_reform: Remove reactionary judges and conduct extensive reforms.
+- @violent_menu: Keep the Judiciary as is.
+
+@judiciary_reform
+subtitle: -1 Budget
+on-arrival: budget -= 1; democratisation += 2; workers_psi += 5*(1-dissent) if democratisation >= 3; judicial_reform += 2; republican_sentiment += 5*(1-dissent);
+
+We investigate jurists who have shown themselves to have biased or corrupt behavior, and try to remove them, replacing them with more democratic and socialist-align judges.
+
+- @violent_menu: Excellent.
+
 @violent_done
-view-if: violent_seen >= 4
+view-if: violent_seen >= 6
 
 We have done all we can to bring revolution to Italy, and we have succeeded. What lies ahead is uncertain, but at the very least, we are certain we will succeed.
 

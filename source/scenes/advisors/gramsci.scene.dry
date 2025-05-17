@@ -7,11 +7,11 @@ new-page: true
 
 = Antonio Gramsci
 
-Gramsci is a member of the Communist faction of the PSI. Widely unpopular amongst the other factions, Gramsci was a writer for Avanti!, and is now a founder and writer for *L'Ordine Nuovo*, a far-left newspaper.
+Gramsci is a member of the Communist faction of the [+ psi_name +]. Widely unpopular amongst the other factions, Gramsci was a writer for Avanti!, and is now a founder and writer for *L'Ordine Nuovo*, a far-left newspaper.
 
 - @media_gramsci
 - @party_organisations_gramsci
-- @question_of_ideology
+- @organising
 - @rev_begin_gramsci
 - @root: Return to main
 
@@ -31,19 +31,20 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; party_organisations_timer -= 6; last_advisor_action = 1
 go-to: party_organisations
 
-@question_of_ideology
-title: Question of Ideology
-subtitle: There are a number of ideologues from each faction which seek to direct the path of the party.
-choose-if: advisor_action_timer = 0
+@organising
+title: Organising workers
+subtitle: Improve our standing among the workers.
+choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; last_advisor_action = 1; ideology_timer -= 9;
-go-to: ideology
+on-arrival: advisor_action_timer = 6; workers_psi += 4*(1-dissent); workers_psi += 3*(1-dissent) if work_councils >= 2; labour_strength += 2; syndicalist_strength += 2
+
+We have increased our organising among the workers. [? if work_councils >= 2 : Our continued support for the work councils has made organising easier. ?]
 
 @rev_begin_gramsci
 title: Revolution!
 subtitle: We can begin the revolution! - This will lead us into a civil war.
 on-arrival: participating = 0; maximalist_participating = 1; not_participating = 0
-view-if: year > 1922 or (year = 1922 and month > 11)
+view-if: year > 1922 or (year = 1922 and month > 11) and not national_congress_seen
 choose-if: revolutionary_fervour >= 65 and advisor_action_timer == 0 
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if revolutionary_fervour < 65 : The bulk of the party does not support this. ?]
 go-to: civil_war

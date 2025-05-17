@@ -35,7 +35,7 @@ Unfortunately, the Red Guards were unable to hold back the far-right mob. The fa
 @adp_defend
 view-if: arditi_cooperation
 on-arrival: adp_defend_success = adp_strength*adp_militancy - disrupt_strength
-go-to: adp_protect_win if rg_defend_success >= 0; adp_protect_lose if rg_defend_success < 0
+go-to: adp_protect_win if adp_defend_success >= 0; adp_protect_lose if adp_defend_success < 0
 
 @adp_protect_win 
 go-to: main_rally
@@ -77,7 +77,7 @@ Mass rallies are a common feature of social democratic life, especially in the l
 
 - @class_struggle: The class struggle of the proletariat against the bourgeoisie.
 - @welfare: The maintenance and expansion of social welfare programs, especially due to the post-war struggle.
-- @democracy: Continuing the democratisation of the government and rallying against the current monarchists and the authoritarian fascists.
+- @democracy: Continuing the democratisation of the government and rallying against the current monarchists and fascists.
 - @pacifism: Opposing war, nationalism, and militarism at all costs.
 - @economic: Ending this economic crisis and inaction of the government.
 - @local: A mixture of various local and national concerns that resonate most with the audience.
@@ -96,6 +96,7 @@ The reformist message appeals to the organized workers, whose benefits are the a
 
 @democracy
 on-arrival: democratisation += 1; republican_sentiment += 2*(1 - dissent); workers_psi += 4*(1-dissent) if democratisation >= 3; veterans_psi += 3*(1-dissent) if democratisation >= 3; socialist_sentiment += 1*(1 - dissent) if democratisation >= 3; middle_class_psi += 4*(1-dissent) if democratisation >= 3; republican_sentiment += 4*(1 - dissent) if democratisation >= 3; king_relation -= 3; king_relation -= 4 if democratisation >= 3; radicalisation -= 0.1; radicalisation += 0.05 if democratisation >= 3
+view-if: not king_abolished
 
 Our speakers rally against the corrupt system and rail against the monarchists and authoritarians who prop up its existence.
 

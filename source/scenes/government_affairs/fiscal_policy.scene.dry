@@ -1,7 +1,7 @@
 title: Fiscal Policy
 new-page: true
 is-card: true
-view-if: psi_in_government and finance_minister_party = "PSI" and fiscal_policy_timer <= 0
+view-if: psi_in_government and finance_minister_party = psi_name and fiscal_policy_timer <= 0
 frequency: 500
 on-arrival: week_actions += 1; fiscal_policy_timer = 3;
 card-image: img/portraits/CostantinoLazzari.jpg
@@ -365,8 +365,9 @@ subtitle: +2 Budget. Other countries will retaliate by increasing tariffs of the
 choose-if: tariffs <= 5
 on-arrival: {!
 Q.tariffs += 1; 
+Q.budget += 2;
 
-Q.inflation -= 0.4;
+Q.inflation += 0.4;
 Q.economic_growth -= 0.4;
 Q.unemployment += 0.6;
 
@@ -423,13 +424,13 @@ On the other hand, agricultural producers and some small businesses benefit from
 
 @lower_tariffs
 title: Lower tariffs on imports.
-choose-if: tariffs > -5
-subtitle: -2 Budget. [? if tariffs <= -5 : There are no tariffs left to cut. ?] [? if budget < 2 and liberal_budget_accepted : This will put us into a deficit! ?]
+choose-if: tariffs > -5 and (not national_economic_recovery or budget > 1)
+subtitle: -2 Budget. [? if tariffs <= -5 : There are no tariffs left to cut. ?] [? if budget < 2 and liberal_budget_accepted : This will put us into a deficit! ?] [? if national_economic_recovery and budget < 2 : Not enough budget. (Need 2) ?]
 on-arrival: {!
 Q.tariffs -= 1; 
 Q.budget -= 2; 
 
-Q.inflation += 0.4;
+Q.inflation -= 0.4;
 Q.economic_growth += 0.4;
 Q.unemployment -= 0.6;
 
@@ -490,8 +491,6 @@ view-if: uk_debts_over = 0 or us_debts_over = 0
 In order to finance the war, Italy took out massive war debts and bonds, mainly to our allies of the United Kingdom and United States.
 
 Now that the war has ended, both nations expect debt repayments, but it is abundantly clear we will not be able to support quick full debt repayments, though it might not hurt to pay off our debts slightly to reassure our allies we are committed to repaying them.
-
-Current tariff level: [+ tariffs : taxation +]
 
 - @repay_us_debts
 - @repay_uk_debts

@@ -6,7 +6,7 @@ Q.game_over = true;
 // Achievements:
 
 // civil war
-if (Q.civil_war_seen == 0 && Q.rome_civil_war == 0) {
+if (Q.civil_war_seen != 1 && Q.rome_civil_war != 1) {
     if (Q.difficulty == -1) {
         this.achieve('stella_rossa');
     }
@@ -66,7 +66,7 @@ if (Q.workers_psi_normalised >= 80 && Q.middle_class_psi_normalised < 40 && Q.ru
 }
 
 // economy
-if (Q.nationalisation_progress == 4 && Q.work_councils >= 3) {
+if (Q.nationalisation_progress >= 4 && Q.work_councils >= 3) {
     this.achieve('trasformazione_socialista');
 }
 
@@ -91,11 +91,11 @@ if (Q.soviet_victory == 1 && Q.soviet_relation >= 9) {
     this.achieve('rivoluzione_permanente');
 }
 
-if (Q.public_works_funded > 3 || Q.min_public_works == 3) {
+if (Q.public_works_funded >= 3 || Q.min_public_works >= 3 || Q.southern_infrastructure_funded >= 2) {
     this.achieve('far_viaggiare_i_treni_in_orario');
 }
 
-if (Q.ppi_leader == "De Gasperi" && Q.ul_leader == "Salandra" && Q.ds_leader == "Carnazza") {
+if (Q.ppi_leader == "De Gasperi" && Q.ldr_leader == "Salandra" && Q.ds_leader == "Carnazza") {
     this.achieve('nemico_di_tutti');
 }
 
@@ -115,11 +115,11 @@ if ((Q.max_seize == 3 && Q.max_councils == 3 && Q.max_land_seize == 3) || (Q.max
     this.achieve('piano_massimo_completato');
 }
 
-if (Q.tax_reformed == 3 && Q.min_compensation == 3 && Q.min_public_works == 3 && Q.uncultivated_redistributed == 3) {
+if (Q.tax_reformed >= 3 && Q.min_compensation >= 3 && Q.min_public_works >= 3 && Q.uncultivated_redistributed >= 3) {
     this.achieve('piano_minimo_completato');
 }
 
-if (Q.unions_break == 1 && Q.maximalists_resign == 1 && Q.communist_split == 1 && Q.reformists_defect == 1 && Q.syndicalist_break == 1) {
+if (Q.unions_break == 1 && Q.maximalists_resign == 1 && Q.communist_split == 1 && Q.reformists_defect == 1) {
     this.achieve('fronte_diviso');
 }
 !}
@@ -202,12 +202,12 @@ go-to: eg_menu
 Italy remains a Kingdom, gripped by the autocrat Vittorio Emanuele III, [? if psi_in_government : under a government led by us,?][? if not psi_in_government and not pnf_in_government : under an incompetent government,?][? if pnf_in_government : under a fascist dictatorship. ?] [? if not pnf_in_government : and under threat of the fascist [+ pnf_leader +] and his far-right bloc. ?]
 
 @psi_victorious
-title: PSI still in government
-view-if: psi_in_government == 1 and prime_minister_party == "PSI" and total_defeat == 0 and long_war == 0
+title: [+ psi_name +] still in government
+view-if: psi_in_government == 1 and prime_minister_party == psi_name and total_defeat == 0 and long_war == 0
 tags: endings
 go-to: eg_menu
 
-The PSI is in government, under Prime Minister [+ prime_minister +]. Given the circumstances, this is a substantial accomplishment.
+The [+ psi_name +] is in government, under Prime Minister [+ prime_minister +]. Given the circumstances, this is a substantial accomplishment.
 
 @economic_crisis_resolved
 title: Economic crisis resolved!
@@ -217,9 +217,9 @@ go-to: eg_menu
 
 [? if psi_in_government: With our lead, the economic crisis has been brought to a slow, as both unemployment and inflation have reached acceptable levels. ?][? if not psi_in_government: Surprisingly, the bourgeois governments have been able to contain the crisis to a minimal amount. ?]
 
+
 @achievements
 title: Achievements
-view-if: achievement_game_completed == 1
 tags: endings
 go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
@@ -271,7 +271,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_resistenza_duplice: **Resistenza Duplice** - Survive both a Capital Strike and the March on Rome. ?]
 
-[? if game_achievement_resistenza_a_Roma: **Resistenza a Roma** - Defeat the March on Rome without a Civil War. ?]
+[? if game_achievement_resistenza_a_roma: **Resistenza a Roma** - Defeat the March on Rome without a Civil War. ?]
 
 [? if game_achievement_riforma_costituzionale: **Riforma Costituzionale** - Pass a Constitutional Amendment. ?]
 
@@ -285,7 +285,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_rivoluzione_permanente: **Rivoluzione Permanente** - Successfully establish a Soviet Republic while having full relations with the RSFSR. ?]
 
-[? if game_achievement_Far_viaggiare_i_treni_in_orario: **Far Viaggiare i Treni in Orario** - Significantly improve Public Works. ?]
+[? if game_achievement_far_viaggiare_i_treni_in_orario: **Far Viaggiare i Treni in Orario** - Significantly improve Public Works. ?]
 
 [? if game_achievement_nemico_di_tutti: **Nemico di Tutti** - Antagonise every party's leadership. ?]
 
@@ -299,9 +299,15 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_piano_minimo_completato: **Piano Minamo Completato** - Complete the objectives of the Minimum Plan. ?]
 
-[? if game_achievement_fronte_diviso: **Fronte Diviso** - Have all factions of the PSI break away. ?]
+[? if game_achievement_fronte_diviso: **Fronte Diviso** - Have all factions of the [+ psi_name +] break away. ?]
 
 [? if game_achievement_follia_di_sinistra: **Follia di Sinistra** - Lose the Civil War. ?]
+
+[? if game_achievement_il_sogno_mazziniano: **Il Sogno Mazziniano** - Elect Eugenio Chisea as Prime Minister. ?]
+
+[? if game_achievement_andate_in_pace: **Andate In Pace** - Successfully eliminate the paramilitaries after revolution. ?]
+
+[? if game_achievement_quis_contra_nos: **Quis Contra Nos** - Get D'Annunzio elected as leader of the Fascists. ?]
 
 = Completed Achievements Overall
 
@@ -351,7 +357,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_resistenza_duplice: **Resistenza Duplice** - Survive both a Capital Strike and the March on Rome. ?]
 
-[? if achievement_resistenza_a_Roma: **Resistenza a Roma** - Defeat the March on Rome without a Civil War. ?]
+[? if achievement_resistenza_a_roma: **Resistenza a Roma** - Defeat the March on Rome without a Civil War. ?]
 
 [? if achievement_riforma_costituzionale: **Riforma Costituzionale** - Pass a Constitutional Amendment. ?]
 
@@ -365,7 +371,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_rivoluzione_permanente: **Rivoluzione Permanente** - Successfully establish a Soviet Republic while having full relations with the RSFSR. ?]
 
-[? if achievement_Far_viaggiare_i_treni_in_orario: **Far Viaggiare i Treni in Orario** - Significantly improve Public Works. ?]
+[? if achievement_far_viaggiare_i_treni_in_orario: **Far Viaggiare i Treni in Orario** - Significantly improve Public Works. ?]
 
 [? if achievement_nemico_di_tutti: **Nemico di Tutti** - Antagonise every party's leadership. ?]
 
@@ -379,9 +385,15 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_piano_minimo_completato: **Piano Minamo Completato** - Complete the objectives of the Minimum Plan. ?]
 
-[? if achievement_fronte_diviso: **Fronte Diviso** - Have all factions of the PSI break away. ?]
+[? if achievement_fronte_diviso: **Fronte Diviso** - Have all factions of the [+ psi_name +] break away. ?]
 
 [? if achievement_follia_di_sinistra: **Follia di Sinistra** - Lose the Civil War. ?]
+
+[? if achievement_il_sogno_mazziniano: **Il Sogno Mazziniano** - Elect Eugenio Chisea as Prime Minister. ?]
+
+[? if achievement_andate_in_pace: **Andate In Pace** - Successfully eliminate the paramilitaries after revolution. ?]
+
+[? if achievement_quis_contra_nos: **Quis Contra Nos** - Get D'Annunzio elected as leader of the Fascists. ?]
 
 = Incomplete Achievements
 
@@ -431,7 +443,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_resistenza_duplice: **Resistenza Duplice** - Survive both a Capital Strike and the March on Rome. ?]
 
-[? if not achievement_resistenza_a_Roma: **Resistenza a Roma** - Defeat the March on Rome without a Civil War. ?]
+[? if not achievement_resistenza_a_roma: **Resistenza a Roma** - Defeat the March on Rome without a Civil War. ?]
 
 [? if not achievement_riforma_costituzionale: **Riforma Costituzionale** - Pass a Constitutional Amendment. ?]
 
@@ -445,7 +457,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_rivoluzione_permanente: **Rivoluzione Permanente** - Successfully establish a Soviet Republic while having full relations with the RSFSR. ?]
 
-[? if not achievement_Far_viaggiare_i_treni_in_orario: **Far Viaggiare i Treni in Orario** - Significantly improve Public Works. ?]
+[? if not achievement_far_viaggiare_i_treni_in_orario: **Far Viaggiare i Treni in Orario** - Significantly improve Public Works. ?]
 
 [? if not achievement_nemico_di_tutti: **Nemico di Tutti** - Antagonise every party's leadership. ?]
 
@@ -459,9 +471,15 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_piano_minimo_completato: **Piano Minimo Completato** - Complete the objectives of the Minimum Plan. ?]
 
-[? if not achievement_fronte_diviso: **Fronte Diviso** - Have all factions of the PSI break away. ?]
+[? if not achievement_fronte_diviso: **Fronte Diviso** - Have all factions of the [+ psi_name +] break away. ?]
 
 [? if not achievement_follia_di_sinistra: **Follia di Sinistra** - Lose the Civil War. ?]
+
+[? if not achievement_il_sogno_mazziniano: **Il Sogno Mazziniano** - Elect Eugenio Chisea as Prime Minister. ?]
+
+[? if not achievement_andate_in_pace: **Andate In Pace** - Successfully eliminate the paramilitaries after revolution. ?]
+
+[? if not achievement_quis_contra_nos: **Quis Contra Nos** - Get D'Annunzio elected as leader of the Fascists. ?]
 
 @end_game
 game-over: true

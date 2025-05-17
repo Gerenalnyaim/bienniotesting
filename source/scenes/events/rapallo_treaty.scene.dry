@@ -7,11 +7,11 @@ face-image: img/YugoslavCommittee.jpg
 
 = Adriatic Negotiations
 
-Our allegiance with the Entente was secured via the *Treaty of London*, signed in secret by the liberal government. The Treaty promised a series of terms, most importantly however, were the lands of *South Tyrol*, *Austrian Littoral*, *Dalmatia* and *Snežnik Plateau*.
+Our allegiance with the Entente was secured via the *Treaty of London*, signed in secret by the liberal government. The Treaty promised a series of terms, the most important of which however, were the lands of *South Tyrol*, *Austrian Littoral*, *Dalmatia* and *Snežnik Plateau*.
 
 Following the end of the war, however, the *Paris Peace Conference* saw the Entente refusing to support Italian claims as given, leaving us to rely on our own. 
 
-[? if foreign_minister_party == "PSI" : Now that we are in control, however, it is up to us to resolve this conflict. Our first issue will be regarding all disputed lands **except Fiume**. ?]
+[? if foreign_minister_party == psi_name : Now that we are in control, however, it is up to us to resolve this conflict. Our first issue will be regarding all disputed lands **except Fiume**. ?]
 
 - @adriatic_italy: Demand Yugoslavia respect the full Treaty of London, including Fiume!
 - @adriatic_equal: Negotiate co-operative management of disputed territories.
@@ -22,7 +22,7 @@ Following the end of the war, however, the *Paris Peace Conference* saw the Ente
 
 @adriatic_italy
 subtitle: The Entente won't be happy about this, even if our relations are good.
-view-if: psi_in_government and foreign_minister_party == "PSI"
+view-if: psi_in_government and foreign_minister_party == psi_name
 choose-if: entente_relation >= 7
 unavailable-subtitle: The British and French are already placing immense pressure on us to settle.
 on-arrival: {!
@@ -53,7 +53,7 @@ At home however, our veterans are ecstatic, and we have effectively pulled the r
 
 @adriatic_equal
 subtitle: This will leave us with Trieste, Istria and Zadar, while leaving the outer borders under co-operative control.
-view-if: psi_in_government and foreign_minister_party == "PSI"
+view-if: psi_in_government and foreign_minister_party == psi_name
 choose-if: balkan_relation >= 7 and entente_relation > 2
 unavailable-subtitle: [? if balkan_relation < 8 : The Yugoslavian government is too wary of us. ?][? if entente_relation < 2: The Yugoslavian government knows they can get more from us. ?]
 on-arrival: {!
@@ -72,7 +72,7 @@ We are able to negotiate a fair deal for both sides, establishing zones of co-oc
 
 @adriatic_historical
 subtitle: This will leave us with Trieste, Istria and Zadar, leaving the outer borders to Yugoslavia.
-view-if: psi_in_government and foreign_minister_party == "PSI"
+view-if: psi_in_government and foreign_minister_party == psi_name
 on-arrival: workers += 3; middle_class += 2; rural += 1;
 go-to: fiume_question
 
@@ -80,7 +80,7 @@ This is a relatively expected peace deal, though the time comes now for our nego
 
 @adriatic_yugoslavia
 subtitle: The backlash from this won't be good.
-view-if: psi_in_government and foreign_minister_party == "PSI"
+view-if: psi_in_government and foreign_minister_party == psi_name
 on-arrival: {!
 Q.nationalist_sentiment += 9;
 Q.socialist_sentiment -= 7;
@@ -93,6 +93,12 @@ Q.ul_relation -= 7;
 
 Q.veterans_psi -= 9;
 Q.veterans_pnf += 7;
+
+Q.middle_class_psi -= 6;
+Q.middle_class_pnf += 4;
+
+Q.workers_psi -= 9;
+Q.workers_pnf += 7;
 
 Q.fasci_strength += 17;
 Q.ldr_right += 2;
@@ -108,19 +114,19 @@ go-to: fiume_question
 
 The Yugoslav Delegation is surprised at our willingness to accede to them, and happily accept, as are our Entente allies, wanting to maintain the balance of power.
 
-Our allies at home, however, bring down hell upon us. The Liberals and Catholics berate us in the Chamber of Deputies, the Fasci utilise our weakness to run a national campaign, and we are painted as 'traitors', as nationalist sentiment is riled up even further, as veteran voters lose complete faith in us.
+Our allies at home, however, bring down hell upon us. The Liberals and Catholics berate us in the Chamber of Deputies, the Fasci utilise our weakness to run a national campaign, and we are painted as 'traitors', as nationalist sentiment is riled up even further.
 
 It seems we might need to invest in more security for the Foreign Minister.
 
 @adriatic_delay
-view-if: psi_in_government and foreign_minister_party == "PSI"
+view-if: psi_in_government and foreign_minister_party == psi_name
 on-arrival: veterans_pnf += 4; veterans_psi -= 4; adriatic_timer += 6;
 
 We are able to buy another extra 6 months before renegotiations open back up.
 
 @adriatic_not_gov
-subtitle: [? if not psi_in_government : We are not in government. ?][? if not foreign_minister_party == "PSI" : We do not control the Foreign Ministry. ?]
-view-if: not psi_in_government or not foreign_minister_party == "PSI"
+subtitle: [? if not psi_in_government : We are not in government. ?][? if not foreign_minister_party == psi_name : We do not control the Foreign Ministry. ?]
+view-if: not psi_in_government or not foreign_minister_party == psi_name
 on-arrival: workers += 3; middle_class += 2; rural += 1;
 go-to: fiume_question
 
@@ -136,12 +142,19 @@ Next up on the list is Fiume. Occupied recently by Gabriele D'Annunzio, it is of
 
 @fiume_italy 
 subtitle: Thankfully, they seem willing to accommodate.
-view-if: psi_in_government and foreign_minister_party == "PSI"
+view-if: psi_in_government and foreign_minister_party == psi_name
 choose-if: (entente_relation >= 7 and balkan_relation >= 7) or ceded_territories == 1
 unavailable-subtitle: The British and French are already placing immense pressure on us to settle.
 on-arrival: {!
 Q.veterans_psi += 4;
 Q.veterans_pnf -= 6;
+
+Q.middle_class_psi += 3;
+Q.middle_class_pnf -= 1;
+
+Q.workers_psi += 4;
+Q.workers_pnf -= 2;
+
 Q.nationalist_sentiment -= 7;
 Q.socialist_sentiment += 2;
 
@@ -154,13 +167,19 @@ Q.fiume_italian = 1;
 Q.workers += 4;
 Q.middle_class += 5;
 Q.rural += 1;
+
+if (Q.ceded_territories == 1) {
+    Q.veterans_psi -= 4;
+    Q.workers_psi -= 2;
+    Q.middle_class_psi -= 2;
+}
 !}
 
 Yugoslavia agrees to hand over Fiume to us, as D'Annunzio and his forces celebrate as our troops enter the city. [? if ceded_territories == 1: The popularity at home isn't as happy to hear this, considering what they lost to earn Fiume. ?]
 
 @fiume_free
 subtitle: Thankfully, they seem willing to compromise.
-view-if: psi_in_government and foreign_minister_party == "PSI"
+view-if: psi_in_government and foreign_minister_party == psi_name
 on-arrival: {!
 Q.veterans_psi -= 6*(1-Q.dissent);
 Q.veterans_pnf += 8*(1-Q.dissent);
@@ -173,8 +192,8 @@ Q.fasci_coup_progress += 1;
 This is a sensible comprise for many, forming the Free City of Fiume, though this only inflames the far-right, calling Fiume rightfully Italian. D'Annunzio refuses to honour the agreement as well, continuing his occupation, though the army makes quick work of his forces.
 
 @fiume_not_gov
-subtitle: [? if not psi_in_government : We are not in government. ?][? if not foreign_minister_party == "PSI" : We do not control the Foreign Ministry. ?]
-view-if: not psi_in_government or not foreign_minister_party == "PSI"
+subtitle: [? if not psi_in_government : We are not in government. ?][? if not foreign_minister_party == psi_name : We do not control the Foreign Ministry. ?]
+view-if: not psi_in_government or not foreign_minister_party == psi_name
 on-arrival: {!
 Q.veterans_psi -= 6*(1-Q.dissent);
 Q.veterans_pnf += 8*(1-Q.dissent);
