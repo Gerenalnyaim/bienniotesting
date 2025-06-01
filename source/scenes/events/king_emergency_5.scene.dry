@@ -26,6 +26,7 @@ subtitle: Unfortunately, we have galvanised the PPI towards the National Coaliti
 choose-if: (ppi_relation < 55 and ppi_leader == "Sturzo") or (ppi_relation < 75 and ppi_leader == "De Gasperi") or ppi_leader == "Triumvirate"
 unavailable-subtitle: Thankfully, a friendly leadership and cordial relations have let the PPI adopt a 'wait-and-see' approach rather than opposing us outright.
 on-arrival: national_coalition_ppi = 1
+max-visits: 1
 go-to: natcol_menu
 
 In a shocking announcement, the Italian People's Party has decided to join the National Coalition as well, its evident fears and cold relations with us turning it towards the right. Considering the size of the PPI, as well as its voter base, we should be concerned.
@@ -35,6 +36,7 @@ subtitle: An unfriendly leadership & poor relations have pushed the Liberal Demo
 choose-if: (ldr_relation < 65 and ldr_leader == "Nitti") or (ldr_relation < 75 and ldr_leader == "Orlando") or ldr_leader == "Salandra"
 unavailable-subtitle: Thankfully, the Liberal Democrats are unwilling to collaborate with in the National Coalition – especially with the far-right parties included.
 on-arrival: national_coalition_ldr = 1
+max-visits: 1
 go-to: natcol_menu
 
 The [+ ldr_full_name +] has, unfortunately, joined the National Coalition. It seems the party's wariness of us, or perhaps socialism in general has forced it rightwards, despite its unwillingness.
@@ -44,6 +46,7 @@ subtitle: A right-wing [+ ds_name +] has aligned itself with the National Coalit
 choose-if: ds_leader == "Colonna" or ds_leader == "Carnazza"
 unavailable-subtitle: Thankfully, Giuffrida's leadership role has placed the [+ ds_name +] firmly in our camp.
 on-arrival: national_coalition_ds = 1
+max-visits: 1
 go-to: natcol_menu
 
 The [+ ds_full_name +], under leadership of [+ ds_leader +] has led the party to join the National Coalition, [? if ds_leader == "Colonna" : clearly as a means of opportunism. ?][? if ds_leader == "Carnazza" : as a means to develop and deepen ties with the conservative liberal parties. ?]
@@ -51,12 +54,14 @@ The [+ ds_full_name +], under leadership of [+ ds_leader +] has led the party to
 @natcol_pcs
 view-if: pcs_formed
 subtitle: The right-wing Christian Social Party has thrown its weight with the King.
+max-visits: 1
 go-to: natcol_menu
 
 The conservative PCS has joined the National Coalition, having developed close ties with the [+ ul_full_name +] and former fascists, this was seemingly the expected outcome.
 
 @natcol_others
 subtitle: The remnants of the fascists and far-right, alongisde the conservatives, align with the King and [+ prime_minister +]
+max-visits: 1
 go-to: natcol_menu
 
 Unsurprisingly, the ANI has joined the National Coalition, fervently opposed to socialism and determined to utilise the opportunity to potentially enter government to stamp out the 'instability' caused by us.

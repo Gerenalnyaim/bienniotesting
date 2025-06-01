@@ -31,6 +31,7 @@ Though we naturally protest and argue that this is unconstitutional, the King an
 @advisor_deactivate
 subtitle: Enrico Ferri, Guido Picelli and Umberto Terracini will be temporarily unavailable due to arrests.
 on-arrival: advisor_arrested = 1; n_advisors -= 1 if ferri_advisor == 1; n_advisors -= 1 if picelli_advisor == 1; n_advisors -= 1 if terracini_advisor == 1; ferri_advisor = 0; picelli_advisor = 0; terracini_advisor = 0;
+max-visits: 1
 go-to: action_menu
 
 Many high-profile members of the party are arrested, whether on trumped up charges or merely caught for questioning, it is at the very least, clear that they'll be unavailable to us for some time.
@@ -38,6 +39,7 @@ Many high-profile members of the party are arrested, whether on trumped up charg
 @avanti_deactivate
 subtitle: The seizure of the newspaper will limit our reach substantially.
 on-arrival: newspaper_seized = 1;
+max-visits: 1
 go-to: action_menu
 
 The regional branches of *Avanti!* are ransacked, raided by the Carabinieri, editors dragged off and arrested and branches left in ruins. Whatever the case, *Avanti!*'s capacity to reach workers and readers will be limited until operations are brought back to life.
@@ -45,6 +47,7 @@ The regional branches of *Avanti!* are ransacked, raided by the Carabinieri, edi
 @red_guard_deactivate
 view-if: rg_banned != 1
 on-arrival: rg_banned = 1
+max-visits: 1
 go-to: action_menu
 
 In an unsurprising move, the Interior Ministry has outlawed the Red Guards, supported by the Judicial System. It seems our paramilitary force will be weakened for the time being.
@@ -52,6 +55,7 @@ In an unsurprising move, the Interior Ministry has outlawed the Red Guards, supp
 @council_deactivate
 view-if: work_councils > 0
 on-arrival: work_councils -= 1; workers_psi -= 4;
+max-visits: 1
 go-to: action_menu
 
 The Factory Councils, the pride of Turin and its workers, have been put down. The Army has launched assaults, recapturing the factories and placing them under their control for the foreseeable future, despite protests from the factory owners.
