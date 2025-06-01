@@ -5,7 +5,6 @@ on-arrival: king_timer_4 = time + 3; next_election_time = time + 8 if next_elect
 max-visits: 1
 tags: event
 new-page: true
-go-to: action_menu
 
 = New Elections Scheduled
 

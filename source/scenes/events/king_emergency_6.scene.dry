@@ -5,7 +5,6 @@ on-arrival: king_event = 0; national_coalition = 0; national_coalition_ds = 0; n
 max-visits: 1
 tags: event
 new-page: true
-go-to: action_menu
 
 = Collapse of the National Coalition
 

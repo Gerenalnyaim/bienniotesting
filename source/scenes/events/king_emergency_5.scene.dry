@@ -5,7 +5,7 @@ on-arrival: national_coalition = 1; advisor_arrested = 0;
 max-visits: 1
 tags: event
 new-page: true
-go-to: action_menu
+go-to: natcol_menu
 
 = Backroom Deals
 
