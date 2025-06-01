@@ -849,7 +849,7 @@ Q.anti_socialist_coalition = 0;
 !}
 
 - @natcol_coalition
-- @left_wing_coalition
+- @new_grand_coalition
 - @no_majority: There is no clear majority.
 
 @no_majority
