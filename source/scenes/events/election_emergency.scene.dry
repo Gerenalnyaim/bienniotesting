@@ -980,12 +980,14 @@ This is highly unexpected, but Bonomi's PSRI roots leaves merely some grumbling 
 
 @orlando
 title: Let the [+ ldr_name +] have their Prime Minister. This will improve our leverage.
+view-if: not national_coalition_ldr
 subtitle: Vittorio Emanuele Orlando will be reappointed Prime Minister. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
 on-arrival: reformist_dissent += 5; maximalist_dissent += 5; communist_dissent += 10; ldr_relation += 10; ds_relation += 5; prime_minister = "Orlando"; prime_minister_party = ldr_name; psi_in_government = 1; leverage += 10
 go-to: ministries
 
 @gasperi
 title: Let the People's Party have their Prime Minister. This will improve over leverage.
+view-if: not national_coalition_ppi
 subtitle: Alcide De Gasperi will be appointed Prime Minister. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
 on-arrival: reformist_dissent += 5; maximalist_dissent += 5; communist_dissent += 10; ppi_relation += 10; prime_minister = "De Gasperi"; prime_minister_party = "PPI"; psi_in_government = 1; leverage += 5
 go-to: ministries
