@@ -105,11 +105,11 @@ max-cards: 3
 
 [? if year = 1923 and month = 7 and week = 3: The *Treaty of Lausanne* is signed by Turkey, Greece, Bulgaria and the Entente, officially marking the end of the Ottoman Empire. Foreign Minister [+ foreign_minister +] is sent as our signatory. ?]
 
-[? if year = 1923 and month = 10 and week = 3: The *Hamburg Uprising*, organised by the KPD (Communist Party of Germany), has fallen, suppressed forcefully by the government within just one day. ?]
+[? if year = 1923 and month = 10 and week = 3 and not soviet_germany: The *Hamburg Uprising*, organised by the KPD (Communist Party of Germany), has fallen, suppressed forcefully by the government within just one day. ?]
 
-[? if year = 1923 and month = 11 and week = 1: The *Beer Hall Putsch*, organised by Adolf Hitler and the Kampfbund in Munich, has fallen, suppressed forcefully by the government within just one day. ?]
+[? if year = 1923 and month = 11 and week = 1 and not soviet_germany: The *Beer Hall Putsch*, organised by Adolf Hitler and the Kampfbund in Munich, has fallen, suppressed forcefully by the government within just one day. ?]
 
-[? if year = 1923 and month = 11 and week = 3: Hyperinflation in the Weimar Republic reaches historic highs, worsening the economic crisis and collapses Gustav Streseman's governing coalition. ?]
+[? if year = 1923 and month = 11 and week = 3 and not soviet_germany: Hyperinflation in the Weimar Republic reaches historic highs, worsening the economic crisis and collapses Gustav Streseman's governing coalition. ?]
 
 [? if year = 1923 and month = 12 and week = 1: The Gieno Dam, located in the northern province of Bergamo bursts, resulting in the deaths of an estimated 356 people. ?]
 
@@ -121,9 +121,9 @@ max-cards: 3
 
 [? if year = 1924 and month = 3 and week = 1 : The Grand National Assembly of Turkey abolishes the Ottoman Caliphate via decree, deposing caliph Abdülmecid II alongside it.  ?]
 
-[? if year = 1924 and month = 4 and week = 1 : Adolf Hitler is sentenced to 5 years in prison for his responsibility in the *Beer Hall Putsch*. ?]
+[? if year = 1924 and month = 4 and week = 1 and not soviet_germany : Adolf Hitler is sentenced to 5 years in prison for his responsibility in the *Beer Hall Putsch*. ?]
 
-[? if year = 1924 and month = 9 and week = 1 : The *Dawes Plan* is signed and approved by the Weimar Republic, establishing an alternate means of repayment and ending the occupation of the Ruhr. French and Belgian forces are set to evacuate the region soon. ?]
+[? if year = 1924 and month = 9 and week = 1 and not soviet_germany : The *Dawes Plan* is signed and approved by the Weimar Republic, establishing an alternate means of repayment and ending the occupation of the Ruhr. French and Belgian forces are set to evacuate the region soon. ?]
 
 [? if year = 1924 and month = 10 and week = 1 : The *Geneva Protocol* is adopted by the League of Nations for compulsory arbitration of disputes. It is set to be ratified. ?]
 
@@ -135,15 +135,15 @@ max-cards: 3
 
 [? if year = 1924 and month = 11 and week = 1 and supported_usa >= 2 : Calvin Coolidge barely edges out a victory against Democratic nominee John W. Davis and Progressive nominee Robert M. La Follette following La Follette's success in several mid-west states during the 1924 United States Presidential Election. ?]
 
-[? if year = 1924 and month = 12 and week = 3 : Adolf Hitler is released from prison, serving out only 9 months of the 5 years sentenced due to his involvement in the *Beer Hall Putsch*. ?]
+[? if year = 1924 and month = 12 and week = 3 and not soviet_germany : Adolf Hitler is released from prison, serving out only 9 months of the 5 years sentenced due to his involvement in the *Beer Hall Putsch*. ?]
 
-[? if year = 1925 and month = 7 and week = 3 : Adolf Hitler publishes volume 1 of his manifesto, *Mein Kampf*. ?]
+[? if year = 1925 and month = 7 and week = 3 and not soviet_germany : Adolf Hitler publishes volume 1 of his manifesto, *Mein Kampf*. ?]
 
-[? if year = 1925 and month = 8 and week = 3 : The last of the French forces evacuate the Ruhr, following the resumption of German reparations payments under the Dawes Plan, ending the almost three year occupation. ?]
+[? if year = 1925 and month = 8 and week = 3 and not soviet_germany : The last of the French forces evacuate the Ruhr, following the resumption of German reparations payments under the Dawes Plan, ending the almost three year occupation. ?]
 
-[? if year = 1925 and month = 11 and week = 1 : The *Schutzstaffel* is established as a paramilitary organisation to protect Adolf Hitler. ?]
+[? if year = 1925 and month = 11 and week = 1 and not soviet_germany : The *Schutzstaffel* is established as a paramilitary organisation to protect Adolf Hitler. ?]
 
-[? if year = 1925 and month = 12 and week = 1 : The *Locarno Treaties* are signed in London, pledging to guarantee the inviolability of the borders between Germany and France & Belgium, alongside various other agreements to ensure the Weimar Republic would ensure peaceful arbitration in the event of disputes. ?]
+[? if year = 1925 and month = 12 and week = 1 and not soviet_germany : The *Locarno Treaties* are signed in London, pledging to guarantee the inviolability of the borders between Germany and France & Belgium, alongside various other agreements to ensure the Weimar Republic would ensure peaceful arbitration in the event of disputes. ?]
 
 [? if year = 1926 and month = 5 and week = 1 : The Trades Union Congress begins a strike in the United Kingdom in support of the Miners' Federation. Martial Law is declared just nine days later that ends the strike. ?]
 
@@ -153,7 +153,7 @@ max-cards: 3
 
 [? if year = 1926 and month = 7 and week = 1 : The National Revolutionary Army, led by Chiang Kai-shek of the Chinese Kuomintang, begins the *Northern Expedition*, seeking to reunite Northern China. ?]
 
-[? if year = 1926 and month = 9 and week = 1 : The Weimar Republic joins the League of Nations. ?]
+[? if year = 1926 and month = 9 and week = 1 and not soviet_germany : The Weimar Republic joins the League of Nations. ?]
 
 [? if year = 1926 and month = 12 and week = 1 : Martial Law in response to the General Strike in the United Kingdom ends. ?]
 
@@ -279,11 +279,11 @@ max-cards: 4
 
 [? if year = 1923 and month = 7 and week = 3: The *Treaty of Lausanne* is signed by Turkey, Greece, Bulgaria and the Entente, officially marking the end of the Ottoman Empire. Foreign Minister [+ foreign_minister +] is sent as our signatory. ?]
 
-[? if year = 1923 and month = 10 and week = 3: The *Hamburg Uprising*, organised by the KPD (Communist Party of Germany), has fallen, suppressed forcefully by the government within just one day. ?]
+[? if year = 1923 and month = 10 and week = 3 and not soviet_germany: The *Hamburg Uprising*, organised by the KPD (Communist Party of Germany), has fallen, suppressed forcefully by the government within just one day. ?]
 
-[? if year = 1923 and month = 11 and week = 1: The *Beer Hall Putsch*, organised by Adolf Hitler and the Kampfbund in Munich, has fallen, suppressed forcefully by the government within just one day. ?]
+[? if year = 1923 and month = 11 and week = 1 and not soviet_germany: The *Beer Hall Putsch*, organised by Adolf Hitler and the Kampfbund in Munich, has fallen, suppressed forcefully by the government within just one day. ?]
 
-[? if year = 1923 and month = 11 and week = 3: Hyperinflation in the Weimar Republic reaches historic highs, worsening the economic crisis and collapses Gustav Streseman's governing coalition. ?]
+[? if year = 1923 and month = 11 and week = 3 and not soviet_germany: Hyperinflation in the Weimar Republic reaches historic highs, worsening the economic crisis and collapses Gustav Streseman's governing coalition. ?]
 
 [? if year = 1923 and month = 12 and week = 1: The Gieno Dam, located in the northern province of Bergamo bursts, resulting in the deaths of an estimated 356 people. ?]
 
@@ -295,9 +295,9 @@ max-cards: 4
 
 [? if year = 1924 and month = 3 and week = 1 : The Grand National Assembly of Turkey abolishes the Ottoman Caliphate via decree, deposing caliph Abdülmecid II alongside it.  ?]
 
-[? if year = 1924 and month = 4 and week = 1 : Adolf Hitler is sentenced to 5 years in prison for his responsibility in the *Beer Hall Putsch*. ?]
+[? if year = 1924 and month = 4 and week = 1 and not soviet_germany : Adolf Hitler is sentenced to 5 years in prison for his responsibility in the *Beer Hall Putsch*. ?]
 
-[? if year = 1924 and month = 9 and week = 1 : The *Dawes Plan* is signed and approved by the Weimar Republic, establishing an alternate means of repayment and ending the occupation of the Ruhr. French and Belgian forces are set to evacuate the region soon. ?]
+[? if year = 1924 and month = 9 and week = 1 and not soviet_germany : The *Dawes Plan* is signed and approved by the Weimar Republic, establishing an alternate means of repayment and ending the occupation of the Ruhr. French and Belgian forces are set to evacuate the region soon. ?]
 
 [? if year = 1924 and month = 10 and week = 1 : The *Geneva Protocol* is adopted by the League of Nations for compulsory arbitration of disputes. It is set to be ratified. ?]
 
@@ -309,15 +309,15 @@ max-cards: 4
 
 [? if year = 1924 and month = 11 and week = 1 and supported_usa >= 2 : Calvin Coolidge barely edges out a victory against Democratic nominee John W. Davis and Progressive nominee Robert M. La Follette following La Follette's success in several mid-west states during the 1924 United States Presidential Election. ?]
 
-[? if year = 1924 and month = 12 and week = 3 : Adolf Hitler is released from prison, serving out only 9 months of the 5 years sentenced due to his involvement in the *Beer Hall Putsch*. ?]
+[? if year = 1924 and month = 12 and week = 3 and not soviet_germany : Adolf Hitler is released from prison, serving out only 9 months of the 5 years sentenced due to his involvement in the *Beer Hall Putsch*. ?]
 
-[? if year = 1925 and month = 7 and week = 3 : Adolf Hitler publishes volume 1 of his manifesto, *Mein Kampf*. ?]
+[? if year = 1925 and month = 7 and week = 3 and not soviet_germany : Adolf Hitler publishes volume 1 of his manifesto, *Mein Kampf*. ?]
 
-[? if year = 1925 and month = 8 and week = 3 : The last of the French forces evacuate the Ruhr, following the resumption of German reparations payments under the Dawes Plan, ending the almost three year occupation. ?]
+[? if year = 1925 and month = 8 and week = 3 and not soviet_germany : The last of the French forces evacuate the Ruhr, following the resumption of German reparations payments under the Dawes Plan, ending the almost three year occupation. ?]
 
-[? if year = 1925 and month = 11 and week = 1 : The *Schutzstaffel* is established as a paramilitary organisation to protect Adolf Hitler. ?]
+[? if year = 1925 and month = 11 and week = 1 and not soviet_germany : The *Schutzstaffel* is established as a paramilitary organisation to protect Adolf Hitler. ?]
 
-[? if year = 1925 and month = 12 and week = 1 : The *Locarno Treaties* are signed in London, pledging to guarantee the inviolability of the borders between Germany and France & Belgium, alongside various other agreements to ensure the Weimar Republic would ensure peaceful arbitration in the event of disputes. ?]
+[? if year = 1925 and month = 12 and week = 1 and not soviet_germany : The *Locarno Treaties* are signed in London, pledging to guarantee the inviolability of the borders between Germany and France & Belgium, alongside various other agreements to ensure the Weimar Republic would ensure peaceful arbitration in the event of disputes. ?]
 
 [? if year = 1926 and month = 5 and week = 1 : The Trades Union Congress begins a strike in the United Kingdom in support of the Miners' Federation. Martial Law is declared just nine days later that ends the strike. ?]
 
@@ -327,7 +327,7 @@ max-cards: 4
 
 [? if year = 1926 and month = 7 and week = 1 : The National Revolutionary Army, led by Chiang Kai-shek of the Chinese Kuomintang, begins the *Northern Expedition*, seeking to reunite Northern China. ?]
 
-[? if year = 1926 and month = 9 and week = 1 : The Weimar Republic joins the League of Nations. ?]
+[? if year = 1926 and month = 9 and week = 1 and not soviet_germany : The Weimar Republic joins the League of Nations. ?]
 
 [? if year = 1926 and month = 12 and week = 1 : Martial Law in response to the General Strike in the United Kingdom ends. ?]
 

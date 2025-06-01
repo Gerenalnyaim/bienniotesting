@@ -51,8 +51,6 @@ Prime Minister: [+ prime_minister +] ([+ prime_minister_party +])
 
 Senate: [? if veto_removed == 0: Empowered ?][? if veto_removed == 1: Weakened ?]
 
-[? if king_event : The Emergency Cabinet's legitimacy is currently [+ cabinet_legitimacy : legitimacy +]. ?]
-
 Chamber of Deputies composition:
 
 [? if changed_name != 1: {!<span class="tooltip-text" title="Italian Socialist Party">PSI</span>!}: [+ psi_seating_disp +]% ?]
@@ -120,6 +118,10 @@ Economic Growth: [+ economic_growth_2 +]%
 
 Unemployment: [+ unemployment_2 +]%
 
+British Debts: [? if uk_debts > 0 : Significant ?] [? if uk_debts_over : Amortisation Plan ?]
+
+American Debts: [? if american_debts > 0 : Significant ?] [? if us_debts_over : Amortisation Plan ?]
+
 @politics
 
 = Inter-party Relations
@@ -159,26 +161,6 @@ Unemployment: [+ unemployment_2 +]%
 [? if syndicalist_active : {!<span class="tooltip-text" title="Syndicalist's are a splinter faction of Labour, advocating for radical strikes and workers' councils.">Syndicalists</span>!} strength: [+ syndicalist_strength : strength +], dissent: [+ syndicalist_dissent : dissent +] ?]
 
 {!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformists</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
-
-= Foreign Relations
-
-Holy See: [+ papal_relation : radicalisation +]
-
-Entente: [+ entente_relation : radicalisation +]
-
-Russian SFSR: [+ soviet_relation : radicalisation +]
-
-Yugoslavia: [+ balkan_relation : radicalisation +]
-
-= International Situations
-
-Russian Civil War: [? if not rcw_over : Ongoing, Estimated [+ soviet_end_timer +] Months Remaining ?][? if rcw_over : Soviet Victory ?]
-
-Fiume: [? if not resolved_adriatic : Negotiating ?][? if fiume_free : Free City ?][? if fiume_italian : Italian ?]
-
-Adriatic Question: [? if resolved_adriatic : Complete ?][? if not resolved_adriatic : Negotiating ?]
-
-Roman Question: [? if roman_question_answered : Complete ?][? if not roman_question_answered : Negotiating ?]
 
 @paramilitaries
 on-arrival: {!
@@ -324,53 +306,27 @@ Catholics: [+ psi_name +]: [+ catholic_psi_display +]%, [? if pcdi_formed : PCd'
 
 [? if womens_suffrage = 1 : Women: [+ psi_name +]: [+ women_psi_display +]%, [? if pcdi_formed : PCd'I: [+ women_pcdi_display +]%, ?] [? if psu_formed : PSU: [+ women_psu_display +]%, ?] PSRI: [+ women_psri_display +]%, [? if pll_formed : PLL: [+ women_pll_display +]%, ?] [? if pri_prominent = 1 : PRI: [+ women_pri_display +]%, ?] [+ ds_name +]: [+ women_ds_display +]%, PPI: [+ women_ppi_display +]%, [+ ldr_name +]: [+ women_ldr_display +]%, [+ ul_name +]: [+ women_ul_display +]%, [? if pcs_formed = 1 : PCS: [+ women_pcs_display +]%, ?] [+ pnf_name +]: [+ women_pnf_display +]%, Others: [+ women_other_display +]% ?]
 
-@attitudes
+@foreign
 
-= Executive Attitudes 
+= Foreign Relations
 
-The King views us as [+ king_attitude : attitudes +].
+Holy See: [+ papal_relation : radicalisation +]
 
-The Senate views us as [+ king_attitude : attitudes +].
+Entente: [+ entente_relation : radicalisation +]
 
-= Factional Attitudes
+Russian SFSR: [+ soviet_relation : radicalisation +]
 
-The Bordigists within the Party view us as [+ bordigist_attitude : attitudes +].
+Yugoslavia: [+ balkan_relation : radicalisation +]
 
-The Ordinovists within the Party view us as [+ ordinovist_attitude : attitudes +].
+= International Situations
 
-The Patriotic-Socialists within the Party view us as [+ pat_soc_attitude : attitudes +].
+Russian Civil War: [? if not rcw_over : Ongoing, Estimated [+ soviet_end_timer +] Months Remaining ?][? if rcw_over : Soviet Victory ?]
 
-The Maximalists within the Party view us as [+ maximalist_attitude : attitudes +].
+Fiume: [? if not resolved_adriatic : Negotiating ?][? if fiume_free : Free City ?][? if fiume_italian : Italian ?]
 
-The Internationalist Syndicalists within the Party view us as [+ internationalist_synd_attitude : attitudes +].
+Adriatic Question: [? if resolved_adriatic : Complete ?][? if not resolved_adriatic : Negotiating ?]
 
-The Interventionalist Syndicalists within the Party view us as [+ interventionalist_synd_attitude : attitudes +].
-
-The Turatians within the Party view us as [+ turatian_attitude : attitudes +].
-
-The Gradualists within the Party view us as [+ gradualist_attitude : attitudes +].
-
-= Organisational Attitudes
-
-The General Confederation of Labour views our policies as [+ cgdl_attitude : attitudes +].
-
-The Italian Syndicalist Union views our policies as [+ usi_attitude : attitudes +].
-
-The Italian Socialist Youth Federation views our policies as [+ youth_attitude : attitudes +].
-
-The Arditi del Popolo view our policies as [+ adp_attitude : attitudes +].
-
-The National Women's Union view our policies as [+ women_attitude : attitudes +].
-
-The National Federation of Agricultural Workers view our policies as [+ rural_attitude : attitudes +].
-
-= Military Attitudes
-
-The High Command view our policies as [+ high_command_attitude : attitudes +].
-
-The Officers view our policies as [+ officer_attitude : attitudes +].
-
-The Soldiers view our policies as [+ army_attitude : attitudes +].
+Roman Question: [? if roman_question_answered : Complete ?][? if not roman_question_answered : Negotiating ?]
 
 @interior
 

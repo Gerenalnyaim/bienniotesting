@@ -60,17 +60,17 @@ if (Q.voted_abstain) {
     Q.rural_psi -= 7;
 }
 
-Q.rural_ul += 5;
-Q.rural_ldr += 4;
-Q.rural_ppi += 7;
+Q.rural_ul += 17;
+Q.rural_ldr += 7;
+Q.rural_ppi += 9;
 Q.rural_psri += 3;
 
 if (Q.pll_formed) {
-    Q.rural_pll += 2;
+    Q.rural_pll += 4;
 }
 
 if (Q.pcs_formed) {
-    Q.rural_pcs += 2;
+    Q.rural_pcs += 5;
 }
 
 if (Q.psu_formed) {
