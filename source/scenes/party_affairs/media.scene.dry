@@ -2,7 +2,7 @@ title: Media
 new-page: true
 is-card: true
 tags: party_affairs
-view-if: media_timer <= 0
+view-if: media_timer <= 0 and newspaper_seized != 1
 on-arrival: week_actions += 1; media_timer = 3;
 card-image: img/Media.jpg
 #subtitle: Setting the direction for our newspapers and radio.

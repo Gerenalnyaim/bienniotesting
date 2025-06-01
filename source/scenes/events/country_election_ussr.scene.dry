@@ -2,7 +2,7 @@ title: 13th Congress of the Russian Communist Party
 view-if: year == 1924 and month >= 5 and week == 3
 max-visits: 1
 on-arrival: {!
-Q.stalin_influence = 2;
+Q.stalin_influence = 3;
 Q.trotsky_influence = 1;
 Q.bukharin_influence = 0;
 Q.duumvirate_influence = 0;
@@ -46,6 +46,10 @@ if (Q.pcdi_formed && Q.pcdi_leader == "Bordiga") {
     Q.trotsky_influence += 1;
 }
 
+if (Q.soviet_germany == 1) {
+    Q.trotsky_influence += 1;
+}
+
 !}
 tags: event
 set-bg: img/BgUSSR.jpg
@@ -62,6 +66,7 @@ The 13th Congress of the Russian Communist Party is underway. Following the deat
 
 @stalin_elected
 on-arrival: soviet_leader = "Stalin"
+set-bg: img/background.png
 choose-if: stalin_influence >= trotsky_influence and stalin_influence >= bukharin_influence and stalin_influence >= duumvirate_influence
 unavailable-subtitle: [? if pcdi_formed : A more aligned PCd'I could swing the Congress in his favour. ?][? if not pcdi_formed : A party split might just be the way for Stalin to seize control. ?]
 
@@ -71,6 +76,7 @@ Some within the party are concerned by this development, especially with Stalin'
 
 @trotsky_elected
 on-arrival: soviet_leader = "Trotsky"
+set-bg: img/background.png
 choose-if: trotsky_influence >= stalin_influence and trotsky_influence >= bukharin_influence and trotsky_influence >= duumvirate_influence
 unavailable-subtitle: Perhaps the vindication of Trotsky's *Permanent Revolution* could allow him to seize control.
 
@@ -80,6 +86,7 @@ Some within the party are relieved; Trotsky's *Permanent Revolution* and support
 
 @bukharin_elected
 on-arrival: soviet_leader = "Bukharin"
+set-bg: img/background.png
 choose-if: bukharin_influence >= stalin_influence and bukharin_influence >= trotsky_influence and bukharin_influence >= duumvirate_influence
 unavailable-subtitle: A more moderate yet friendly [+ psi_name +] might potentially swing the Congress towards him.
 
@@ -89,6 +96,7 @@ Most within the party are relieved; Bukharin's foreign policy outlook is seeming
 
 @duumvirate_elected
 on-arrival: soviet_leader = "Duumvirate"
+set-bg: img/background.png
 choose-if: duumvirate_influence >= stalin_influence and duumvirate_influence >= trotsky_influence and duumvirate_influence >= bukharin_influence
 unavailable-subtitle: A significantly more moderate yet friendly [+ psi_name +] could deadlock the Congress.
 

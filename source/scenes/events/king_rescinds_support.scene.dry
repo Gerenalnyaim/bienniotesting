@@ -24,6 +24,8 @@ Q.women_pnf *= 0.4;
 
 Q.fdc_strength *= 0.7;
 Q.fdc_militancy *= 0.3;
+
+Q.king_emergency = Q.time + 2;
 !}
 max-visits: 1
 tags: event

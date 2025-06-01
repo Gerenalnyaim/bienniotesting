@@ -43,7 +43,7 @@ choose-if: resources >= 1
 unavailable-subtitle: Not enough resources. (Need 1)
 on-arrival: industrialists_psi += 5*(1-dissent); resources -= 1; industrialists_psi -= 1 if nationalist_sentiment >= 51; industrialists_psi -= 3 if nationalisation_adopted; industrialists_psi += 2 if welfare < 0
 
-We have increased our campaigning among the industrialists. Our ideals are diametrically opposed to them, making campaigning harder. [? if nationalisation_adopted : Our campaign is worsened by our radical political & economic plan. ?]
+We have increased our campaigning among the industrialists. Our ideals are diametrically opposed to them, making campaigning harder. [? if nationalisation_adopted : Our campaign is worsened by our radical political & economic plan. ?] [? if welfare < 0 : Our campaign is made easier by the gutting of the welfare system. ?]
 
 @rural
 subtitle: -1 resources

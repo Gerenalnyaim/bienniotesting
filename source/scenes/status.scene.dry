@@ -51,6 +51,8 @@ Prime Minister: [+ prime_minister +] ([+ prime_minister_party +])
 
 Senate: [? if veto_removed == 0: Empowered ?][? if veto_removed == 1: Weakened ?]
 
+[? if king_event : The Emergency Cabinet's legitimacy is currently [+ cabinet_legitimacy : legitimacy +]. ?]
+
 Chamber of Deputies composition:
 
 [? if changed_name != 1: {!<span class="tooltip-text" title="Italian Socialist Party">PSI</span>!}: [+ psi_seating_disp +]% ?]
@@ -158,6 +160,25 @@ Unemployment: [+ unemployment_2 +]%
 
 {!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformists</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
 
+= Foreign Relations
+
+Holy See: [+ papal_relation : radicalisation +]
+
+Entente: [+ entente_relation : radicalisation +]
+
+Russian SFSR: [+ soviet_relation : radicalisation +]
+
+Yugoslavia: [+ balkan_relation : radicalisation +]
+
+= International Situations
+
+Russian Civil War: [? if not rcw_over : Ongoing, Estimated [+ soviet_end_timer +] Months Remaining ?][? if rcw_over : Soviet Victory ?]
+
+Fiume: [? if not resolved_adriatic : Negotiating ?][? if fiume_free : Free City ?][? if fiume_italian : Italian ?]
+
+Adriatic Question: [? if resolved_adriatic : Complete ?][? if not resolved_adriatic : Negotiating ?]
+
+Roman Question: [? if roman_question_answered : Complete ?][? if not roman_question_answered : Negotiating ?]
 
 @paramilitaries
 on-arrival: {!
@@ -303,33 +324,61 @@ Catholics: [+ psi_name +]: [+ catholic_psi_display +]%, [? if pcdi_formed : PCd'
 
 [? if womens_suffrage = 1 : Women: [+ psi_name +]: [+ women_psi_display +]%, [? if pcdi_formed : PCd'I: [+ women_pcdi_display +]%, ?] [? if psu_formed : PSU: [+ women_psu_display +]%, ?] PSRI: [+ women_psri_display +]%, [? if pll_formed : PLL: [+ women_pll_display +]%, ?] [? if pri_prominent = 1 : PRI: [+ women_pri_display +]%, ?] [+ ds_name +]: [+ women_ds_display +]%, PPI: [+ women_ppi_display +]%, [+ ldr_name +]: [+ women_ldr_display +]%, [+ ul_name +]: [+ women_ul_display +]%, [? if pcs_formed = 1 : PCS: [+ women_pcs_display +]%, ?] [+ pnf_name +]: [+ women_pnf_display +]%, Others: [+ women_other_display +]% ?]
 
-@foreign
+@attitudes
 
-= Foreign Relations
+= Executive Attitudes 
 
-Holy See: [+ papal_relation : radicalisation +]
+The King views us as [+ king_attitude : attitudes +].
 
-Entente: [+ entente_relation : radicalisation +]
+The Senate views us as [+ king_attitude : attitudes +].
 
-Russian SFSR: [+ soviet_relation : radicalisation +]
+= Factional Attitudes
 
-Yugoslavia: [+ balkan_relation : radicalisation +]
+The Bordigists within the Party view us as [+ bordigist_attitude : attitudes +].
 
-= International Situations
+The Ordinovists within the Party view us as [+ ordinovist_attitude : attitudes +].
 
-Russian Civil War: [? if not rcw_over : Ongoing, Estimated [+ soviet_end_timer +] Months Remaining ?][? if rcw_over : Soviet Victory ?]
+The Patriotic-Socialists within the Party view us as [+ pat_soc_attitude : attitudes +].
 
-Fiume: [? if not resolved_adriatic : Negotiating ?][? if fiume_free : Free City ?][? if fiume_italian : Italian ?]
+The Maximalists within the Party view us as [+ maximalist_attitude : attitudes +].
 
-Adriatic Question: [? if resolved_adriatic : Complete ?][? if not resolved_adriatic : Negotiating ?]
+The Internationalist Syndicalists within the Party view us as [+ internationalist_synd_attitude : attitudes +].
 
-Roman Question: [? if roman_question_answered : Complete ?][? if not roman_question_answered : Negotiating ?]
+The Interventionalist Syndicalists within the Party view us as [+ interventionalist_synd_attitude : attitudes +].
+
+The Turatians within the Party view us as [+ turatian_attitude : attitudes +].
+
+The Gradualists within the Party view us as [+ gradualist_attitude : attitudes +].
+
+= Organisational Attitudes
+
+The General Confederation of Labour views our policies as [+ cgdl_attitude : attitudes +].
+
+The Italian Syndicalist Union views our policies as [+ usi_attitude : attitudes +].
+
+The Italian Socialist Youth Federation views our policies as [+ youth_attitude : attitudes +].
+
+The Arditi del Popolo view our policies as [+ adp_attitude : attitudes +].
+
+The National Women's Union view our policies as [+ women_attitude : attitudes +].
+
+The National Federation of Agricultural Workers view our policies as [+ rural_attitude : attitudes +].
+
+= Military Attitudes
+
+The High Command view our policies as [+ high_command_attitude : attitudes +].
+
+The Officers view our policies as [+ officer_attitude : attitudes +].
+
+The Soldiers view our policies as [+ army_attitude : attitudes +].
 
 @interior
 
 = Reforms
 
 Work Councils: [? if work_councils = 0 and councils_empowered = 0: Non-existent ?][? if work_councils >= 1 and councils_empowered = 0: Influential ?][? if councils_empowered = 1 : Empowered ?]
+
+[? if syndicalist_active : Worker Syndicates: [? if syndicate_progress = 0: Non-existent ?][? if syndicate_progress = 1: Minor ?][? if syndicate_progress = 2: Moderate ?][? if syndicate_progress = 3 or syndicate_progress = 4: Major ?][? if syndicate_progress >= 5 : Majority-Established ?] ?]
 
 Economic Nationalisation: [? if nationalisation_progress = 0: Non-existent ?][? if nationalisation_progress = 1: Minor ?][? if nationalisation_progress = 2: Moderate ?][? if nationalisation_progress = 3 or nationalisation_progress = 4: Major ?][? if nationalisation_progress >= 5 : Majority-Seized ?]
 
@@ -347,7 +396,7 @@ Veterans Insurance Program: [? if not unemployment_insurance_founded : Not yet f
 
 [? if unemployment_insurance_founded : Workers Insurance Program: [? if not unemployment_insurance_expanded : Not yet expanded ?][? if unemployment_insurance_expanded : [+ insurance_payments_workers_timer +] Months left before renewal ?] ?]
 
-Working Hours: [? if working_hours = 0 : Undeveloped ?][? if working_hours = 1 : Developed ?][? if working_hours = 2 : Unenforced ?][? if working_hours >= 3 : Enforced ?]
+Working Hours: [? if working_hours = 0 : Unlimited ?][? if working_hours = 1 : 80 Hour Weeks ?][? if working_hours = 2 : 60 Hour Weeks ?][? if working_hours >= 3 : 40 Hour Weeks ?]
 
 Workplace Safety: [? if workers_safety = 0 : Dangerous ?][? if workers_safety = 1 : Safe ?][? if workers_safety >= 2 : Monitored ?]
 

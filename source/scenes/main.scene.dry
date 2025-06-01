@@ -29,7 +29,9 @@ max-cards: 3
 
 [? if year = 1919 and month = 6 and week = 1: The *Treaty of Versailles* is signed, ending the state of war between the Weimar Republic and the Entente. ?]
 
-[? if year = 1919 and month = 8 and week = 1: The Hungarian Soviet Republic collapses after Romanian intervention, leading to a power vacuum. ?]
+[? if year = 1919 and month = 8 and week = 1 and supported_hungary < 2 : The Hungarian Soviet Republic collapses after Romanian intervention, leading to a power vacuum. ?]
+
+[? if year = 1919 and month = 8 and week = 1 and supported_hungary >= 2 : Soviet Hungarian forces are barely able to repel Romanian troops during the Battle of *Tisza River*, resulting in the signing of a ceasefire between the two nations. ?]
 
 [? if year = 1919 and month = 9 and week = 1: The *Treaty of Saint-Germain-en-Laye* is signed, ceding Austrian Littoral, South Tyrol alongside various Dalmatian islands to Italy. The remainder goes to the newly established Kingdom of Serbs, Croats and Slovenes, in violation of the 1915 *Treaty of London*. ?]
 
@@ -41,7 +43,7 @@ max-cards: 3
 
 [? if year = 1920 and month = 2 and week = 3: The *Conference of London* is held to discuss the partitioning of the Ottoman Empire. Foreign Minister [+ foreign_minister +] travels to London to attend. ?]
 
-[? if year = 1920 and month = 3 and week = 1: Admiral Miklós Horthy becomes Regent of the Kingdom of Hungary, taking advantage of the power vacuum following the collapse of the Hungarian Soviet Republic. ?]
+[? if year = 1920 and month = 3 and week = 1 and supported_hungary < 2 : Admiral Miklós Horthy becomes Regent of the Kingdom of Hungary, taking advantage of the power vacuum following the collapse of the Hungarian Soviet Republic. ?]
 
 [? if year = 1920 and month = 3 and week = 1: Hjalmar Branting is elected the Prime Minister of the Kingdom of Sweden, becoming the [? if psi_in_government :second?][? if not psi_in_government:first?] social democratic government to be peacefully established. ?]
 
@@ -129,9 +131,9 @@ max-cards: 3
 
 [? if year = 1924 and month = 10 and week = 3 and supported_entente >= 2 : The Labour Party of the United Kingdom is able to maintain its control of the government following its most recent election, gaining seats at the expense of the Liberal Party. ?]
 
-[? if year = 1924 and month = 11 and week = 1 and supported_usa < 2 : Calvin Coolidge defeats Democratic nominee John W. Davis and Progressive nominee Robert M. La Follette in the 1924 United States Presidential Election. ?]
+[? if year = 1924 and month = 11 and week = 1 and supported_usa < 2 : Calvin Coolidge defeats Democratic nominee John W. Davis and Progressive nominee Robert M. La Follette in a landslide victory during the 1924 United States Presidential Election. ?]
 
-[? if year = 1924 and month = 11 and week = 1 and supported_usa >= 2 : The United States Presidential Election is deadlocked following Progressive nominee Robert M. La Follette's victory in various states. ?]
+[? if year = 1924 and month = 11 and week = 1 and supported_usa >= 2 : Calvin Coolidge barely edges out a victory against Democratic nominee John W. Davis and Progressive nominee Robert M. La Follette following La Follette's success in several mid-west states during the 1924 United States Presidential Election. ?]
 
 [? if year = 1924 and month = 12 and week = 3 : Adolf Hitler is released from prison, serving out only 9 months of the 5 years sentenced due to his involvement in the *Beer Hall Putsch*. ?]
 
@@ -201,7 +203,9 @@ max-cards: 4
 
 [? if year = 1919 and month = 6 and week = 1: The *Treaty of Versailles* is signed, ending the state of war between the Weimar Republic and the Entente. ?]
 
-[? if year = 1919 and month = 8 and week = 1: The Hungarian Soviet Republic collapses after Romanian intervention, leading to a power vacuum. ?]
+[? if year = 1919 and month = 8 and week = 1 and supported_hungary < 2 : The Hungarian Soviet Republic collapses after Romanian intervention, leading to a power vacuum. ?]
+
+[? if year = 1919 and month = 8 and week = 1 and supported_hungary >= 2 : Soviet Hungarian forces are barely able to repel Romanian troops during the Battle of *Tisza River*, resulting in the signing of a ceasefire between the two nations. ?]
 
 [? if year = 1919 and month = 9 and week = 1: The *Treaty of Saint-Germain-en-Laye* is signed, ceding Austrian Littoral, South Tyrol alongside various Dalmatian islands to Italy. The remainder goes to the newly established Kingdom of Serbs, Croats and Slovenes, in violation of the 1915 *Treaty of London*. ?]
 
@@ -213,7 +217,7 @@ max-cards: 4
 
 [? if year = 1920 and month = 2 and week = 3: The *Conference of London* is held to discuss the partitioning of the Ottoman Empire. Foreign Minister [+ foreign_minister +] travels to London to attend. ?]
 
-[? if year = 1920 and month = 3 and week = 1: Admiral Miklós Horthy becomes Regent of the Kingdom of Hungary, taking advantage of the power vacuum following the collapse of the Hungarian Soviet Republic. ?]
+[? if year = 1920 and month = 3 and week = 1 and supported_hungary < 2 : Admiral Miklós Horthy becomes Regent of the Kingdom of Hungary, taking advantage of the power vacuum following the collapse of the Hungarian Soviet Republic. ?]
 
 [? if year = 1920 and month = 3 and week = 1: Hjalmar Branting is elected the Prime Minister of the Kingdom of Sweden, becoming the [? if psi_in_government :second?][? if not psi_in_government:first?] social democratic government to be peacefully established. ?]
 
@@ -301,9 +305,9 @@ max-cards: 4
 
 [? if year = 1924 and month = 10 and week = 3 and supported_entente >= 2 : The Labour Party of the United Kingdom is able to maintain its control of the government following its most recent election, gaining seats at the expense of the Liberal Party. ?]
 
-[? if year = 1924 and month = 11 and week = 1 and supported_usa < 2 : Calvin Coolidge defeats Democratic nominee John W. Davis and Progressive nominee Robert M. La Follette in the 1924 United States Presidential Election. ?]
+[? if year = 1924 and month = 11 and week = 1 and supported_usa < 2 : Calvin Coolidge defeats Democratic nominee John W. Davis and Progressive nominee Robert M. La Follette in a landslide victory during the 1924 United States Presidential Election. ?]
 
-[? if year = 1924 and month = 11 and week = 1 and supported_usa >= 2 : The United States Presidential Election is deadlocked following Progressive nominee Robert M. La Follette's victory in various states. ?]
+[? if year = 1924 and month = 11 and week = 1 and supported_usa >= 2 : Calvin Coolidge barely edges out a victory against Democratic nominee John W. Davis and Progressive nominee Robert M. La Follette following La Follette's success in several mid-west states during the 1924 United States Presidential Election. ?]
 
 [? if year = 1924 and month = 12 and week = 3 : Adolf Hitler is released from prison, serving out only 9 months of the 5 years sentenced due to his involvement in the *Beer Hall Putsch*. ?]
 
@@ -351,7 +355,7 @@ is-deck: true
 
 @paramilitary
 title: Paramilitary Affairs
-view-if: not national_congress_seen and pacification_pact
+view-if: not national_congress_seen and not pacification_pact
 card-image: img/redguarddeck.jpg
 is-deck: true
 

@@ -2,7 +2,7 @@ title: Chamber of Deputies Elections
 new-page: true
 tags: event
 priority: -1
-view-if: ((year = next_election_year and month >= next_election_month) or (year > next_election_year)) and not national_congress_seen
+view-if: ((year = next_election_year and month >= next_election_month) or (year > next_election_year)) and not national_congress_seen and king_event != 1
 on-arrival: {!
 // resetting coalition stuff
 Q.ldr_promise_failed = 0;
@@ -1374,7 +1374,7 @@ go-to: ministries
 Filippo Turati's appointment as Prime Minister is approved by all our potential allies.
 
 @bissolati
-title: Ivanoe Bonomi for Prime Minister
+title: Leonida Bissolati for Prime Minister
 view-if: not bissolati_dead
 subtitle: Bissolati is a prominent leader of the PSRI, formerly affiliated with the [+ psi_name +].
 on-arrival: psi_in_government = 1; prime_minister = "Bissolati"; prime_minister_party = "PSRI"; leverage += 5; maximalist_dissent += 2; communist_dissent += 5;
@@ -1555,6 +1555,7 @@ With the coalition agreed upon, it is time to choose a Prime Minister.
 - @orlando
 - @giolitti 
 - @bonomi
+- @bissolati
 
 @catholic_demands
 go-to: c_demands_menu

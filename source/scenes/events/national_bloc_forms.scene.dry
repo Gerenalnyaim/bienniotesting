@@ -11,4 +11,4 @@ new-page: true
 
 [? if not prime_minister_party = ul_name : Following recent developments in the political sphere, [+ ul_leader +] has formed the National Bloc, consisting of his *[+ ul_name +]*, the *Italian Nationalist Association*, and more importantly, the *National Fascist Party*. ?]
 
-- @root: Interesting.
+- @root: Concerning.
