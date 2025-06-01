@@ -1,7 +1,7 @@
 title: Army Crackdown on Strongholds
 subtitle: The Rook captures.
-view-if: king_timer_2 <= time
-on-arrival: king_timer_3 = time + 2; {!
+view-if: king_timer_2 <= time and not national_congress_seen and king_event = 1 and king_1_seen
+on-arrival: king_timer_3 = time + 2; king_2_seen = 1; {!
 Q.workers_psi -= 6;
 Q.middle_class_psi -= 9;
 Q.women_psi -= 3;

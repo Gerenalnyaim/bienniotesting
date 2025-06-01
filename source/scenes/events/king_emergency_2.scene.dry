@@ -1,7 +1,7 @@
 title: Prime Minister [+ prime_minister +] floors the Land Reform Bill
 subtitle: The Knight moves forward.
-view-if: king_timer_1 <= time
-on-arrival: king_timer_2 = time + 2; {!
+view-if: king_timer_1 <= time and not national_congress_seen and king_event = 1
+on-arrival: king_timer_2 = time + 2; king_1_seen = 1; {!
 Q.bill_support = parseFloat(Q.ul_seating_disp) + parseFloat(Q.ldr_seating_disp) + parseFloat(Q.psri_seating_disp) + parseFloat((Q.ppi_seating_disp)*0.8);
 
 if (Q.pll_formed) {
