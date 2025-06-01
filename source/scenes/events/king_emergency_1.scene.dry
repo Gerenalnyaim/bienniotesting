@@ -1,6 +1,6 @@
 title: King Emanuele III begins taking action against us
 subtitle: The King makes his move.
-view-if: king_emergency >= time and not national_congress_seen and king_relation < 40
+view-if: king_emergency <= time and not national_congress_seen and king_relation < 40
 on-arrival: king_event = 1; king_timer_1 = time + 2; next_election_time = time + 12 if next_election_time >= time + 12; next_election_month = month + 6 if next_election_time >= time + 12; next_election_year = year if next_election_time >= time+12; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
 
 max-visits: 1

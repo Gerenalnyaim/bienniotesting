@@ -1,6 +1,6 @@
 title: [+ prime_minister +] convenes a National Coalition
 subtitle: The Pawn is Promoted.
-view-if: king_timer_3 >= time
+view-if: king_timer_3 <= time
 on-arrival: national_coalition = 1; advisor_arrested = 0;
 max-visits: 1
 tags: event
