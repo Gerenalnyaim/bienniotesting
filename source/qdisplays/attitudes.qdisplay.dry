@@ -1,6 +1,0 @@
-
-(..2) <span style="color: #F08C8C;">Hostile</span>
-(2..4) <span style="color: #F29F9F;">Cold</span>
-(4..6) <span style="color: #F2C7A1;">Wary</span>
-(6..8) <span style="color: #D9E8A1;">Cordial</span>
-(8..10) <span style="color: #A7D8A7;">Supportive</span>

@@ -77,7 +77,7 @@ Some within the party are concerned by this development, especially with Stalin'
 @trotsky_elected
 on-arrival: soviet_leader = "Trotsky"
 set-bg: img/background.png
-choose-if: trotsky_influence >= stalin_influence and trotsky_influence >= bukharin_influence and trotsky_influence >= duumvirate_influence
+choose-if: trotsky_influence > stalin_influence and trotsky_influence > bukharin_influence and trotsky_influence > duumvirate_influence
 unavailable-subtitle: Perhaps the vindication of Trotsky's *Permanent Revolution* could allow him to seize control.
 
 Leon Trotsky is able to sway the delegates in his favour, publishing *Lenin's Testament* and ousting Joseph Stalin as General-Secretary alongside the backing of Zinoviev and Kamenev. He assumes the position of General-Secretary, and is posed to control the party for the foreseeable future.
@@ -87,7 +87,7 @@ Some within the party are relieved; Trotsky's *Permanent Revolution* and support
 @bukharin_elected
 on-arrival: soviet_leader = "Bukharin"
 set-bg: img/background.png
-choose-if: bukharin_influence >= stalin_influence and bukharin_influence >= trotsky_influence and bukharin_influence >= duumvirate_influence
+choose-if: bukharin_influence > stalin_influence and bukharin_influence > trotsky_influence and bukharin_influence > duumvirate_influence
 unavailable-subtitle: A more moderate yet friendly [+ psi_name +] might potentially swing the Congress towards him.
 
 Nikolai Bukharin, alongside Rykov and Tomsky and the Right-Opposition, is able to outmaneuver both Stalin and Trotsky by utilising his position in *Pravda*, allowing him barely enough votes to succeed. He assumes the position of General-Secretary, and is posed to control the party for the foreseeable future.
@@ -97,7 +97,7 @@ Most within the party are relieved; Bukharin's foreign policy outlook is seeming
 @duumvirate_elected
 on-arrival: soviet_leader = "Duumvirate"
 set-bg: img/background.png
-choose-if: duumvirate_influence >= stalin_influence and duumvirate_influence >= trotsky_influence and duumvirate_influence >= bukharin_influence
+choose-if: duumvirate_influence > stalin_influence and duumvirate_influence > trotsky_influence and duumvirate_influence > bukharin_influence
 unavailable-subtitle: A significantly more moderate yet friendly [+ psi_name +] could deadlock the Congress.
 
 

@@ -555,7 +555,7 @@ Q.anti_socialist_coalition_r = Q.pnf_seating_disp + Q.ul_seating_disp + Q.pcs_se
 
 Q.left_wing_minimum = 50;
 
-if (Q.psri_solo != 1) {
+if (Q.psri_solo != 1 || Q.psri_r >= 5) {
     Q.left_wing_coalition_r += Q.psri_seating_disp;
 }
 
@@ -570,6 +570,11 @@ if (Q.pri_prominent == 1 && Q.pri_relation >= Q.pri_min_relations) {
 
 if (Q.pri_prominent == 0) {
     Q.other_toleration_seating = Q.other_seating_disp * 0.3;
+    Q.left_wing_minimum -= Q.other_toleration_seating;
+}
+
+if (Q.psri_r < 5 && Q.psri_solo == 1) {
+    Q.other_toleration_seating = Q.other_seating_disp * 0.2;
     Q.left_wing_minimum -= Q.other_toleration_seating;
 }
 
@@ -628,12 +633,15 @@ Q.anti_socialist_coalition = 0;
 Q.pcdi_in_government = 0;
 Q.psi_in_government = 0;
 Q.psu_in_government = 0;
+Q.pll_in_government = 0;
 Q.ppi_in_government = 0;
 Q.ldr_in_government = 0;
 Q.ds_in_government = 0;
 Q.ul_in_government = 0;
 Q.psri_in_government = 0;
+Q.pcs_in_government = 0;
 Q.pnf_in_government = 0; 
+Q.pri_in_government = 0;
 
 // based on starting coalition
 Q.foreign_minister = 'Sonnino';
@@ -1043,7 +1051,7 @@ Finally, the [+ psi_name +] can govern alone! Our long campaign of electioneerin
 
 @left_wing_coalition
 title: Can we form a Left-Wing Coalition?
-subtitle: [+ psi_name +] + PSRI [? if pri_allies :+ PRI?] [? if psu_coalitioning :+ PSU?] [? if ds_allies :+ [+ ds_name +]?] [? if pll_formed :+ PLL?]: ([+ left_wing_coalition_r +]%) [? if left_wing_coalition_r < 50: Dissident Republicans, Socialists [? if pri_prominent = 0:& the Italian Republican Party?] are willing to provide toleration to the coalition. ?]
+subtitle: [+ psi_name +] [? if psri_relation >= psri_min_relations : PSRI ?] [? if pri_allies :+ PRI?] [? if psu_coalitioning :+ PSU?] [? if ds_allies :+ [+ ds_name +]?] [? if pll_formed :+ PLL?]: ([+ left_wing_coalition_r +]%) [? if left_wing_coalition_r < 50: Dissident Republicans, Socialists [? if pri_prominent = 0:& the Italian Republican Party?] are willing to provide toleration to the coalition. ?]
 view-if: left_wing_coalition_r >= left_wing_minimum
 choose-if: (participating = 1 or maximalist_participating = 1) and psri_relation >= psri_min_relations and left_wing_coalition_failed = 0
 unavailable-subtitle: [+ psi_name +] + PSRI [? if pri_allies :+ PRI?] [? if psu_coalitioning :+ PSU?] [? if ds_allies :+ [+ ds_name +]?] [? if pll_formed :+ PLL?]: ([+ left_wing_coalition_r +]%). [? if not_participating = 1: The party has already decided against parliamentary means. ?][? if psri_relation < psri_min_relations : Our relations with the PSRI are too poor. ?][? if left_wing_coalition_failed : Our coalition partners refuse to form another government so soon after the previous one failed. ?]
@@ -1275,7 +1283,7 @@ view-if: centre_right_coalition_r >= 50 and ul_seating_disp + ldr_seating_disp >
 
 @anti_socialist_coalition
 title: Anti-Socialist Coalition
-subtitle: PNF + [+ ul_name +] [? if ds_enemies:+ [+ ds_name +]?] [? if ldr_enemies:+ [+ ldr_name +]?]  [? if pcs_formed :+ PCS ?]: ([+ anti_socialist_coalition_r +]%)..
+subtitle: PNF + [+ ul_name +] [? if ds_enemies:+ [+ ds_name +]?] [? if ldr_enemies:+ [+ ldr_name +]?]  [? if pcs_formed :+ PCS ?]: ([+ anti_socialist_coalition_r +]%).
 on-arrival: {!
 Q.anti_socialist_coalition = 1;
 Q.pnf_in_government = 1;
@@ -1325,11 +1333,30 @@ if (Q.ldr_enemies == 1) {
 }
 Q.public_works_minister_party = "PNF";
 !}
-view-if: anti_socialist_coalition_r >= 50 and pnf_seating_disp > ul_seating_disp + ldr_seating_disp and prime_minister_party != "PNF"
+view-if: anti_socialist_coalition_r >= 50 and pnf_seating_disp > ul_seating_disp + ldr_seating_disp and (prime_minister_party != "PNF" or prime_minister = "D'Annunzio")
+go-to: dannunzio_power if prime_minister = "D'Annunzio"
 
 It seems our radicalism and abstentionism has pushed the Liberals to ally with the National Fascist Party, as a junior partner to their list. [+ pnf_leader +] has made himself crucial to this coalition, and been able to come out on top in the inter-party struggle, being appointed Prime Minister by the King.
 
 - @pnf_prime_minister: What now?
+
+@dannunzio_power
+
+The National Fascist Party, under the leadership of Gabriele D'Annunzio, is able to form a coalition, keeping himself as Prime Minister in a majority coalition.
+
+What now?
+
+- @civil_war: We cannot wait any longer. Mobilise the Red Guards!
+- @nothing_dannunzio: Bide our time further.
+
+@nothing_dannunzio
+subtitle: This will end the game.
+
+[+ pnf_leader +] acts fast, consolidating Italy into a corporative state and empowering the PNF and D'Annunzio into effective dictators of Italy for the foresseable future.
+
+Italy is lost.
+
+- @game_over: Game over.
 
 @grand_coalition_yes
 subtitle: [? if participating = 1 : This is extremely unpopular with the reformists. ?]
@@ -1349,6 +1376,10 @@ if (Q.year == 1920 || Q.year == 1921) {
 if (Q.year == 1921) {
     Q.prime_minister = "Bonomi";
     Q.prime_minister_party = "PSRI";
+}
+if (Q.year > 1921) {
+    Q.prime_minister = "Orlando";
+    Q.prime_minister_party = Q.ldr_name;
 }
 Q.interior_minister_party = Q.ds_name; 
 Q.foreign_minister_party = "UL"; 

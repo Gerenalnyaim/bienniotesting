@@ -309,6 +309,12 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_quis_contra_nos: **Quis Contra Nos** - Get D'Annunzio elected as leader of the Fascists. ?]
 
+[? if game_achievement_spartaco_marcia_ancora: **Spartaco Marcia Ancora** - Cause German October to succeed. ?]
+
+[? if game_achievement_piu_fanno_rumore_quando_cadono: **Più Fanno Rumore Quando Cadono** = Have Dino Grandi die. ?]
+
+[? if game_achievement_il_mio_nome_e_storpiato_percio: **Il Mio Nome è Storpiato Perciò** - Bring the strikers in Turin to the negotiating table. Twice. ?]
+
 = Completed Achievements Overall
 
 [? if achievement_alleanza_ardita: **Allenza Ardita** - Cooperate with the Arditi del Popolo. ?]
@@ -395,6 +401,12 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_quis_contra_nos: **Quis Contra Nos** - Get D'Annunzio elected as leader of the Fascists. ?]
 
+[? if achievement_spartaco_marcia_ancora: **Spartaco Marcia Ancora** - Cause German October to succeed. ?]
+
+[? if achievement_piu_fanno_rumore_quando_cadono: **Più Fanno Rumore Quando Cadono** = Have Dino Grandi die. ?]
+
+[? if achievement_il_mio_nome_e_storpiato_percio: **Il Mio Nome è Storpiato Perciò** - Bring the strikers in Turin to the negotiating table. Twice. ?]
+
 = Incomplete Achievements
 
 [? if not achievement_alleanza_ardita: **Allenza Ardita** - Cooperate with the Arditi del Popolo. ?]
@@ -480,6 +492,12 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 [? if not achievement_andate_in_pace: **Andate In Pace** - Successfully eliminate the paramilitaries after revolution. ?]
 
 [? if not achievement_quis_contra_nos: **Quis Contra Nos** - Get D'Annunzio elected as leader of the Fascists. ?]
+
+[? if not achievement_spartaco_marcia_ancora: **Spartaco Marcia Ancora** - Cause German October to succeed. ?]
+
+[? if not achievement_piu_fanno_rumore_quando_cadono: **Più Fanno Rumore Quando Cadono** = Have Dino Grandi die. ?]
+
+[? if not achievement_il_mio_nome_e_storpiato_percio: **Il Mio Nome è Storpiato Perciò** - Bring the strikers in Turin to the negotiating table. Twice. ?]
 
 @end_game
 game-over: true

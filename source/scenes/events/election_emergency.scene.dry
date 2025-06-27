@@ -854,13 +854,14 @@ Q.anti_socialist_coalition = 0;
 
 @no_majority
 go-to: natcol_coalition
+view-if: new_grand_coalition_r < 50 and national_coalition_r < 50
 
 There is no workable path to a clear majority by either coalition. Unfortunately for us, the King merely uses his constitutional powers to appoint [+ prime_minister +] and the Cabinet back to their positions, their newfound results and coalition seating size granting them legitimacy.
 
 @natcol_coalition
 title: National Coalition
 subtitle: National Coalition: [+ national_coalition_r +]
-view-if: new_grand_coalition_r < national_coalition_r
+view-if: national_coalition_r >= 50
 on-arrival: {!
 Q.royal_coup = 1;
 !}
@@ -884,7 +885,7 @@ Italy is lost.
 @new_grand_coalition
 title: Form a 'New Grand Coalition', led by the Socialists.
 subtitle: PSI + PSRI [? if psu_formed : + PSU ?] [? if pll_formed : + PLL ?] [? if pri_prominent: + PRI ?] [? if not national_coalition_ppi : + PPI ?] [? if not national_coalition_ldr : + [+ ldr_name +] ?] [? if not national_coalition_ds : + [+ ds_name +] ?]: [+ new_grand_coalition_r +]%
-choose-if: national_coalition_r < new_grand_coalition_r
+choose-if: national_coalition_r >= 50
 unavailable-subtitle: PSI + PSRI [? if psu_formed : + PSU ?] [? if pri_prominent: + PRI ?] [? if not national_coalition_ppi : + PPI ?] [? if not national_coalition_ldr : + [+ ldr_name +] ?] [? if not national_coalition_ds : + [+ ds_name +] ?]: [+ new_grand_coalition_r +]%
 on-arrival: {!
 Q.leverage = Q.leverage;

@@ -21,7 +21,7 @@ The PSRI are heavily pushing for us to support Bonomi, Bissolati's successor, as
 - @orlando_pm: Let Vittorio Emanuele Orlando of the Liberal Democrats become Prime Minister.
 
 @turati_pm
-view-if: reformists_defect
+view-if: not reformists_defect
 on-arrival: prime_minister = "Turati"; prime_minister_party = psi_name; psri_relation -= 5; ldr_relation -= 5 if centre_left_coalition; ppi_relation -= 5 if socialist_catholic_coalition
 subtitle: The PSRI argue for their own successor, while the [? if centre_left_coalition : liberals ?][? if socialist_catholic_coalition : Catholics ?] argue for their own man to lead.
 

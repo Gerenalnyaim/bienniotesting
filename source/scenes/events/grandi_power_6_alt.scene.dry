@@ -2,7 +2,7 @@ title: Electoral List Preparations
 subtitle: The Acerbo Law looms above the upcoming election.
 new-page: true 
 tags: event
-view-if: pnf_in_power and acerbo_law_passed and (year = next_election_year and month >= next_election_month - 1)
+view-if: pnf_in_power and pnf_leader = "Grandi" and (grandi_acerbo_seen) and time >= dannunzio_time and grandi_good >= grandi_bad
 max-visits: 1
 go-to: list_menu
 

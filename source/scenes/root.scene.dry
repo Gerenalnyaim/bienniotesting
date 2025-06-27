@@ -470,10 +470,15 @@ Q.public_education_minister_party = 'PSRI';
 Q.judicial_reform = 0;
 Q.womens_rights = 0;
 Q.womens_work = 0;
+Q.abortion_rights = 0;
 Q.family_law = 0;
 Q.nationalisation_progress = 0;
 Q.syndicate_progress = 0;
 Q.councils_empowered = 0;
+ 
+Q.abortion_attempted = 0;
+Q.suffrage_attempted = 0;
+Q.labour_attempted = 0;
 
 // level of welfare relative to 1919 (can go negative)
 Q.welfare = 0;
@@ -698,6 +703,11 @@ Q.veterans_demand_failed = 0;
 Q.industrialists_demand_failed = 0;
 Q.catholic_demand_failed = 0;
 Q.women_demand_failed = 0;
+
+for (var classes of Q.classes) {
+    Q[classes+ '_clc'] = 0;
+    Q[classes+ '_scc'] = 0;
+}
 
 // n_elections is the number of elections that have happened since the start of the game.
 Q.n_elections = 0;

@@ -1,7 +1,7 @@
 title: King [+ king +] rescinds support for the PNF
 audio: clear shuffle music/post/FischiaIlVento.mp3 music/main/Innodeilavoratori.mp3 music/main/FraIl19FraLAnno20.mp3 music/main/BandieraRossa.mp3 music/main/Canzonieredelventorosso.mp3 music/main/WorkersHymn.mp3 music/main/LeOttoOre.mp3 music/main/CantoDeiReclusi.mp3 music/main/MarciaSocialistaMondiale.mp3 music/main/QuattroSignoriAParigiVanno.mp3
 set-bg: img/background.png
-view-if: pnf_in_power = 1 and pnf_in_government = 0
+view-if: pnf_in_power = 1 and pnf_in_government = 0 and pnf_leader = "Grandi" and not grandi_dead
 on-arrival: {!
 Q.pnf_in_power = 0; 
 Q.pnf_weakened = 1;
@@ -26,6 +26,7 @@ Q.fdc_strength *= 0.7;
 Q.fdc_militancy *= 0.3;
 
 Q.king_emergency = Q.time + 2;
+Q.pnf_leader = "Unorganised";
 !}
 max-visits: 1
 tags: event
@@ -36,7 +37,7 @@ achievement: ritorno_trionfale
 
 Following the recent elections & the fascists' failure to consolidate power, King [+ king +] has rescinded his support for the PNF, denouncing [+ pnf_leader +] and the party for its ineffectiveness and failures to stabilise the country.
 
-Already, we have seen a significant drop in support for the fascists, as voters return to less radical parties, alongside a drop in far-right paramilitary strength.
+Already, we have seen a significant drop in support for the fascists, as voters return to less radical parties, and D'Annunzio announces his retirement from politics.
 
 Fascism is dead, at least in Italy.
 

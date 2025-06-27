@@ -31,7 +31,7 @@ choose-if: not national_economic_recovery or budget >= 2
 unavailable-subtitle: Not enough budget. (Need 2)
 on-arrival: coalition_dissent = 0; budget -= 2; workers_psi -= 10; veterans_psi -= 5; workers_psri += 5; veterans_psi += 5; veterans_psu += 5 if psu_in_government; workers_psu += 5 if psu_in_government; ul_relation -= 7; ldr_relation -= 5; labour_dissent -= 5; welfare += 2; unemployment -= 10.5; psri_relation += 7; inflation += 0.6;
 
-Fine. We enacted a massive welfare program to expand welfare, in order to maintain the stability of our coalition. The vote has been called off, and the credit for the expansion of our welfare system goes mainly to our allies.
+Fine. We enact a massive welfare program to expand benefits, in order to maintain the stability of our coalition. The vote has been called off, and the credit for the expansion of our welfare system goes mainly to our allies.
 
 @resources
 choose-if: resources >= 3

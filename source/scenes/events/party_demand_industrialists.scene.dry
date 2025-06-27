@@ -103,6 +103,10 @@ We begin privatising nationally owned companies, repurposing and organising them
 on-arrival: {!
 Q.industrialists_demand_failed += 1;
 Q.industrialists_psi -= 4*Q.industrialists_demand_failed;
+
+if (Q.left_wing_coalition) {
+    Q.coalition_dissent += 1;
+}
 !}
 
 The industrialists are, unsurprisingly, outraged at our refusal to heed their demands.
