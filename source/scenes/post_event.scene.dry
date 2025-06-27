@@ -26,7 +26,7 @@ if (Q.revolutionary_exhaustion) {
 
 Q.violent_prevalence = parseFloat(Q.violent_prevalence.toFixed(2));
 
-if (Q.year = 1924 and Q.month = 10 and Q.week = 3 and Q.supported_entente >= 2) {
+if (Q.year = 1924 && Q.month = 10 && Q.week = 3 && Q.supported_entente >= 2) {
     Q.labour_government = 1;
 }
 
