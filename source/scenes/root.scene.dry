@@ -606,7 +606,7 @@ Q.timers = ['advisor_action', 'ideology', 'media', 'judiciary_reform', 'party_or
             'gov_cooldown', 'gov_foreign', 'gov_interior', 'gov_justice', 'gov_treasury','gov_army', 'gov_finance', 
             'gov_public_works', 'gov_public_education', 'gov_labour', 'rg_orders', 'child_labour', 
             'radicalisation', 'psu_negotiating', 'party_demands', 'class1', 'class2', 'king_dismissed', 'insurance_payments_workers', 'streetfighting',
-            'colonial_policy', 'paramilitary_policy', 'gov_education'];
+            'colonial_policy', 'paramilitary_policy', 'gov_education', 'rally_dannunzio', 'rally_mussolini', 'rally_grandi', 'voter_truce', 'para_truce'];
 // all timers
 Q.advisor_action_timer = 0;
 Q.ideology_timer = 0;
@@ -684,11 +684,18 @@ Q.class2_timer = 0;
 Q.party_demands_timer = 0;
 Q.streetfighting_timer = 6;
 Q.colonial_policy_timer = 0;
+Q.voter_truce_timer = 0;
+Q.para_truce_timer = 0;
+Q.rally_dannunzio_timer = 0;
+Q.rally_grandi_timer = 0;
+Q.rally_mussolini_timer = 0;
 
 // wow  
 Q.royal_coup = 0;
 Q.friendly_king = 0;
 Q.participating = 0;
+
+Q.dannunzio_relation = 0;
 
 // demands
 Q.class1_num = 0;

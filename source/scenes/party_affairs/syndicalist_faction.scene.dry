@@ -22,7 +22,6 @@ We support the new leaders, and start using new-style propaganda techniques in o
 - @shuffle_leadership: We should use this opportunity to change the party's leadership.
 - @root: Continue...
 
-
 @no_new_ideas
 on-arrival: syndicalist_strength -= 10; syndicalist_active = 0; maximalist_strength += 7;
 

@@ -15,6 +15,7 @@ Public opinion of the strike is split; Workers and voters of the left condemn th
 Unfortunately, our paramilitary forces are unfortunately weakened from the ascendance of the PNF, with violence towards Red Guard affiliated workers becoming more common, thus making us unable to act with force. What should we do, and more importantly, what will D'Annunzio do?
 
 - @strike_condemn: Condemn the strikes, supporting the workers.
+- @strike_condemn_together: Could we issue a joint statement with the PNF to condemn the strikes?
 - @strike_support: Utilise the strikes to campaign against D'Annunzio's incompetence.
 - @strike_nothing: We should stay out of this.
 
@@ -25,11 +26,20 @@ go-to: strike_menu
 
 We condemn the industrialists for the loss of jobs, criticising the strike as illegal alongside our aligned unions. 
 
+@strike_condemn_together
+subtitle: The Unions are warming up to D'Annunzio too...
+choose-if: dannunzio_relation >= 2
+view-if: not unions_break
+unavailable-subtitle: A joint statement with the Syndicalists would be an outrage.
+on-arrival: dannunzio_influence += 1; workers_psi += 6; workers_pnf += 4; rural_psi += 4; rural_pnf += 3; industrialists_pnf -= 4;
+
+In a joint statement by both the Italian Syndicalist Union and General Confederation of Labour, alongside their affiliated parties, the [+ pnf_full_name +] and the [+ psi_full_name +], all four parties have condemned the strike as reckless and disruptive, demanding an end to the strike and the rehiring of the fired workers. 
+
 @strike_support
 subtitle: -1 Resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources. (Need 1)
-on-arrival: workers_psi += 4; workers_pnf -= 3; middle_class_pnf -= 1; rural_pnf -= 3;
+on-arrival: workers_psi += 4; workers_pnf -= 3; middle_class_pnf -= 1; rural_pnf -= 3; dannunzio_relation -= 1;
 go-to: strike_menu
 
 We campaign against D'Annunzio's incompetence, utilising *Avanti!* to portray him as a weak leader unable to stand up to the industrialists, swaying some workers back to our side.

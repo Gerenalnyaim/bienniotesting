@@ -84,7 +84,7 @@ max-visits: 1
 
 The PLL has reassured us that its deputies will be voting against the Acerbo Law.
 
-@ppi_convince 
+@ppi_convince
 subtitle: [? if not ppi_leader = "Sturzo": The PPI is disorganised following Sturzo's recent dismissal. ?]
 on-arrival: anti_acerbo_coalition += ppi_seating_disp if ppi_leader = "Sturzo"
 go-to: acerbo_menu

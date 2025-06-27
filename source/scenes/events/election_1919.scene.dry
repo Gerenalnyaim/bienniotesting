@@ -515,7 +515,7 @@ Q.ldr_min_relations = 35;
 Q.ds_min_relations = 50;
 Q.psri_min_relations = 30;
 
-Q.ppi_negotiations_min = 40;
+Q.ppi_negotiations_min = 50;
 Q.ldr_negotiations_min = 50;
 
 if (Q.ppi_leader === "De Gasperi") {
@@ -555,11 +555,11 @@ Q.anti_socialist_coalition_r = Q.pnf_seating_disp + Q.ul_seating_disp + Q.pcs_se
 
 Q.left_wing_minimum = 50;
 
-if (Q.psri_solo != 1 || Q.psri_r >= 5) {
+if ((Q.psri_solo != 1 || Q.psri_r >= 5) && Q.psri_soclib != 1) {
     Q.left_wing_coalition_r += Q.psri_seating_disp;
 }
 
-if (Q.pri_prominent == 1 && Q.pri_relation >= Q.pri_min_relations) {
+if (Q.pri_prominent == 1 && Q.pri_relation >= Q.pri_min_relations && Q.pri_denounced != 1) {
     Q.other_toleration_seating = Q.other_seating_disp * 0.1;
     Q.left_wing_minimum -= Q.other_toleration_seating;
     Q.left_wing_coalition_r += Q.pri_seating_disp;
@@ -568,12 +568,12 @@ if (Q.pri_prominent == 1 && Q.pri_relation >= Q.pri_min_relations) {
     Q.pri_allies = 1;
 }
 
-if (Q.pri_prominent == 0) {
+if (Q.pri_prominent == 0 && Q.pri_denounced != 1) {
     Q.other_toleration_seating = Q.other_seating_disp * 0.3;
     Q.left_wing_minimum -= Q.other_toleration_seating;
 }
 
-if (Q.psri_r < 5 && Q.psri_solo == 1) {
+if (Q.psri_r < 5 && Q.psri_solo == 1 && Q.psri_soclib != 1) {
     Q.other_toleration_seating = Q.other_seating_disp * 0.2;
     Q.left_wing_minimum -= Q.other_toleration_seating;
 }
@@ -1174,7 +1174,7 @@ title: Open negotiations with the People's Party.
 subtitle: [+ psi_name +] + PSRI + PPI [? if pri_allies :+ PRI?] [? if ds_allies :+ [+ ds_name +] ?] [? if pll_formed :+ PLL?]: ([+ socialist_catholic_coalition_r +]%).
 unavailable-subtitle: [+ psi_name +] + PSRI + PPI [? if pri_allies :+ PRI?] [? if ds_allies :+ [+ ds_name +] ?] [? if pll_formed :+ PLL?]: ([+ socialist_catholic_coalition_r +]%). [? if not_participating = 1 : The party has already decided against parliamentary means. ?][? if maximalist_participating = 1 : The party has decided against coalitions with any bourgeois parties. ?][? if ppi_relation < ppi_min_relations : We do not have adequate relations with the PPI. ?][? if ppi_negotiations_failed = 1 : We have already tried negotiating with the Catholics. ?][? if catholic_coalition_failed : The Catholics are unwilling to accept another coalition right after the previous one failed. ?][? if secularised_education = 1 : The PPI has vowed against coalitions with us since our education reforms. ?][? if papal_relation < 5 : Our relations with the Holy See are too poor. ?][? if socialist_catholic_coalition_failed : Our coalition partners refuse to form another government so soon after the previous one failed. ?]
 view-if: socialist_catholic_coalition_r >= 50 and catholic_coalition_failed = 0
-choose-if: participating = 1 and ppi_relation >= ppi_min_relations and ppi_negotiations_failed = 0 and secularised_education = 0 and papal_relation >= 5 and socialist_catholic_coalition_failed = 0
+choose-if: participating = 1 and ppi_relation >= ppi_min_relations and ppi_negotiations_failed = 0 and secularised_education = 0 and socialist_catholic_coalition_failed = 0
 on-arrival: {!
 Q.psi_in_government = 1;
 Q.psri_in_government = 1;
@@ -1598,7 +1598,7 @@ While it seems do have a bit of wiggle room to negotiate, we certainly cannot ou
 
 Some major ones include the Roman Question, Catholic Schools and Family Structure.
 
-While some minor ones are Charity and Nationalisations.
+While some minor ones are Charity, Nationalisations and the Prime Minister.
 
 @c_demands_menu
 
@@ -1659,6 +1659,16 @@ go-to: c_demands_menu
 
 This is a minor point of conjecture for the Catholics, and secures us some progress in negotiations.
 
+@catholic_pm
+title: Elect De Gasperi as Prime Minister.
+subtitle: This will prevent us from taking some actions.
+tags: catholic_minor
+view-if: catholic_pm_accepted = 0
+on-arrival: catholic_pm_accepted = 1; catholic_negotiations += 10;
+go-to: c_demands_menu
+
+This is a minor point of conjecture for the Catholics, and secures us some progress in negotiations.
+
 @drop_catholic_papacy
 title: Drop our promise to resolve the Roman Question.
 tags: drop_catholic_major
@@ -1694,6 +1704,13 @@ view-if: catholic_nationalisation_accepted = 1
 on-arrival: catholic_nationalisation_accepted = 0; catholic_negotiations -= 10;
 go-to: c_demands_menu
 
+@drop_catholic_nationalisation
+title: Drop our promise to elect De Gasperi as Prime Minister.
+tags: drop_catholic_minor
+view-if: catholic_pm_accepted = 1
+on-arrival: catholic_pm_accepted = 0; catholic_negotiations -= 10;
+go-to: c_demands_menu
+
 @refuse_catholic
 title: It seems we cannot come to an agreement.
 subtitle: Maybe one with the Liberals might work?
@@ -1706,10 +1723,19 @@ subtitle: This is an unstable coalition, to say the least.
 choose-if: catholic_negotiations >= ppi_negotiations_min
 unavailable-subtitle: The Catholics are not satisfied with the current arrangement.
 on-departure: socialist_catholic_coalition = 1; liberal_coalition_failed = 0;
+go-to: chooseable_pm if not catholic_pm_accepted; nonchooseable_pm if catholic_pm_accepted
+
+@chooseable_pm
 
 With the coalition agreed upon, it is time to choose a Prime Minister.
 
 - @turati
+- @gasperi
+
+@nonchooseable_pm
+
+With the coalition agreed upon, we should make do on our promises.
+
 - @gasperi
 
 @ministries
