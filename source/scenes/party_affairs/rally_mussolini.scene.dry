@@ -20,7 +20,7 @@ What should we do?
 - @root: Do nothing for now.
 - @easy_discard
 
-@grandi_rally
+@mussolini_rally
 subtitle: Emphasising Mussolini's desperation to cling to power might sway some supporters away from him.
 on-arrival: workers_pnf -= 2; rural_pnf -= 2; workers_psi += 2; 
 
