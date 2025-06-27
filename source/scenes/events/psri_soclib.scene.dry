@@ -1,7 +1,7 @@
 title: The Social Liberalism of the PSRI
 subtitle: The PSRI completes its shift rightwards.
 new-page: true
-view-if: psri_solo and psri_time <= time not national_congress_seen
+view-if: psri_solo and psri_time <= time and not national_congress_seen
 on-arrival: psri_soclib = 1
 tags: event
 max-visits: 1

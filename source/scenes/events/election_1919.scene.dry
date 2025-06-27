@@ -1704,7 +1704,7 @@ view-if: catholic_nationalisation_accepted = 1
 on-arrival: catholic_nationalisation_accepted = 0; catholic_negotiations -= 10;
 go-to: c_demands_menu
 
-@drop_catholic_nationalisation
+@drop_catholic_pm
 title: Drop our promise to elect De Gasperi as Prime Minister.
 tags: drop_catholic_minor
 view-if: catholic_pm_accepted = 1
