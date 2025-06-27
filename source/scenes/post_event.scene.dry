@@ -26,7 +26,7 @@ if (Q.revolutionary_exhaustion) {
 
 Q.violent_prevalence = parseFloat(Q.violent_prevalence.toFixed(2));
 
-if (Q.year = 1924 && Q.month = 10 && Q.week = 3 && Q.supported_entente >= 2) {
+if (Q.year == 1924 && Q.month == 10 && Q.week == 3 && Q.supported_entente >= 2) {
     Q.labour_government = 1;
 }
 
@@ -124,7 +124,7 @@ if (Q.unemployment > 100) {
 
 // coalition support mechanics
 
-if (Q.psi_in_government) {
+if (Q.psi_in_government == 1) {
     for (var classes of Q.classes) {
         if (Q[classes+ '_clc'] != 0) {
             Q[classes+ '_psi'] += Q[classes+ '_clc']/2;

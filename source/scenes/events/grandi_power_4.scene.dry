@@ -128,7 +128,7 @@ Though D'Annunzio's economic policies had alienated the conservative right, Gran
 @coalition_menu
 
 - @grandi_ul: The [+ ul_full_name +] enters the National Coalition.
-- @grandi_ppl: The Italian People's Party enters the National Coalition.
+- @grandi_ppi: The Italian People's Party enters the National Coalition.
 - @grandi_ldr: The [+ ldr_full_name +] enters the National Coalition.
 - @grandi_pcs: The Christian Social Party enters the National Coalition.
 - @grandi_ds: The [+ ds_full_name +] enters the National Coalition.
