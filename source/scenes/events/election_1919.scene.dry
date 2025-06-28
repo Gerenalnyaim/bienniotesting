@@ -277,7 +277,7 @@ if (Q.prime_minister_party == "PNF") {
         Q.pll_r = 0;
         Q.pll_seating = 0;
         Q.pll_seating_disp = 0;
-    } else {
+    } else if (Q.pll_formed) {
         Q.other_r += Q.pll_r;
         Q.other_seating += Q.pll_seating;
         Q.other_seating_disp += Q.pll_seating_disp;
