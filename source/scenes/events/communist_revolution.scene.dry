@@ -20,7 +20,7 @@ Factories are occupied through an initiative of the PCd'I-aligned trade unions a
 - @psi_supports: The [+ psi_name +] stands with the revolution!
 - @social_fascism: This is madness!
 
-@spd_supports
+@psi_supports
 choose-if: communist_strength >= reformist_strength+labour_strength and not psi_in_government and sov_rg_militancy >= 0.2
 unavailable-subtitle: The impromptu revolution is doomed to fail.
 on-arrival: psi_revolution = 1; pcdi_relation += 100; ldr_relation -= 100; ul_relation -= 100; ds_relation -= 100; psri_relation -= 100; psu_relation -= 100 if psu_formed; pll_relation -= 100 if pll_formed; ppi_relation -= 100; reformist_dissent += 100;
