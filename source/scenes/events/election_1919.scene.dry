@@ -220,6 +220,10 @@ if (Q.economic_right) {
 
 // National List & Anti-Fascist List - DO NOT TOUCH
 
+console.log(Q.pnf_r);
+console.log(Q.pnf_seating);
+console.log(Q.pnf_seating_disp);
+
 if (Q.prime_minister_party == "PNF") {
     if (Q.anti_fas_ds) {
         Q.psi_r += Q.ds_r;
@@ -393,6 +397,10 @@ if (Q.bn_formed) {
     Q.change_bn_r = Math.abs(Q.change_bn_r);
     Q.str_change_bn = sign + parseFloat(Q.change_bn_r).toFixed(1);
 }
+
+console.log(Q.pnf_r);
+console.log(Q.pnf_seating);
+console.log(Q.pnf_seating_disp);
 
 // seating percentage
 
