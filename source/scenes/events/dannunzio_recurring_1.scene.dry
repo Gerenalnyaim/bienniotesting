@@ -19,7 +19,7 @@ on-arrival: dannunzio_influence -= 1; resources -= 1
 
 We are able to root out D'Annunzio's influence slightly by funding supporters loyal to us instead.
 
-@influence_money
+@influence_purge
 subtitle: This will weaken the party's popularity.
 on-arrival: dannunzio_influence -= 1; workers_psi -= 6; rural_psi -= 4;
 
