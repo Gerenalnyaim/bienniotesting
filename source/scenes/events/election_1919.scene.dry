@@ -220,9 +220,7 @@ if (Q.economic_right) {
 
 // National List & Anti-Fascist List - DO NOT TOUCH
 
-console.log(Q.pnf_r);
 console.log(Q.pnf_seating);
-console.log(Q.pnf_seating_disp);
 
 if (Q.prime_minister_party == "PNF") {
     if (Q.anti_fas_ds) {
@@ -237,6 +235,8 @@ if (Q.prime_minister_party == "PNF") {
         Q.pnf_r += Q.ds_r * 0.7;
         Q.pnf_seating += Q.ds_seating * 0.7;
         Q.pnf_seating_disp += Q.ds_seating_disp * 0.7;
+
+        console.log(Q.pnf_seating);
 
         Q.other_r += Q.ds_r * 0.3;
         Q.other_seating += Q.ds_seating * 0.3;
@@ -256,6 +256,8 @@ if (Q.prime_minister_party == "PNF") {
         Q.pnf_seating += Q.ldr_seating * 0.3;
         Q.pnf_seating_disp += Q.ldr_seating_disp * 0.3;
 
+        console.log(Q.pnf_seating);
+
         Q.ldr_r = 0;
         Q.ldr_seating = 0;
         Q.ldr_seating_disp = 0;
@@ -263,6 +265,8 @@ if (Q.prime_minister_party == "PNF") {
         Q.pnf_r += Q.ldr_r * 0.9;
         Q.pnf_seating += Q.ldr_seating * 0.9;
         Q.pnf_seating_disp += Q.ldr_seating_disp * 0.9;
+
+        console.log(Q.pnf_seating);
 
         Q.other_r += Q.ldr_r * 0.1;
         Q.other_seating += Q.ldr_seating * 0.1;
@@ -314,6 +318,8 @@ if (Q.prime_minister_party == "PNF") {
         Q.pnf_seating += Q.ppi_seating * 0.7;
         Q.pnf_seating_disp += Q.ppi_seating_disp * 0.7;
 
+        console.log(Q.pnf_seating);
+
         Q.other_r += Q.ppi_r * 0.3;
         Q.other_seating += Q.ppi_seating * 0.3;
         Q.other_seating_disp += Q.ppi_seating_disp * 0.3;
@@ -336,6 +342,8 @@ if (Q.prime_minister_party == "PNF") {
         Q.pnf_seating += Q.pri_seating * 0.7;
         Q.pnf_seating_disp += Q.pri_seating_disp * 0.7;
 
+        console.log(Q.pnf_seating);
+
         Q.other_r += Q.pri_r * 0.3;
         Q.other_seating += Q.pri_seating * 0.3;
         Q.other_seating_disp += Q.pri_seating_disp * 0.3;
@@ -354,6 +362,8 @@ if (Q.prime_minister_party == "PNF") {
         Q.pnf_seating += Q.psri_seating * 0.7;
         Q.pnf_seating_disp += Q.psri_seating_disp * 0.7;
 
+        console.log(Q.pnf_seating);
+
         Q.other_r += Q.psri_r * 0.3;
         Q.other_seating += Q.psri_seating * 0.3;
         Q.other_seating_disp += Q.psri_seating_disp * 0.3;
@@ -362,6 +372,8 @@ if (Q.prime_minister_party == "PNF") {
     Q.pnf_r += Q.ul_r * 0.8;
     Q.pnf_seating += Q.ul_seating * 0.8;
     Q.pnf_seating_disp += Q.ul_seating_disp * 0.8;
+
+    console.log(Q.pnf_seating);
 
     Q.other_r += Q.ul_r * 0.2;
     Q.other_seating += Q.ul_seating * 0.2;
@@ -374,6 +386,8 @@ if (Q.prime_minister_party == "PNF") {
     Q.pnf_r += Q.pcs_r;
     Q.pnf_seating += Q.pcs_seating;
     Q.pnf_seating_disp += Q.pcs_seating_disp;
+
+    console.log(Q.pnf_seating);
 
     Q.pcs_r = 0;
     Q.pcs_seating = 0;
@@ -398,9 +412,8 @@ if (Q.bn_formed) {
     Q.str_change_bn = sign + parseFloat(Q.change_bn_r).toFixed(1);
 }
 
-console.log(Q.pnf_r);
 console.log(Q.pnf_seating);
-console.log(Q.pnf_seating_disp);
+
 
 // seating percentage
 
