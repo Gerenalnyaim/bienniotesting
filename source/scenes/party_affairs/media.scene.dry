@@ -30,7 +30,7 @@ on-arrival: resources += 1; middle_class_psi += 4*(1 - dissent); communist_disse
 Our commercialized newspapers are able to bring in more funds. However, the left and labour factions express their displeasure.
 
 @campaign
-title: The purpose of our media is to elect more Socialists
+title: The purpose of our media is to elect more socialists.
 subtitle: Our newspapers will focus on the electoral campaign.
 on-arrival: campaign_media += 1; workers_psi += 4*(1 - dissent); socialist_sentiment += 1*(1-dissent);
 

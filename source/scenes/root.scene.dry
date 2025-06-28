@@ -154,6 +154,9 @@ Q.king_relation = 20;
 
 // The array of forces - paramilitary groups
 // Number of members in 1919 (in thousands)
+Q.sov_rg_militancy = 0;
+Q.sov_rg_strength = 0;
+
 Q.rg_strength = 100;
 Q.rg_militancy = 0.20;
 Q.rg_banned = 0;

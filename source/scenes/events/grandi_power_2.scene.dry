@@ -213,6 +213,11 @@ if (Q.pll_formed) {
 Q.workers_pnf *= 0.8;
 Q.rg_strength += 45;
 Q.rg_militancy += 0.02;
+
+if (Q.pcdi_formed) {
+    Q.sov_rg_strength += 30;
+    Q.sov_rg_militancy += 0.03;
+}
 !}
 go-to: arts_menu
 

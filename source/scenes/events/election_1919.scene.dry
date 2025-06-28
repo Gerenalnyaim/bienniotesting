@@ -296,7 +296,7 @@ if (Q.prime_minister_party == "PNF") {
         Q.psu_seating = 0;
         Q.psu_seating_disp = 0;
     }
-    
+
     if (Q.anti_fas_ppi) {
         Q.psi_r += Q.ppi_r;
         Q.psi_seating += Q.ppi_seating;

@@ -98,6 +98,13 @@ if (Q.rg_militancy < 0) {
     Q.rg_militancy = 0;
 }
 
+if (Q.sov_rg_strength < 0) {
+    Q.sov_rg_strength = 0;
+}
+if (Q.rg_militancy < 0) {
+    Q.rg_militancy = 0;
+}
+
 if (Q.abl_strength < 0) {
     Q.abl_strength = 0;
 }
@@ -331,13 +338,21 @@ if (Q.week_actions >= 1) {
         // recalculate violence
 
         Q.rg_violence = Q.rg_militancy * (Q.rg_strength * (1 - Q.dissent));
+        Q.sov_rg_violence = Q.sov_rg_militancy * Q.sov_rg_strength;
         Q.fdc_violence = Q.fdc_strength * Q.fdc_militancy;
         Q.ard_violence = Q.ard_strength * Q.ard_militancy;
         Q.abl_violence = Q.abl_strength * Q.abl_militancy;
 
+        Q.friendly_violence = Q.rg_violence;
+        Q.enemy_violence = Q.fdc_violence + Q.ard_violence + Q.abl_violence;
+
+        if (Q.pcdi_formed) {
+            Q.enemy_violence += Q.sov_rg_violence
+        }
+
         Q.violence_calc = Q.friendly_violence / Q.enemy_violence;
 
-        Q.total_violence = Q.rg_violence + Q.fdc_violence + Q.ard_violence + Q.abl_violence;
+        Q.total_violence = Q.rg_violence + Q.fdc_violence + Q.ard_violence + Q.abl_violence + Q.sov_rg_violence;
 
         if (Q.violence_calc >= 0.75 && Q.violence_calc <= 1.25) {
             Q.violent_prevalence += 0.01;
@@ -801,6 +816,10 @@ if (Q.week_actions >= 1) {
                 }
 
                 Q.rg_strength -= 12/12;
+                if (Q.pcdi_formed) {
+                    Q.sov_rg_strength -= 12/12;
+                    Q.sov_rg_militancy -= 0.1/12;
+                }
                 Q.ard_strength -= 12/12;
                 Q.adp_strength -= 12/12;
                 Q.abl_strength -= 12/12;
@@ -1195,6 +1214,14 @@ if (Q.week_actions >= 1) {
                 Q.rural_pcdi -= 4/12;
                 Q.veterans_pcdi -= 9/12;
                 Q.women_pcdi -= 2/12;
+
+                Q.sov_rg_strength += 10/12;
+                Q.sov_rg_militancy += 0.05/12;
+
+                if (Q.soviet_leader == "Stalin") {
+                    Q.sov_rg_strength += 12/12;
+                    Q.sov_rg_militancy += 0.04/12;
+                }
             }
 
             if (Q.republican_sentiment > Q.nationalist_sentiment + Q.socialist_sentiment) {
