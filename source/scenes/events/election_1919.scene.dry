@@ -295,16 +295,8 @@ if (Q.prime_minister_party == "PNF") {
         Q.psu_r = 0;
         Q.psu_seating = 0;
         Q.psu_seating_disp = 0;
-    } else {
-        Q.other_r += Q.psu_r;
-        Q.other_seating += Q.psu_seating;
-        Q.other_seating_disp += Q.psu_seating_disp;
-
-        Q.psu_r = 0;
-        Q.psu_seating = 0;
-        Q.psu_seating_disp = 0;
     }
-
+    
     if (Q.anti_fas_ppi) {
         Q.psi_r += Q.ppi_r;
         Q.psi_seating += Q.ppi_seating;
@@ -321,6 +313,10 @@ if (Q.prime_minister_party == "PNF") {
         Q.other_r += Q.ppi_r * 0.3;
         Q.other_seating += Q.ppi_seating * 0.3;
         Q.other_seating_disp += Q.ppi_seating_disp * 0.3;
+
+        Q.ppi_r = 0;
+        Q.ppi_seating = 0;
+        Q.ppi_seating_disp = 0;
     }
 
     if (Q.anti_fas_pri) {

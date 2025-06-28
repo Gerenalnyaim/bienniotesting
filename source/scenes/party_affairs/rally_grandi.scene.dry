@@ -27,7 +27,7 @@ on-arrival: abl_strength -= 3; ard_strength -= 5; fdc_strength -= 9; workers_pnf
 We campaign against the actions the Squadrismo have done under Grandi's control, which seems to resonate with the workers and middle class who wish to see a restoration of order.
 
 @grandi_rally
-subtitle: Grandi, unlike Mussolini or D'Annunzio, is neither political skilled nor charismatic.
+subtitle: Grandi, unlike Mussolini or D'Annunzio, is neither politically skilled nor charismatic.
 on-arrival: workers_pnf -= 2; rural_pnf -= 2; workers_psi += 2; 
 
 We rally workers and farmhands against Grandi, weakening his support base.
