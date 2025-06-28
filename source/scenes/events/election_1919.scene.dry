@@ -969,7 +969,7 @@ Q.anti_socialist_coalition = 0;
 @pnf_majority
 title: PNF majority alone
 subtitle: PNF: [+ pnf_seating_disp +]%
-view-if: pnf_seating_disp >= 50
+view-if: pnf_seating_disp >= 50 and prime_minister != "D'Annunzio"
 on-arrival: {!
 Q.prime_minister_party = "PNF";
 Q.prime_minister = Q.pnf_leader;
