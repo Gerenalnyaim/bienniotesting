@@ -247,7 +247,7 @@ blockquote + blockquote.attribution {
 }
 
 #rev_main_tab, #rev_paramilitary_tab, #rev_politics_tab {
-  width: 33%;
+  width: 32%;
 }
 
 .tab_button.active {
