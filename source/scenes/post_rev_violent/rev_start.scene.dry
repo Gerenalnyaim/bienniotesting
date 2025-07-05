@@ -1,0 +1,43 @@
+title: Revolutionary Start
+go-to: maximalist_quote if maximalist_strength >= reformist_strength and maximalist_strength >= communist_strength; communist_quote if communist_strength > reformist_strength and maximalist_strength < communist_strength; reformist_quote if maximalist_strength < reformist_strength and reformist_strength > communist_strength
+
+@maximalist_quote
+go-to: rev_info
+
+> *"Serrati was in favor of preserving a maximum concentration of forces; he wanted to keep the Communists, the centrists and the reformists together within a single party. In some specific instances this idea of concentration of forces might be justified by a hope of preserving the maximum of revolutionary forces in the party. He wanted to do this, he wanted to unite these three groups in order to be able later to say: “Here are the genuine bulwarks of our party; whatever and whoever stands outside our ranks is hostile to us."*
+
+ - Leon Trotsky, *Speech on the Italian Question*, 29 June 1921
+
+@communist_quote
+go-to: rev_info
+
+> *"Victory in the proletarian revolution cannot be achieved, and that revolution cannot be safeguarded, while there are reformists and Mensheviks in one’s ranks. That is obvious in principle, and has been strikingly confirmed by the experience both of Russia and of Hungary. This is a decisive consideration. It is simply ridiculous to compare with this danger the danger of “losing” the trade unions, cooperative societies, municipalities, etc., or of their failures, mistakes, or collapse. It is not only ridiculous, but criminal. Anyone who would subject the entire revolution to risk for fear of injuring the municipal affairs of Milan and so forth, has completely lost his head, has no idea of the fundamental task of the revolution, and is totally incapable of preparing its victory."*
+
+ - V. I. Lenin, *On the Struggle of the Italian Socialist Party*, 4 November 1919
+
+@reformist_quote
+go-to: rev_info
+
+> *"The Socialist Party of Italy is obviously too young and, considering the whole economic position, too weak, to be able to hope for an immediate victory of Socialism. In this country the rural population far outweighs the urban; in the towns industry is only slightly developed and hence the real typical proletariat is small in number: here the majority is composed of handicraft workers, small masters and small merchants, a mass which fluctuates to and fro between the petty bourgeoisie and the proletariat ... These tactics, which never lose sight of the last great final aim, preserve us Socialists from the disappointments to which the other less clear-sighted parties, be they republicans or sentimental socialists, who confuse what is only a mere stage with the final aim of the advance, must inevitably succumb."*
+
+ - Friedrich Engels, *Engels to Filippo Turati In Milan*, 26 January 1894
+
+@rev_info
+on-arrival: {!
+document.getElementbyId('situation-link').style.display = "";
+document.getElementbyId('rev_main_tab').style.display = "";
+document.getElementbyId('rev_politics_tab').style.display = "";
+document.getElementbyId('rev_paramilitary_tab').style.display = "";
+
+document.getElementbyId('main_tab').style.display = "none";
+document.getElementbyId('politics_tab').style.display = "none";
+document.getElementbyId('paramilitary_tab').style.display = "none";
+
+
+!}
+
+This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events, especially past this point, will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
+
+THe page turns on the Italian Kingdom. There is no current information about the Italian Soviet Republic, but you will be able to access an overview of the nation through the 'Situations' tab on the top.
+
+

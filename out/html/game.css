@@ -246,6 +246,10 @@ blockquote + blockquote.attribution {
   width: 49%;
 }
 
+#rev_main_tab, #rev_paramilitary_tab, #rev_politics_tab {
+  width: 33%;
+}
+
 .tab_button.active {
     background-color: var(--content-bg-color);
 }

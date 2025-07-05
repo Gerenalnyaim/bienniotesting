@@ -376,3 +376,9 @@ card-image: img/governmentdeck.jpg
 is-deck: true
 
 - #govt_affairs
+
+@cheat
+title: Accessibility
+is-deck: true
+
+- #cheats

@@ -303,6 +303,7 @@
 
                 <div id="header-links">
                     <a id="stats-link" onclick="window.showStats();" href="#">Library</a>
+                    <a id="situation-link" onclick="window.showSituation();" href="#" style="display: none">Situation</a>
                     <a onclick="dendryUI.showSaveSlots();" href="#">Save/Load</a>
                     <a onclick="window.showOptions();" href="#">Options</a>
                 </div>
@@ -314,6 +315,9 @@
                         <button class="tab_button" id="politics_tab" onclick="window.changeTab('status.politics', 'politics_tab');">Politics</button>
                         <button class="tab_button" id="paramilitary_tab" onclick="window.changeTab('status.paramilitaries', 'paramilitary_tab');">Defense</button>
                         <button class="tab_button" id="poll_tab" onclick="window.changeTab('status.polls', 'poll_tab');">Polls</button>
+                        <button class="tab_button" id="rev_main_tab" onclick="window.changetab('rev_status', 'rev_main_tab');" style="display: none;">Main</button>
+                        <button class="tab_button" id="rev_politics_tab" onclick="window.changetab('rev_status.politics', 'rev_politics_tab');" style="display: none;">Factionalism</button>
+                        <button class="tab_button" id="rev_paramilitary_tab" onclick="window.changetab('rev_status.paramilitaries', 'rev_paramilitary_tab');" style="display: none;">Defense</button>
                         <button class="tab_button" id="foreign_tab" onclick="window.changeTab('status.foreign', 'foreign_tab');">Foreign Policy</button>
                         <button class="tab_button" id="interior_tab" onclick="window.changeTab('status.interior', 'interior_tab');">Interior Policies</button>
                     </div>

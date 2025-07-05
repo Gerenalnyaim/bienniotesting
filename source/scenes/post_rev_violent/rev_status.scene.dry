@@ -1,0 +1,48 @@
+title: Status
+new-page: true
+is-special: true
+on-arrival: {!
+if (Q.inflation) {
+    Q.inflation_2 = Q.inflation.toFixed(1);
+}
+if (Q.economic_growth) {
+    Q.economic_growth_2 = Q.economic_growth.toFixed(1);
+}
+if (Q.unemployment) {
+    Q.unemployment_2 = Q.unemployment.toFixed(1);
+}
+!}
+
+= Status
+
+@politics
+
+= Internal Factions of the PSI
+
+@paramilitaries
+on-arrival: {!
+if (Q.sov_rg_strength) {
+    Q.sov_rg_strength_2 = Math.round(Q.sov_rg_strength);
+}
+if (Q.rg_strength) {
+    Q.rg_strength_2 = Math.round(Q.rg_strength);
+}
+if (Q.fdc_strength) {
+    Q.fdc_strength_2 = Math.round(Q.fdc_strength);
+}
+if (Q.ard_strength) {
+    Q.ard_strength_2 = Math.round(Q.ard_strength);
+}
+if (Q.adp_strength) {
+    Q.adp_strength_2 = Math.round(Q.adp_strength);
+}
+if (Q.abl_strength) {
+    Q.abl_strength_2 = Math.round(Q.abl_strength);
+}
+Q.communist_bomb_display = Q.communist_bomb_timer - Q.time;
+Q.republican_bomb_display = Q.republican_bomb_timer - Q.time;
+Q.fascist_bomb_display = Q.fascist_bomb_timer - Q.time;
+Q.foreign_invasion_display = Q.foreign_invasion_time - Q.time;
+!}
+
+= Paramilitaries of the PSI
