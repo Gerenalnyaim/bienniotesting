@@ -1,6 +1,5 @@
 title: Supreme Soviet Elections
 new-page: true
-tags: event
 max-visits: 1
 on-arrival: {!
 
@@ -152,7 +151,7 @@ go-to: decisions
 
 {!<svg id="chamber" style="width: 500px; height: 250px;"> </svg>!}
 
-{!<table style='text-align: center'>!}
+{!<table>!}
 {!<tr><td>!} **[+ psi_full_name +]** {!</td><td>!} **[+ psi_r_disp +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#8B0000; outline: 2px; outline-style: solid;'> </div>!} **Bordigists**: {!</td><td>!} [+ bordigist_r_disp +]% {!</td><td>!} [+ str_change_bordigist +]% {!</td><td>!} [+ bordigist_seating +] {!</td><td>!} [+ bordigist_seating_disp +]% {!</td></tr>!}
