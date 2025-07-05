@@ -172,8 +172,7 @@ go-to: decisions
 {!<svg id="chamber" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!}
-{!<tr><td>Parties/Groups</td><td>Vote Share</td><td>% Change</td><td>Seats Given</td><td>% Seats</td></tr>!}
-{!<tr><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} [+ psi_full_name +]: {!</td><td>!} **[+ psi_r_disp +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
+{!<tr><td>!} **[+ psi_full_name +]** {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#8B0000; outline: 2px; outline-style: solid;'> </div>!} **Bordigists**: {!</td><td>!} [+ bordigist_r_disp +]% {!</td><td>!} [+ str_change_bordigist +]% {!</td><td>!} [+ bordigist_seating +] {!</td><td>!} [+ bordigist_seating_disp +]% {!</td></tr>!}
 
