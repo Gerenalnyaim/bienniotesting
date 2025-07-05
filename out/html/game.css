@@ -608,24 +608,36 @@ table {
   stroke-width: 1.5px;
 }
 
-.seat.communist {
+.seat.bordigist {
   fill: #8B0000;
 }
 
-.seat.maximalist {
-  fill: #DC143C;
+.seat.ordinovist {
+  fill: #A40000;
 }
 
-.seat.labour {
-  fill: #B22222;
+.seat.maximalist {
+  fill: #B80000;
+}
+
+.seat.socpat {
+  fill: #CC0000;
 }
 
 .seat.syndicalist {
   fill: #2F2F2F;
 }
 
-.seat.reformist {
-  fill: #FF6961;
+.seat.labour {
+  fill: #F53333;
+}
+
+.seat.turatian {
+  fill: #FF6666;
+}
+
+.seat.gradualist {
+  fill: #FF9999;
 }
 
 .tooltip-text {

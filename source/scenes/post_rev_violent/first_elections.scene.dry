@@ -1,4 +1,4 @@
-title: Chamber of Deputies Elections
+title: Supreme Soviet Elections
 new-page: true
 tags: event
 max-visits: 1
@@ -10,16 +10,50 @@ Q.psi_r_disp = 100.0;
 Q.psi_seating = Q.total_available_seats;
 Q.psi_seating_disp = 100.0;
 
-Q.total_percentage = Q.psi_votes + Q.psri_votes;
+Q.total_percentage = Q.psi_votes + Q.psri_votes + Q.other_votes + Q.pnf_votes;
 
-if (Q.pcdi_formed) {
-    Q.total_percentage += Q.pcdi_votes;
-}
+Q.other_r_disp = Q.other_votes;
 
-if (Q.psu_votes) {
+var total_strength = Q.communist_strength + Q.maximalist_strength + Q.labour_strength + Q.reformist_strength; + Q.syndicalist_strength;
+
+if (Q.psu_formed) {
     Q.total_percentage += Q.psu_votes;
 }
 
+if (Q.pcdi_formed) {
+    Q.total_percentage += Q.pcdi_formed;
+}
+
+Q.maximalist_r_disp = ((Q.maximalist_strength / total_strength)*100)/Q,psi_votes/Q.total_percentage;
+
+Q.communist_r = ((Q.communist_strength / total_strength)*100)/Q,psi_votes/Q.total_percentage;
+Q.bordigist_r_disp = Q.communist_r/2;
+Q.ordinovist_r_disp = Q.communist_r/2;
+Q.socpat_r_disp = Q.pnf_votes/Q.total_percentage;
+
+Q.labour_r_disp = ((Q.labour_strength / total_strength)*100)/Q,psi_votes/Q.total_percentage;
+Q.turatian_r_disp = ((Q.reformist_strength / total_strength)*100)/Q,psi_votes/Q.total_percentage;
+
+if (Q.syndicalist_active) {
+    Q.syndicalist_r = ((Q.syndicalist_strength / total_strength)*100)/Q,psi_votes;
+}
+
+if (Q.psu_formed) {
+    Q.turatian_r_disp += Q.psu_votes/Q.total_percentage;
+}
+
+if (Q.pcdi_formed) {
+    if (Q.pcdi_leader == "Bordiga") {
+        Q.bordigist_r_disp = (Q.pcdi_votes/Q.total_percentage) * 0.8;
+        Q.ordinovist_r_disp = (Q.pcdi_votes/Q.total_percentage) * 0.2;
+    }
+    if (Q.pcdi_leader == "Gramsci") {
+        Q.bordigist_r_disp = (Q.pcdi_votes/Q.total_percentage) * 0.2;
+        Q.ordinovist_r_disp = (Q.pcdi_votes/Q.total_percentage) * 0.8;
+    }
+}
+
+Q.gradualist_r_disp = Q.psri_votes/Q.total_percentage;
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
 for (var party of Q.parties) {
@@ -30,116 +64,63 @@ Q.election_records.push(election_result);
 on-display: {!
 data = []
 
-if (Q.pcdi_formed && Q.pcdi_seating_disp) {
+data.push({
+    "id": "bordigist",
+    "legend": "Bordigist",
+    "name": "Bordigist",
+    "seats": Math.round(Q.bordigist_r_disp),
+});
+
+data.push({
+    "id": "ordinovist",
+    "legend": "Ordinovist",
+    "name": "Ordinovist",
+    "seats": Math.round(Q.ordinovist_r_disp),
+});
+
+data.push({
+    "id": "maximalist",
+    "legend": "Maximalist",
+    "name": "Maximalist",
+    "seats": Math.round(Q.maximalist_r_disp),
+});
+
+data.push({
+    "id": "socpat",
+    "legend": "SocPat",
+    "name": "SocPat",
+    "seats": Math.round(Q.socpat_r_disp),
+});
+
+if (Q.syndicalist_active) {
     data.push({
-        "id": "pcdi",
-        "legend": "PCD'I",
-        "name": "PCd'I",
-        "seats": Math.round(Q.pcdi_seating),
+        "id": "syndicalist",
+        "legend": "Syndicalist",
+        "name": "Syndicalist",
+        "seats": Math.round(Q.syndicalist_r_disp),
     });
 }
 
 data.push({
-    "id": "psi",
-    "legend": "PSI",
-    "name": "PSI",
-    "seats": Math.round(Q.psi_seating),
+    "id": "labour",
+    "legend": "Labour",
+    "name": "Labour",
+    "seats": Math.round(Q.labour_r_disp),
 });
-
-if (Q.psu_formed && Q.psu_seating_disp) {
-    data.push({
-        "id": "psu",
-        "legend": "PSU",
-        "name": "PSU",
-        "seats": Math.round(Q.psu_seating),
-    });
-}
-
-if (Q.psri_collapse != 1) {
-    data.push({
-            "id": "psri",
-            "legend": "PSRI",
-            "name": "PSRI",
-            "seats": Math.round(Q.psri_seating),
-    });
-}
-
-if (Q.pll_formed && Q.pll_seating_disp) {
-    data.push({
-        "id": "pll",
-        "legend": "PLL",
-        "name": "PLL",
-        "seats": Math.round(Q.pll_seating),
-    });
-}
-
-if (Q.pri_prominent && Q.pri_seating_disp) {
-    data.push({
-        "id": "pri",
-        "legend": "PRI",
-        "name": "PRI",
-        "seats": Math.round(Q.pri_seating),
-    });
-}
-
-if (Q.ds_seating_disp) {
-    data.push({
-        "id": "ds",
-        "legend": "DS",
-        "name": Q.ds_name,
-        "seats": Math.round(Q.ds_seating),
-    });
-}
 
 data.push({
-        "id": "ppi",
-        "legend": "PPI",
-        "name": "PPI",
-        "seats": Math.round(Q.ppi_seating),
+    "id": "turatian",
+    "legend": "Turatian",
+    "name": "Turatian",
+    "seats": Math.round(Q.turatian_r_disp),
 });
 
-    data.push({
-        "id": "ldr",
-        "legend": "LDR",
-        "name": Q.ldr_name,
-        "seats": Math.round(Q.ldr_seating),
-    });
-
-if (Q.bn_formed == 1 && Q.bn_seating_disp) {
-    data.push({
-        "id": "bn",
-        "legend": "BN",
-        "name": "BN",
-        "seats": Math.round(Q.bn_seating), 
-    })
-}
-
-if (Q.ul_in_bn != 1 && Q.ul_seating_disp) {
-    data.push({
-        "id": "ul",
-        "legend": "UL",
-        "name": Q.ul_name,
-        "seats": Math.round(Q.ul_seating),
-    });
-}
-
-if (Q.pcs_formed) {
-    data.push({
-        "id": "pcs",
-        "legend": "PCS",
-        "name": "PCS",
-        "seats": Math.round(Q.pcs_seating),
-    });
-}
-
-if (Q.pnf_in_bn != 1 && Q.pnf_seating_disp) {
-    data.push({
-        "id": "pnf",
-        "legend": "PNF",
-        "name": Q.pnf_name,
-        "seats": Math.round(Q.pnf_seating),
-    });
-}
+data.push({
+    "id": "gradualist",
+    "legend": "Gradualist",
+    "name": "Gradualist",
+    "seats": Math.round(Q.gradualist_r_disp),
+});
 
 data.push({
         "id": "other",
@@ -171,8 +152,8 @@ go-to: decisions
 
 {!<svg id="chamber" style="width: 500px; height: 250px;"> </svg>!}
 
-{!<table>!}
-{!<tr><td>!} **[+ psi_full_name +]** {!</td><td>!} **[+ psi_r +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
+{!<table style='text-align: center'>!}
+{!<tr><td>!} **[+ psi_full_name +]** {!</td><td>!} **[+ psi_r_disp +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#8B0000; outline: 2px; outline-style: solid;'> </div>!} **Bordigists**: {!</td><td>!} [+ bordigist_r_disp +]% {!</td><td>!} [+ str_change_bordigist +]% {!</td><td>!} [+ bordigist_seating +] {!</td><td>!} [+ bordigist_seating_disp +]% {!</td></tr>!}
 
@@ -182,13 +163,15 @@ go-to: decisions
 
 {!<tr><td><div class="box" style='background-color:#CC0000; outline: 2px; outline-style: solid;'> </div>!} **Social Patriots**: {!</td><td>!} [+ socpat_r_disp +]% {!</td><td>!} [+ str_change_socpat +]% {!</td><td>!} [+ socpat_seating +] {!</td><td>!} [+ socpat_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#E00000; outline: 2px; outline-style: solid;'> </div>!} **Syndicalists**: {!</td><td>!} [+ syndicalist_r_disp +]% {!</td><td>!} [+ str_change_syndicalist +]% {!</td><td>!} [+ syndicalist_seating +] {!</td><td>!} [+ syndicalist_seating_disp +]% {!</td></tr>!}
+[? if syndicalist_active : {!<tr><td><div class="box" style='background-color:#E00000; outline: 2px; outline-style: solid;'> </div>!} **Syndicalists**: {!</td><td>!} [+ syndicalist_r_disp +]% {!</td><td>!} [+ str_change_syndicalist +]% {!</td><td>!} [+ syndicalist_seating +] {!</td><td>!} [+ syndicalist_seating_disp +]% {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#F53333; outline: 2px; outline-style: solid;'> </div>!} **Labour Reformists**: {!</td><td>!} [+ labour_r_disp +]% {!</td><td>!} [+ str_change_labour +]% {!</td><td>!} [+ labour_seating +] {!</td><td>!} [+ labour_seating_disp +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#FF6666; outline: 2px; outline-style: solid;'> </div>!} **Turatians**: {!</td><td>!} [+ turatian_r_disp +]% {!</td><td>!} [+ str_change_turatian +]% {!</td><td>!} [+ turatian_seating +] {!</td><td>!} [+ turatian_seating_disp +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#FF9999; outline: 2px; outline-style: solid;'> </div>!} **Gradualists**: {!</td><td>!} [+ gradualist_r_disp +]% {!</td><td>!} [+ str_change_gradualist +]% {!</td><td>!} [+ gradualist_seating +] {!</td><td>!} [+ gradualist_seating_disp +]% {!</td></tr>!}
+
+{!<tr><td></div>!} **Independents**: {!</td><td>!} [+ other_r_disp +]% {!</td><td>!} [+ str_change_other +]% {!</td><td>!} [+ other_seating +] {!</td><td>!} [+ other_seating_disp +]% {!</td></tr>!}
 
 {!</table>!}
 
