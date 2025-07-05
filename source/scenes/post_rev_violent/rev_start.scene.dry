@@ -27,26 +27,26 @@ go-to: rev_info
 
 @rev_info
 on-arrival: {!
-const elem = document.getElementbyId('situation-link');
-elem.style.display = "";
+const elem1 = document.getElementbyId('situation-link');
+elem1.style.display = "";
 
-const elem = document.getElementbyId('rev_main_tab');
-elem.style.display = "";
+const elem2 = document.getElementbyId('rev_main_tab');
+elem2.style.display = "";
 
-const const elem = document.getElementbyId('rev_politics_tab');
-elem.style.display = "";
+const elem3 = document.getElementbyId('rev_politics_tab');
+elem3.style.display = "";
 
-const elem = document.getElementbyId('rev_paramilitary_tab');
-elem.style.display = "";
+const elem4 = document.getElementbyId('rev_paramilitary_tab');
+elem4.style.display = "";
 
-const elem = document.getElementbyId('main_tab')
-elem.style.display = "none";
+const elem5 = document.getElementbyId('main_tab')
+elem5.style.display = "none";
 
-const elem = document.getElementbyId('politics_tab')
-elem.style.display = "none";
+const elem5 = document.getElementbyId('politics_tab')
+elem5.style.display = "none";
 
-const elem = document.getElementbyId('paramilitary_tab')
-elem.style.display = "none";
+const elem5 = document.getElementbyId('paramilitary_tab')
+elem5.style.display = "none";
 !}
 
 This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events, especially past this point, will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
