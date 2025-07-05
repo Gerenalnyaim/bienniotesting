@@ -1,5 +1,8 @@
 title: Revolutionary Start
+new-page: true
 go-to: maximalist_quote if maximalist_strength >= reformist_strength and maximalist_strength >= communist_strength; communist_quote if communist_strength > reformist_strength and maximalist_strength < communist_strength; reformist_quote if maximalist_strength < reformist_strength and reformist_strength > communist_strength
+
+= Vittoria Sovietica: An Alternate History
 
 @maximalist_quote
 go-to: rev_info
@@ -24,18 +27,30 @@ go-to: rev_info
 
 @rev_info
 on-arrival: {!
-document.getElementbyId('situation-link').style.display = "";
-document.getElementbyId('rev_main_tab').style.display = "";
-document.getElementbyId('rev_politics_tab').style.display = "";
-document.getElementbyId('rev_paramilitary_tab').style.display = "";
+elem = document.getElementbyId('situation-link');
+elem.style.display = "";
 
-document.getElementbyId('main_tab').style.display = "none";
-document.getElementbyId('politics_tab').style.display = "none";
-document.getElementbyId('paramilitary_tab').style.display = "none";
+elem = document.getElementbyId('rev_main_tab');
+elem.style.display = "";
+
+elem = document.getElementbyId('rev_politics_tab');
+elem.style.display = "";
+
+elem = document.getElementbyId('rev_paramilitary_tab');
+elem.style.display = "";
+
+elem = document.getElementbyId('main_tab')
+elem.style.display = "none";
+
+elem = document.getElementbyId('politics_tab')
+elem.style.display = "none";
+
+elem = document.getElementbyId('paramilitary_tab')
+elem.style.display = "none";
 !}
 
 This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events, especially past this point, will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
 
-THe page turns on the Italian Kingdom. There is no current information about the Italian Soviet Republic, but you will be able to access an overview of the nation through the 'Situations' tab on the top.
+The page turns on the Italian Kingdom. There is no current information about the Italian Soviet Republic, but you will be able to access an overview of the nation through the 'Situations' tab on the top.
 
 
