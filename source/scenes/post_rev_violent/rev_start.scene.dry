@@ -55,8 +55,8 @@ elem8.style.display = "none";
 
 window.changeTab('rev_status', 'rev_main_tab')
 
-document.getElementsByTagName("body")[0].style.--link-color = "#900";
-document.getElementsByTagName("body.dark-mode")[0].style.--link-color = "#ff8080";
+document.getElementsByTagName("body")[0].style.setProperty('--link-color', '#900');
+document.querySelector("body.dark-mode").style.setProperty('--link-color', '#ff8080');
 !}
 
 This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events, especially past this point, will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
