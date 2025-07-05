@@ -5,6 +5,12 @@ on-arrival: {!
 
 Q.total_available_seats = 535;
 
+Q.rev_factions = ['bordigist', 'ordinovist', 'maximalist', 'socpat', 'syndicalist', 'labour', 'turatian', 'gradualist'];
+
+for (var faction of Q.rev_factions) {
+    Q['old_' + faction + '_r'] = Q[faction+'_r_disp'];
+}
+
 Q.psi_r_disp = 100.0;
 Q.psi_seating = Q.total_available_seats;
 Q.psi_seating_disp = 100.0;
@@ -28,7 +34,7 @@ Q.maximalist_r_disp = (Q.maximalist_strength / total_strength) * (Q.psi_votes/Q.
 Q.communist_r = (Q.communist_strength / total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
 Q.bordigist_r_disp = Q.communist_r/2;
 Q.ordinovist_r_disp = Q.communist_r/2;
-Q.socpat_r_disp = Q.pnf_votes/Q.total_percentage;
+Q.socpat_r_disp = (Q.pnf_votes/Q.total_percentage) * 100;
 
 Q.labour_r_disp = (Q.labour_strength / total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
 Q.turatian_r_disp = (Q.reformist_strength / total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
@@ -53,6 +59,20 @@ if (Q.pcdi_formed) {
 }
 
 Q.gradualist_r_disp = (Q.psri_votes/Q.total_percentage) * 100;
+
+for (var faction of Q.rev_factions) {
+    Q[faction+'_r_disp'] = parseFloat(Q[faction+'_r_disp']).toFixed(1);
+
+    Q['change_' + faction + '_r'] = Q[party + '_r'] - Q['old_' + faction + '_r'];
+    var sign = Q['change_' + faction + '_r'] > 0 
+                ? '<img style="height: 11px; width: 11px;" src="img/Increase2.png">' 
+                : Q['change_' + party + '_r'] < 0 
+                    ? '<img style="height: 11px; width: 11px;" src="img/Decrease2.png">' 
+                    : '<img style="height: 11px; width: 11px;" src="img/Steady2.png">';
+    Q['change_' + faction + '_r'] = Math.abs(Q['change_' + faction + '_r']);
+    Q['str_change_' + faction] = sign + parseFloat(Q['change_' + faction + '_r']).toFixed(1);
+}
+
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
 for (var party of Q.parties) {
