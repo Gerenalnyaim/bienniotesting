@@ -5,7 +5,7 @@ on-arrival: {!
 
 Q.total_available_seats = 535;
 
-Q.rev_factions = ['bordigist', 'ordinovist', 'maximalist', 'socpat', 'syndicalist', 'labour', 'turatian', 'gradualist'];
+Q.rev_factions = ['bordigist', 'ordinovist', 'maximalist', 'socpat', 'syndicalist', 'labour', 'turatian', 'gradualist', 'other'];
 
 for (var faction of Q.rev_factions) {
     Q['old_' + faction + '_r'] = Q[faction+'_r_disp'];
@@ -17,9 +17,9 @@ Q.psi_seating_disp = 100.0;
 
 Q.total_percentage = parseFloat(Q.psi_votes) + parseFloat(Q.psri_votes) + parseFloat(Q.other_votes) + parseFloat(Q.pnf_votes);
 
-Q.other_r_disp = parseFloat(Q.other_votes);
+Q.other_r_disp = (Q.other_votes / Q.total_percentage) * 100;
 
-var total_strength = Q.communist_strength + Q.maximalist_strength + Q.labour_strength + Q.reformist_strength + Q.syndicalist_strength;
+Q.total_strength = Q.communist_strength + Q.maximalist_strength + Q.labour_strength + Q.reformist_strength + Q.syndicalist_strength;
 
 if (Q.psu_formed) {
     Q.total_percentage += parseFloat(Q.psu_votes);
@@ -29,18 +29,18 @@ if (Q.pcdi_formed) {
     Q.total_percentage += parseFloat(Q.pcdi_votes);
 }
 
-Q.maximalist_r_disp = (Q.maximalist_strength / total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
+Q.maximalist_r_disp = (Q.maximalist_strength / Q.total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
 
-Q.communist_r = (Q.communist_strength / total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
+Q.communist_r = (Q.communist_strength / Q.total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
 Q.bordigist_r_disp = Q.communist_r/2;
 Q.ordinovist_r_disp = Q.communist_r/2;
 Q.socpat_r_disp = (Q.pnf_votes/Q.total_percentage) * 100;
 
-Q.labour_r_disp = (Q.labour_strength / total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
-Q.turatian_r_disp = (Q.reformist_strength / total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
+Q.labour_r_disp = (Q.labour_strength / Q.total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
+Q.turatian_r_disp = (Q.reformist_strength / Q.total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
 
 if (Q.syndicalist_active) {
-    Q.syndicalist_r = (Q.syndicalist_strength / total_strength) * Q.psi_votes * 100;
+    Q.syndicalist_r = (Q.syndicalist_strength / Q.total_strength) * (Q.psi_votes/Q.total_percentage) 100;
 }
 
 if (Q.psu_formed) {
