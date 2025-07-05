@@ -1,6 +1,6 @@
 title: [+ month : month +] Revolution
 subtitle: The Communists are launching a revolution!
-view-if: not national_congress_seen and ((sov_rg_strength*sov_rg_militancy) >= ((fdc_strength*fdc_militancy) + (abl_strength*abl_militancy) + (ard_strength*ard_militancy) * 2) or (sov_rg_strength*sov_rg_militancy) >= ((army_strength*army_militancy) + (interior_police_militancy*interior_police_strength) * 2) or pcdi_votes >= 50)
+view-if: not national_congress_seen and ((sov_rg_strength*sov_rg_militancy) >= ((fdc_strength*fdc_militancy) + (abl_strength*abl_militancy) + (ard_strength*ard_militancy) * 2) or (sov_rg_strength*sov_rg_militancy) >= ((army_strength*army_militancy) + (interior_police_militancy*interior_police_strength) * 2) or pcdi_votes >= 50) and soviet_leader = "Stalin"
 new-page: true
 tags: event
 max-visits: 1
@@ -12,6 +12,8 @@ Q.army_strength = (Q.army_strength*Q.rg_militancy) + (Q.interior_police_strength
 !}
 
 = [+ month : month +] Revolution
+
+# credit to redux for this, btw
 
 Aided by the Communist International and under pressure by [+ soviet_leader +] the PCd'I has seemingly commenced the revolutionary process. Out of nowhere, a call to general strike is published while radical elements of the Red Guards storms key infrastructure points across the country, attempting especially to secure control over arms with which to distribute to local workers. Streetfighting erupts as fascist militias and police forces opposed to the communists attempt to put down their uprisings while further more expansive ones are launched across the country.
 

@@ -107,12 +107,18 @@ if (Q.bn_formed) {
         Q.other_r -= Q.other_r * 0.1;
         Q.other_seating -= Q.other_seating * 0.1;
         Q.other_seating_disp -= Q.other_seating_disp * 0.1;
+
+        console.log(Q.bn_seating);
+        console.log(Q.bn_seating_disp);
     }
 
     if (Q.ul_in_bn) {
         Q.bn_r += Q.ul_r;
         Q.bn_seating += Q.ul_seating;
         Q.bn_seating_disp += Q.ul_seating_disp;
+
+        console.log(Q.bn_seating);
+        console.log(Q.bn_seating_disp);
 
         Q.ul_r = 0;
         Q.ul_seating = 0;
@@ -124,11 +130,17 @@ if (Q.bn_formed) {
         Q.bn_seating += Q.pnf_seating;
         Q.bn_seating_disp += Q.pnf_seating_disp
 
+        console.log(Q.bn_seating);
+        console.log(Q.bn_seating_disp);
+
         Q.pnf_r = 0;
         Q.pnf_seating = 0;
         Q.pnf_seating_disp = 0;
     }
 }
+
+console.log(Q.bn_seating);
+console.log(Q.bn_seating_disp);
 
 // Fascist List
 
@@ -220,7 +232,7 @@ if (Q.economic_right) {
 
 // National List & Anti-Fascist List - DO NOT TOUCH
 
-if (Q.prime_minister_party == "PNF") {
+if (Q.acerbo_law_passed == 1) {
     if (Q.anti_fas_ds) {
         Q.psi_r += Q.ds_r;
         Q.psi_seating += Q.ds_seating;
@@ -490,6 +502,9 @@ for (var party of Q.parties) {
 Q.bn_seating_disp = (Q.bn_seating/total_available_seats)*100;
 Q.bn_seating_disp = parseFloat(Q.bn_seating_disp.toFixed(1));
 
+console.log(Q.bn_seating);
+console.log(Q.bn_seating_disp);
+
 if (Q.abstentionist_psi) {
     Q.vacant_seating = Q.psi_seating;
     Q.vacant_seating_disp = Q.psi_seating_disp;
@@ -748,7 +763,7 @@ data.push({
         "seats": Math.round(Q.ldr_seating),
     });
 
-if (Q.bn_formed === 1 && Q.bn_seating_disp) {
+if (Q.bn_formed == 1 && Q.bn_seating_disp) {
     data.push({
         "id": "bn",
         "legend": "BN",
@@ -1049,7 +1064,7 @@ Finally, the [+ psi_name +] can govern alone! Our long campaign of electioneerin
 
 @left_wing_coalition
 title: Can we form a Left-Wing Coalition?
-subtitle: [+ psi_name +] [? if psri_relation >= psri_min_relations : PSRI ?] [? if pri_allies :+ PRI?] [? if psu_coalitioning :+ PSU?] [? if ds_allies :+ [+ ds_name +]?] [? if pll_formed :+ PLL?]: ([+ left_wing_coalition_r +]%) [? if left_wing_coalition_r < 50: Dissident Republicans, Socialists [? if pri_prominent = 0:& the Italian Republican Party?] are willing to provide toleration to the coalition. ?]
+subtitle: [+ psi_name +] [? if psri_relation >= psri_min_relations :+ PSRI ?] [? if pri_allies :+ PRI?] [? if psu_coalitioning :+ PSU?] [? if ds_allies :+ [+ ds_name +]?] [? if pll_formed :+ PLL?]: ([+ left_wing_coalition_r +]%) [? if left_wing_coalition_r < 50: Dissident Republicans, Socialists [? if pri_prominent = 0:& the Italian Republican Party?] are willing to provide toleration to the coalition. ?]
 view-if: left_wing_coalition_r >= left_wing_minimum
 choose-if: (participating = 1 or maximalist_participating = 1) and psri_relation >= psri_min_relations and left_wing_coalition_failed = 0
 unavailable-subtitle: [+ psi_name +] + PSRI [? if pri_allies :+ PRI?] [? if psu_coalitioning :+ PSU?] [? if ds_allies :+ [+ ds_name +]?] [? if pll_formed :+ PLL?]: ([+ left_wing_coalition_r +]%). [? if not_participating = 1: The party has already decided against parliamentary means. ?][? if psri_relation < psri_min_relations : Our relations with the PSRI are too poor. ?][? if left_wing_coalition_failed : Our coalition partners refuse to form another government so soon after the previous one failed. ?]
