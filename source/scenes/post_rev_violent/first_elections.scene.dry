@@ -173,23 +173,23 @@ go-to: decisions
 
 {!<table>!}
 {!<tr><td>Parties/Groups</td><td>Vote Share</td><td>% Change</td><td>Seats Given</td><td>% Seats</td></tr>!}
-[? if acerbo_law_passed : {!<tr><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} [+ psi_full_name +]: {!</td><td>!} **[+ psi_r_disp +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!} ?]
+{!<tr><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} [+ psi_full_name +]: {!</td><td>!} **[+ psi_r_disp +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!}
 
-<tr><td><div class="box" style='background-color:#8B0000; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Bordigists</strong></td><td>[+ bordigist_r_disp +]%</td><td>[+ str_change_bordigist +]%</td><td>[+ bordigist_seating +]</td><td>[+ bordigist_seating_disp +]%</td></tr>
+{!<tr><td><div class="box" style='background-color:#8B0000; outline: 2px; outline-style: solid;'> </div>!} **Bordigists**: {!</td><td>!} [+ bordigist_r_disp +]% {!</td><td>!} [+ str_change_bordigist +]% {!</td><td>!} [+ bordigist_seating +] {!</td><td>!} [+ bordigist_seating_disp +]% {!</td></tr>!}
 
-<tr><td><div class="box" style='background-color:#A10010; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Ordinovists</strong></td><td>[+ ordinovist_r_disp +]%</td><td>[+ str_change_ordinovist +]%</td><td>[+ ordinovist_seating +]</td><td>[+ ordinovist_seating_disp +]%</td></tr>
+{!<tr><td><div class="box" style='background-color:#A40000; outline: 2px; outline-style: solid;'> </div>!} **Ordinovists**: {!</td><td>!} [+ ordinovist_r_disp +]% {!</td><td>!} [+ str_change_ordinovist +]% {!</td><td>!} [+ ordinovist_seating +] {!</td><td>!} [+ ordinovist_seating_disp +]% {!</td></tr>!}
 
-<tr><td><div class="box" style='background-color:#B22222; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Maximalists</strong></td><td>[+ maximalist_r_disp +]%</td><td>[+ str_change_maximalist +]%</td><td>[+ maximalist_seating +]</td><td>[+ maximalist_seating_disp +]%</td></tr>
+{!<tr><td><div class="box" style='background-color:#B80000; outline: 2px; outline-style: solid;'> </div>!} **Maximalists**: {!</td><td>!} [+ maximalist_r_disp +]% {!</td><td>!} [+ str_change_maximalist +]% {!</td><td>!} [+ maximalist_seating +] {!</td><td>!} [+ maximalist_seating_disp +]% {!</td></tr>!}
 
-<tr><td><div class="box" style='background-color:#C04040; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Social Patriots</strong></td><td>[+ socialpatriot_r_disp +]%</td><td>[+ str_change_socialpatriot +]%</td><td>[+ socialpatriot_seating +]</td><td>[+ socialpatriot_seating_disp +]%</td></tr>
+{!<tr><td><div class="box" style='background-color:#CC0000; outline: 2px; outline-style: solid;'> </div>!} **Social Patriots**: {!</td><td>!} [+ socpat_r_disp +]% {!</td><td>!} [+ str_change_socpat +]% {!</td><td>!} [+ socpat_seating +] {!</td><td>!} [+ socpat_seating_disp +]% {!</td></tr>!}
 
-<tr><td><div class="box" style='background-color:#D06060; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Syndicalists</strong></td><td>[+ syndicalist_r_disp +]%</td><td>[+ str_change_syndicalist +]%</td><td>[+ syndicalist_seating +]</td><td>[+ syndicalist_seating_disp +]%</td></tr>
+{!<tr><td><div class="box" style='background-color:#E00000; outline: 2px; outline-style: solid;'> </div>!} **Syndicalists**: {!</td><td>!} [+ syndicalist_r_disp +]% {!</td><td>!} [+ str_change_syndicalist +]% {!</td><td>!} [+ syndicalist_seating +] {!</td><td>!} [+ syndicalist_seating_disp +]% {!</td></tr>!}
 
-<tr><td><div class="box" style='background-color:#E07070; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Labour Reformists</strong></td><td>[+ labourreformist_r_disp +]%</td><td>[+ str_change_labourreformist +]%</td><td>[+ labourreformist_seating +]</td><td>[+ labourreformist_seating_disp +]%</td></tr>
+{!<tr><td><div class="box" style='background-color:#F53333; outline: 2px; outline-style: solid;'> </div>!} **Labour Reformists**: {!</td><td>!} [+ labour_r_disp +]% {!</td><td>!} [+ str_change_labour +]% {!</td><td>!} [+ labour_seating +] {!</td><td>!} [+ labour_seating_disp +]% {!</td></tr>!}
 
-<tr><td><div class="box" style='background-color:#F08080; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Turatians</strong></td><td>[+ turatian_r_disp +]%</td><td>[+ str_change_turatian +]%</td><td>[+ turatian_seating +]</td><td>[+ turatian_seating_disp +]%</td></tr>
+{!<tr><td><div class="box" style='background-color:#FF6666; outline: 2px; outline-style: solid;'> </div>!} **Turatians**: {!</td><td>!} [+ turatian_r_disp +]% {!</td><td>!} [+ str_change_turatian +]% {!</td><td>!} [+ turatian_seating +] {!</td><td>!} [+ turatian_seating_disp +]% {!</td></tr>!}
 
-<tr><td><div class="box" style='background-color:#FFA0A0; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Gradualists</strong></td><td>[+ gradualist_r_disp +]%</td><td>[+ str_change_gradualist +]%</td><td>[+ gradualist_seating +]</td><td>[+ gradualist_seating_disp +]%</td></tr>
+{!<tr><td><div class="box" style='background-color:#FF9999; outline: 2px; outline-style: solid;'> </div>!} **Gradualists**: {!</td><td>!} [+ gradualist_r_disp +]% {!</td><td>!} [+ str_change_gradualist +]% {!</td><td>!} [+ gradualist_seating +] {!</td><td>!} [+ gradualist_seating_disp +]% {!</td></tr>!}
 
 {!</table>!}
 
