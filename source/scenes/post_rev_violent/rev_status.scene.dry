@@ -15,6 +15,64 @@ if (Q.unemployment) {
 
 = Status
 
+Week [+ week +], [+ month : month +] [+ year +]
+
+Party: [+ resources +]
+
+Paramilitary: [+ para_resources +]
+
+[+ psi_name +] Position: [? if psi_in_government : In Government - ?][? if psi_in_government == 0 : Opposition ?]
+[? if centre_left_coalition and psi_in_government: Centre-Left Coalition ?][? if psi_majority and psi_in_government: [+ psi_name +] majority ?][? if socialist_catholic_coalition and psi_in_government: Catholic-Socialist Coalition ?][? if left_wing_coalition and psi_in_government: Left-Wing Coalition ?]
+
+[? if psi_in_government and not psi_majority: Coalition Dissent: [+ coalition_dissent : coalition_dissent +] ?]
+
+Internal Dissent: [+ dissent_percent : dissent +]
+
+Revolutionary Fervour: [+ revolutionary_fervour +]%
+
+[? if not_participating = 1: {!<span class="tooltip-text" title="The party will grow exhausted as time goes by, as it becomes clearer and clearer calls for revolution mean just that.">Revolutionary Exhaustion</span>!}: [+ revolutionary_exhaustion_2 : exhaustion +] ?]
+
+{!<span class="tooltip-text" title="The other parties view us with doubt, considering the party contains radicals advocating for the fall of the Kingdom. The question is: How radical?">Radicalisation</span>!}: [+ radicalisation : radicalisation +]
+
+[? if prime_minister = "D'Annunzio" : Our relationship with D'Annunzio is [+ dannunzio_relation : radicalisation +] ?]
+
+[? if prime_minister = "D'Annunzio" : D'Annunzio's influence within the party is [+ dannunzio_influence : influence +] ?]
+
+= Government
+
+Premier of the Italian Soviet Republic: [+ premier +]
+
+General-Secretary of the [+ psi_full_name +]: [+ psi_leader +]
+
+Congress of Soviets composition:
+
+[+ psi_name +] - Bordigists: [+ bordigist_seating_disp +]%
+[+ psi_name +] - Ordinovists: [+ ordinovist_seating_disp +]%
+[+ psi_name +] - Maximalists: [+ maximalist_seating_disp +]%
+[+ psi_name +] - Social-Patriots: [+ socialpatriot_seating_disp +]%
+[+ psi_name +] - Syndicalists: [+ syndicalist_seating_disp +]%
+[+ psi_name +] - Labour: [+ labour_seating_disp +]%
+[+ psi_name +] - Turatians: [+ turatian_seating_disp +]%
+[+ psi_name +] - Gradualists: [+ gradualist_seating_disp +]%
+[+ psi_name +] - Social Liberals: [+ socialliberal_seating_disp +]%
+Independents: [+ independent_seating_disp +]%
+
+Next election: [+ next_election_month : month +] [+ next_election_year +]
+
+= Economics
+
+Budget: [+ budget +]
+
+Inflation: [+ inflation_2 +]%
+
+Economic Growth: [+ economic_growth_2 +]%
+
+Unemployment: [+ unemployment_2 +]%
+
+British Debts: [? if uk_debts > 0 and not in_default : Significant ?] [? if uk_debts_over and not in_default : Amortisation Plan ?] [? if in_default : Defaulted ?]
+
+American Debts: [? if american_debts > 0 and not in_default : Significant ?] [? if us_debts_over and not in_default : Amortisation Plan ?] [? if in_default : Defaulted ?]
+
 @politics
 
 = Internal Factions of the PSI
