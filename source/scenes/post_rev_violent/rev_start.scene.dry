@@ -27,25 +27,25 @@ go-to: rev_info
 
 @rev_info
 on-arrival: {!
-elem = document.getElementbyId('situation-link');
+const elem = document.getElementbyId('situation-link');
 elem.style.display = "";
 
-elem = document.getElementbyId('rev_main_tab');
+const elem = document.getElementbyId('rev_main_tab');
 elem.style.display = "";
 
-elem = document.getElementbyId('rev_politics_tab');
+const const elem = document.getElementbyId('rev_politics_tab');
 elem.style.display = "";
 
-elem = document.getElementbyId('rev_paramilitary_tab');
+const elem = document.getElementbyId('rev_paramilitary_tab');
 elem.style.display = "";
 
-elem = document.getElementbyId('main_tab')
+const elem = document.getElementbyId('main_tab')
 elem.style.display = "none";
 
-elem = document.getElementbyId('politics_tab')
+const elem = document.getElementbyId('politics_tab')
 elem.style.display = "none";
 
-elem = document.getElementbyId('paramilitary_tab')
+const elem = document.getElementbyId('paramilitary_tab')
 elem.style.display = "none";
 !}
 
