@@ -98,6 +98,8 @@ if (Q.party_banned == 1) {
 if (Q.bn_formed) {
 
     Q.old_bn_r = Q.bn_r;
+    Q.bn_seating = 0;
+    Q.bn_seating_disp = 0;
 
     if (Q.ani_in_bn) {
         Q.bn_r += Q.other_r * 0.1;
@@ -107,18 +109,12 @@ if (Q.bn_formed) {
         Q.other_r -= Q.other_r * 0.1;
         Q.other_seating -= Q.other_seating * 0.1;
         Q.other_seating_disp -= Q.other_seating_disp * 0.1;
-
-        console.log(Q.bn_seating);
-        console.log(Q.bn_seating_disp);
     }
 
     if (Q.ul_in_bn) {
         Q.bn_r += Q.ul_r;
         Q.bn_seating += Q.ul_seating;
         Q.bn_seating_disp += Q.ul_seating_disp;
-
-        console.log(Q.bn_seating);
-        console.log(Q.bn_seating_disp);
 
         Q.ul_r = 0;
         Q.ul_seating = 0;
@@ -130,17 +126,11 @@ if (Q.bn_formed) {
         Q.bn_seating += Q.pnf_seating;
         Q.bn_seating_disp += Q.pnf_seating_disp
 
-        console.log(Q.bn_seating);
-        console.log(Q.bn_seating_disp);
-
         Q.pnf_r = 0;
         Q.pnf_seating = 0;
         Q.pnf_seating_disp = 0;
     }
 }
-
-console.log(Q.bn_seating);
-console.log(Q.bn_seating_disp);
 
 // Fascist List
 
@@ -501,9 +491,6 @@ for (var party of Q.parties) {
 
 Q.bn_seating_disp = (Q.bn_seating/total_available_seats)*100;
 Q.bn_seating_disp = parseFloat(Q.bn_seating_disp.toFixed(1));
-
-console.log(Q.bn_seating);
-console.log(Q.bn_seating_disp);
 
 if (Q.abstentionist_psi) {
     Q.vacant_seating = Q.psi_seating;
@@ -881,9 +868,9 @@ go-to: coalition_menu
 
 [? if (ds_list and not view_full) or ((ds_party and ds_leader = "Colonna") or (ds_leader = "Carnazza" and ds_party and (pnf_r < 5)) or (ds_party and ds_leader = "Giuffrida" and not ds_joint)) and not anti_fas_ds or pnf_in_government : {!<tr><td>!} -Italian Social Democratic Party {!</td></tr>!} ?]
 
-[? if not pnf_in_power and not anti_fas_ppi : {!<tr><td><div class="box" style='background-color:#87CEFA'> </div>!} Catholic List: {!</td><td>!} [+ ppi_r_disp +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating +] {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!} ?]
+[? if not pnf_in_power and (not anti_fas_ppi or not acerbo_law_passed) : {!<tr><td><div class="box" style='background-color:#87CEFA'> </div>!} Catholic List: {!</td><td>!} [+ ppi_r_disp +]% {!</td><td>!} [+ str_change_ppi +]% {!</td><td>!} [+ ppi_seating +] {!</td><td>!} [+ ppi_seating_disp +]% {!</td></tr>!} ?]
 
-[? if not pnf_in_power and not anti_fas_ppi : {!<tr><td>!} -Italian People's Party {!</td></tr>!} ?]
+[? if not pnf_in_power and (not anti_fas_ppi or not acerbo_law_passed) : {!<tr><td>!} -Italian People's Party {!</td></tr>!} ?]
 
 [? if (ldr_party or ldr_list) and not pnf_in_power and not anti_fas_ldr : {!<tr><td><div class="box" style='background-color:#FFD700'> </div>!} Liberals, Democrats and Radicals: {!</td><td>!} [+ ldr_r +]% {!</td><td>!} [+ str_change_ldr +]% {!</td><td>!} [+ ldr_seating +] {!</td><td>!} [+ ldr_seating_disp +]% {!</td></tr>!} ?]
 
