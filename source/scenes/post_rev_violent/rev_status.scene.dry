@@ -54,7 +54,6 @@ Congress of Soviets composition:
 [+ psi_name +] - Labour: [+ labour_seating_disp +]%
 [+ psi_name +] - Turatians: [+ turatian_seating_disp +]%
 [+ psi_name +] - Gradualists: [+ gradualist_seating_disp +]%
-[+ psi_name +] - Social Liberals: [+ socialliberal_seating_disp +]%
 Independents: [+ independent_seating_disp +]%
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
