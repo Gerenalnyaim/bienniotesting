@@ -28,6 +28,7 @@ go-to: rev_info
  - Friedrich Engels, *Engels to Filippo Turati In Milan*, 26 January 1894
 
 @rev_info
+on-arrival: rev_year = year
 on-departure: {!
 const elem1 = document.getElementById('situation-link');
 elem1.style.display = "";
@@ -62,5 +63,12 @@ This is a game of alternate history. While historical accuracy is a major concer
 
 There is no current information about the Italian Soviet Republic, but you will be able to access an overview of the nation through the 'Situations' tab on the top.
 
-- @root: The page turns on the Italian Kingdom.
+- @new_changes: The page turns on the Italian Kingdom.
 
+@new_changes
+
+Naturally, with the ascension of the [+ psi_full_name +] as the leading force and party, our responsibilities have shifted as well. The civil war brought upon Italy was an ugly, prolonged process. It will take time for the nation to heal, and that burden falls upon us.
+
+Elections to the All-Italian Congress of Soviets are quickly conducted in an effort to begin the restoration of order to society.
+
+- @first_elections: May we do our best...

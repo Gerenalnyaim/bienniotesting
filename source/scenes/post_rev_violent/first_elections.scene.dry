@@ -1,0 +1,219 @@
+title: Chamber of Deputies Elections
+new-page: true
+tags: event
+max-visits: 1
+on-arrival: {!
+
+Q.total_available_seats = 535;
+
+Q.psi_r_disp = 100.0;
+Q.psi_seating = Q.total_available_seats;
+Q.psi_seating_disp = 100.0;
+
+Q.total_percentage = Q.psi_votes + Q.psri_votes;
+
+if (Q.pcdi_formed) {
+    Q.total_percentage += Q.pcdi_votes;
+}
+
+if (Q.psu_votes) {
+    Q.total_percentage += Q.psu_votes;
+}
+
+
+var election_result = {'date': new Date(Q.year, Q.month - 1)};
+for (var party of Q.parties) {
+    election_result[party] = Q[party + '_seating_disp'];
+}
+Q.election_records.push(election_result);
+!}
+on-display: {!
+data = []
+
+if (Q.pcdi_formed && Q.pcdi_seating_disp) {
+    data.push({
+        "id": "pcdi",
+        "legend": "PCD'I",
+        "name": "PCd'I",
+        "seats": Math.round(Q.pcdi_seating),
+    });
+}
+
+data.push({
+    "id": "psi",
+    "legend": "PSI",
+    "name": "PSI",
+    "seats": Math.round(Q.psi_seating),
+});
+
+if (Q.psu_formed && Q.psu_seating_disp) {
+    data.push({
+        "id": "psu",
+        "legend": "PSU",
+        "name": "PSU",
+        "seats": Math.round(Q.psu_seating),
+    });
+}
+
+if (Q.psri_collapse != 1) {
+    data.push({
+            "id": "psri",
+            "legend": "PSRI",
+            "name": "PSRI",
+            "seats": Math.round(Q.psri_seating),
+    });
+}
+
+if (Q.pll_formed && Q.pll_seating_disp) {
+    data.push({
+        "id": "pll",
+        "legend": "PLL",
+        "name": "PLL",
+        "seats": Math.round(Q.pll_seating),
+    });
+}
+
+if (Q.pri_prominent && Q.pri_seating_disp) {
+    data.push({
+        "id": "pri",
+        "legend": "PRI",
+        "name": "PRI",
+        "seats": Math.round(Q.pri_seating),
+    });
+}
+
+if (Q.ds_seating_disp) {
+    data.push({
+        "id": "ds",
+        "legend": "DS",
+        "name": Q.ds_name,
+        "seats": Math.round(Q.ds_seating),
+    });
+}
+
+data.push({
+        "id": "ppi",
+        "legend": "PPI",
+        "name": "PPI",
+        "seats": Math.round(Q.ppi_seating),
+});
+
+    data.push({
+        "id": "ldr",
+        "legend": "LDR",
+        "name": Q.ldr_name,
+        "seats": Math.round(Q.ldr_seating),
+    });
+
+if (Q.bn_formed == 1 && Q.bn_seating_disp) {
+    data.push({
+        "id": "bn",
+        "legend": "BN",
+        "name": "BN",
+        "seats": Math.round(Q.bn_seating), 
+    })
+}
+
+if (Q.ul_in_bn != 1 && Q.ul_seating_disp) {
+    data.push({
+        "id": "ul",
+        "legend": "UL",
+        "name": Q.ul_name,
+        "seats": Math.round(Q.ul_seating),
+    });
+}
+
+if (Q.pcs_formed) {
+    data.push({
+        "id": "pcs",
+        "legend": "PCS",
+        "name": "PCS",
+        "seats": Math.round(Q.pcs_seating),
+    });
+}
+
+if (Q.pnf_in_bn != 1 && Q.pnf_seating_disp) {
+    data.push({
+        "id": "pnf",
+        "legend": "PNF",
+        "name": Q.pnf_name,
+        "seats": Math.round(Q.pnf_seating),
+    });
+}
+
+data.push({
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_seating),
+});
+
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("chamber").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#chamber").datum(data).call(parliament);
+}
+!}
+go-to: decisions
+
+= Election results
+
+{!<svg id="chamber" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!}
+{!<tr><td>Parties/Groups</td><td>Vote Share</td><td>% Change</td><td>Seats Given</td><td>% Seats</td></tr>!}
+[? if acerbo_law_passed : {!<tr><td><div class="box" style='background-color:#ED2855; outline: 2px; outline-style: solid;'> </div>!} [+ psi_full_name +]: {!</td><td>!} **[+ psi_r_disp +]%** {!</td><td>!} **[+ str_change_psi +]%** {!</td><td>!} **[+ psi_seating +]** {!</td><td>!} **[+ psi_seating_disp +]%** {!</td></tr>!} ?]
+
+<tr><td><div class="box" style='background-color:#8B0000; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Bordigists</strong></td><td>[+ bordigist_r_disp +]%</td><td>[+ str_change_bordigist +]%</td><td>[+ bordigist_seating +]</td><td>[+ bordigist_seating_disp +]%</td></tr>
+
+<tr><td><div class="box" style='background-color:#A10010; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Ordinovists</strong></td><td>[+ ordinovist_r_disp +]%</td><td>[+ str_change_ordinovist +]%</td><td>[+ ordinovist_seating +]</td><td>[+ ordinovist_seating_disp +]%</td></tr>
+
+<tr><td><div class="box" style='background-color:#B22222; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Maximalists</strong></td><td>[+ maximalist_r_disp +]%</td><td>[+ str_change_maximalist +]%</td><td>[+ maximalist_seating +]</td><td>[+ maximalist_seating_disp +]%</td></tr>
+
+<tr><td><div class="box" style='background-color:#C04040; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Social Patriots</strong></td><td>[+ socialpatriot_r_disp +]%</td><td>[+ str_change_socialpatriot +]%</td><td>[+ socialpatriot_seating +]</td><td>[+ socialpatriot_seating_disp +]%</td></tr>
+
+<tr><td><div class="box" style='background-color:#D06060; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Syndicalists</strong></td><td>[+ syndicalist_r_disp +]%</td><td>[+ str_change_syndicalist +]%</td><td>[+ syndicalist_seating +]</td><td>[+ syndicalist_seating_disp +]%</td></tr>
+
+<tr><td><div class="box" style='background-color:#E07070; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Labour Reformists</strong></td><td>[+ labourreformist_r_disp +]%</td><td>[+ str_change_labourreformist +]%</td><td>[+ labourreformist_seating +]</td><td>[+ labourreformist_seating_disp +]%</td></tr>
+
+<tr><td><div class="box" style='background-color:#F08080; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Turatians</strong></td><td>[+ turatian_r_disp +]%</td><td>[+ str_change_turatian +]%</td><td>[+ turatian_seating +]</td><td>[+ turatian_seating_disp +]%</td></tr>
+
+<tr><td><div class="box" style='background-color:#FFA0A0; outline: 2px; outline-style: solid;'> </div></td><td><strong>[+ psi_full_name +] - Gradualists</strong></td><td>[+ gradualist_r_disp +]%</td><td>[+ str_change_gradualist +]%</td><td>[+ gradualist_seating +]</td><td>[+ gradualist_seating_disp +]%</td></tr>
+
+{!</table>!}
+
+With the formation of the First All-Italian Congress of Soviets, the agenda is pushed forwards.
+
+@decisions
+on-arrival: {!
+Q.psi_in_government = 1;
+Q.foreign_minister_party = Q.psi_name; 
+Q.foreign_minister = "Matteotti";
+Q.interior_minister_party = Q.psi_name;
+Q.interior_minister = "Turati"; 
+Q.justice_minister_party = Q.psi_name;
+Q.justice_minister = "Treves";
+Q.labour_minister_party = Q.psi_name; 
+Q.labour_minister = "Rigola";
+Q.finance_minister_party = Q.psi_name;
+Q.finance_minister = "Lazzari";
+Q.treasury_minister_party = Q.psi_name;
+Q.treasury_minister = "Modigliani";
+Q.agriculture_minister_party = Q.psi_name;
+Q.agriculture_minister = "Graziadei"; 
+Q.public_education_minister_party = Q.psi_name; 
+Q.public_education_minister = "Togliatti";
+Q.public_works_minister_party = Q.psi_name;
+Q.public_works_minister = "Vella";
+!}
