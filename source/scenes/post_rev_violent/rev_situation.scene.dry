@@ -5,4 +5,4 @@ is-special: true
 = The State of Italy
 
 {!<img src='img/background.png' style="display: flex; justify-content: center">!}
-{!<p style="text-align: center">Lavoratori di tutto il mundo, unitevi!</p>!}
+{!<p style="text-align: center; color: #ff8080; font-weight: bold">Lavoratori di tutto il mundo, unitevi!</p>!}
