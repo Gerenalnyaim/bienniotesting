@@ -169,6 +169,7 @@ max-cards: 3
 - @paramilitary
 - @govt
 - @natdef
+- @cheat
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -343,6 +344,7 @@ max-cards: 4
 - @paramilitary
 - @govt
 - @natdef
+- @cheat
 - #advisor
 - @shuffle_leadership_pinned
 
