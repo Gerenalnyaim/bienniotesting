@@ -40,7 +40,7 @@ Q.labour_r_disp = (Q.labour_strength / Q.total_strength) * (Q.psi_votes/Q.total_
 Q.turatian_r_disp = (Q.reformist_strength / Q.total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
 
 if (Q.syndicalist_active) {
-    Q.syndicalist_r = (Q.syndicalist_strength / Q.total_strength) * (Q.psi_votes/Q.total_percentage) 100;
+    Q.syndicalist_r = (Q.syndicalist_strength / Q.total_strength) * (Q.psi_votes/Q.total_percentage) * 100;
 }
 
 if (Q.psu_formed) {
