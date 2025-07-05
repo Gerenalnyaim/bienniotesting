@@ -23,18 +23,18 @@ if (Q.pcdi_formed) {
     Q.total_percentage += Q.pcdi_formed;
 }
 
-Q.maximalist_r_disp = ((Q.maximalist_strength / total_strength)*100)/Q,psi_votes/Q.total_percentage;
+Q.maximalist_r_disp = ((Q.maximalist_strength / total_strength)*100)/Q.psi_votes/Q.total_percentage;
 
 Q.communist_r = ((Q.communist_strength / total_strength)*100)/Q,psi_votes/Q.total_percentage;
 Q.bordigist_r_disp = Q.communist_r/2;
 Q.ordinovist_r_disp = Q.communist_r/2;
 Q.socpat_r_disp = Q.pnf_votes/Q.total_percentage;
 
-Q.labour_r_disp = ((Q.labour_strength / total_strength)*100)/Q,psi_votes/Q.total_percentage;
-Q.turatian_r_disp = ((Q.reformist_strength / total_strength)*100)/Q,psi_votes/Q.total_percentage;
+Q.labour_r_disp = ((Q.labour_strength / total_strength)*100)/Q.psi_votes/Q.total_percentage;
+Q.turatian_r_disp = ((Q.reformist_strength / total_strength)*100)/Q.psi_votes/Q.total_percentage;
 
 if (Q.syndicalist_active) {
-    Q.syndicalist_r = ((Q.syndicalist_strength / total_strength)*100)/Q,psi_votes;
+    Q.syndicalist_r = ((Q.syndicalist_strength / total_strength)*100)/Q.psi_votes;
 }
 
 if (Q.psu_formed) {
