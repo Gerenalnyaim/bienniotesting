@@ -64,10 +64,10 @@ for (var faction of Q.rev_factions) {
     Q[faction+'_r_disp'] = parseFloat(Q[faction+'_r_disp']);
     Q[faction+'_r_disp'] = parseFloat(Q[faction+'_r_disp']).toFixed(1);
 
-    Q['change_' + faction + '_r'] = Q[party + '_r_disp'] - Q['old_' + faction + '_r'];
+    Q['change_' + faction + '_r'] = Q[faction + '_r_disp'] - Q['old_' + faction + '_r'];
     var sign = Q['change_' + faction + '_r'] > 0 
                 ? '<img style="height: 11px; width: 11px;" src="img/Increase2.png">' 
-                : Q['change_' + party + '_r'] < 0 
+                : Q['change_' + faction + '_r'] < 0 
                     ? '<img style="height: 11px; width: 11px;" src="img/Decrease2.png">' 
                     : '<img style="height: 11px; width: 11px;" src="img/Steady2.png">';
     Q['change_' + faction + '_r'] = Math.abs(Q['change_' + faction + '_r']);
@@ -76,6 +76,7 @@ for (var faction of Q.rev_factions) {
     Q[faction+'_seating'] = (parseFloat(Q[faction+'_r_disp']) / 100) * Q.total_available_seats;
     Q[faction+'_seating'] = Math.round(Q[faction+'_seating']);
     Q[faction+'_seating_disp'] = (parseFloat(Q[faction+'_seating']) / Q.total_available_seats) * 100;
+    Q[faction+'_seating_disp'] = parseFloat(Q[faction+'_seating']).toFixed(1);
 }
 
 
