@@ -25,7 +25,7 @@ if (Q.pcdi_formed) {
 
 Q.maximalist_r_disp = ((Q.maximalist_strength / total_strength)*100)/Q.psi_votes/Q.total_percentage;
 
-Q.communist_r = ((Q.communist_strength / total_strength)*100)/Q,psi_votes/Q.total_percentage;
+Q.communist_r = ((Q.communist_strength / total_strength)*100)/Q.psi_votes/Q.total_percentage;
 Q.bordigist_r_disp = Q.communist_r/2;
 Q.ordinovist_r_disp = Q.communist_r/2;
 Q.socpat_r_disp = Q.pnf_votes/Q.total_percentage;
