@@ -271,7 +271,7 @@ With a plurality of votes, Amadeo Bordiga is elected Chairman of the Committee, 
 
 Bordiga's ascension to power represents a significant ideological shift leftwards for the party, as well as harsher crackdowns on reactionaries and non-communists within the nation. Bordiga's divisive rhetoric against the Filippo Turati and his supporters do nothing to aid factional unity within the party, as well.
 
-@left_elected
+@maximalist_elected
 on-arrival: premier = "Serrati"; premier_party = "Maximalist";
 view-if: left_support <= maximalist_support and maximalist_support >= reformist_support
 go-to: decisions
@@ -280,7 +280,7 @@ With a plurality of votes, Giacomo Menotti Serrati is elected Chairman of the Co
 
 Serrati's ascension to power represents the continuation of the ideological balance between two opposing ends of the left-wing spectrum, excaberated by the success of the revolution. It is unclear whether Serrati will be able to keep the party in tact, or keep the Maximalists in charge to restore order.
 
-@left_elected
+@reformist_elected
 on-arrival: premier = "Turati"; premier_party = "Turatian";
 view-if: left_support < reformist_support and maximalist_support < reformist_support
 go-to: decisions

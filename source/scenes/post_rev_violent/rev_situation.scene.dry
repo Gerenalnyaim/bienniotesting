@@ -17,9 +17,13 @@ is-special: true
 
 [? if constitution = 1 : <span style="text-align: center">The Constitution of the Italian Soviet Republic <span style="color:#FFB74D">emulates the Soviet Constitution</span>.</span> ?]
 
+{!<hr>!}
+
 = State of the Party
 
 <span style="text-align: center">The [+ psi_full_name +] is currently [+ party_unity : unity +].</span>
+
+{!<hr>!}
 
 = State of the Economy
 
@@ -28,6 +32,8 @@ is-special: true
 <span style="text-align: center">Our Economic Direction leans neither way.</span>
 
 <span style="text-align: center">The Trade Unions view us amicably.</span>
+
+{!<hr>!}
 
 = State of the Military 
 
@@ -43,13 +49,15 @@ is-special: true
 
 [? if army_formed : <span style="text-align: center">Conduct within the Italian Red Army is [+ army_conduct : conduct +]</span> ?]
 
+{!<hr>!}
+
 = State of the World
 
 <span style="text-align: center">Decolonisation has not begun.</span>
 
 [? if not reformists_expelled : <span style="text-align: center">We are currently a full member of the <span style="color:#DB261D">Communist International</span>.</span> ?]
 
-[? if reformists_expelled : <span style="text-align: center">We have been expelled from the<span style="color:#DB261D">Communist International</span>.</span> ]
+[? if reformists_expelled : <span style="text-align: center">We have been expelled from the<span style="color:#DB261D">Communist International</span>.</span> ?]
 
 <span style="text-align: center">Our relations with the United Kingdom is [+ entente_relation : low_high +].</span>
 
