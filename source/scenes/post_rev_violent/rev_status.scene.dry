@@ -17,46 +17,29 @@ if (Q.unemployment) {
 
 Week [+ week +], [+ month : month +] [+ year +]
 
-Party: [+ resources +]
-
-Paramilitary: [+ para_resources +]
-
-[+ psi_name +] Position: [? if psi_in_government : In Government - ?][? if psi_in_government == 0 : Opposition ?]
-[? if centre_left_coalition and psi_in_government: Centre-Left Coalition ?][? if psi_majority and psi_in_government: [+ psi_name +] majority ?][? if socialist_catholic_coalition and psi_in_government: Catholic-Socialist Coalition ?][? if left_wing_coalition and psi_in_government: Left-Wing Coalition ?]
-
-[? if psi_in_government and not psi_majority: Coalition Dissent: [+ coalition_dissent : coalition_dissent +] ?]
-
 Internal Dissent: [+ dissent_percent : dissent +]
 
-Revolutionary Fervour: [+ revolutionary_fervour +]%
-
-[? if not_participating = 1: {!<span class="tooltip-text" title="The party will grow exhausted as time goes by, as it becomes clearer and clearer calls for revolution mean just that.">Revolutionary Exhaustion</span>!}: [+ revolutionary_exhaustion_2 : exhaustion +] ?]
-
-{!<span class="tooltip-text" title="The other parties view us with doubt, considering the party contains radicals advocating for the fall of the Kingdom. The question is: How radical?">Radicalisation</span>!}: [+ radicalisation : radicalisation +]
-
-[? if prime_minister = "D'Annunzio" : Our relationship with D'Annunzio is [+ dannunzio_relation : radicalisation +] ?]
-
-[? if prime_minister = "D'Annunzio" : D'Annunzio's influence within the party is [+ dannunzio_influence : influence +] ?]
+Resources: [+ resources +]
 
 = Government
 
-Premier of the Italian Soviet Republic: [+ premier +]
+Premier of the Italian Soviet Republic: [+ premier +] ([+ premier_party +])
 
-General-Secretary of the [+ psi_full_name +]: [+ psi_leader +]
+General-Secretary of the [+ psi_full_name +]: [+ psi_leader +] ([+ psi_leader_faction +])
 
 Congress of Soviets composition:
 
-[+ psi_name +] - Bordigists: [+ bordigist_seating_disp +]%
-[+ psi_name +] - Ordinovists: [+ ordinovist_seating_disp +]%
-[+ psi_name +] - Maximalists: [+ maximalist_seating_disp +]%
-[+ psi_name +] - Social-Patriots: [+ socialpatriot_seating_disp +]%
-[+ psi_name +] - Syndicalists: [+ syndicalist_seating_disp +]%
-[+ psi_name +] - Labour: [+ labour_seating_disp +]%
-[+ psi_name +] - Turatians: [+ turatian_seating_disp +]%
-[+ psi_name +] - Gradualists: [+ gradualist_seating_disp +]%
-Independents: [+ independent_seating_disp +]%
+[+ psi_name +] - Bordigists: [+ bordigist_seating_disp +]% |
+[+ psi_name +] - Ordinovists: [+ ordinovist_seating_disp +]% |
+[+ psi_name +] - Maximalists: [+ maximalist_seating_disp +]% |
+[+ psi_name +] - Social-Patriots: [+ socpat_seating_disp +]% |
+[+ psi_name +] - Syndicalists: [+ syndicalist_seating_disp +]% |
+[+ psi_name +] - Labour: [+ labour_seating_disp +]% |
+[+ psi_name +] - Turatians: [+ turatian_seating_disp +]% |
+[+ psi_name +] - Gradualists: [+ gradualist_seating_disp +]% |
+Independents: [+ other_seating_disp +]% 
 
-Next election: [+ next_election_month : month +] [+ next_election_year +]
+Next Election: [+ next_election_month : month +] [+ next_election_year +]
 
 = Economics
 
@@ -78,28 +61,8 @@ American Debts: [? if american_debts > 0 and not in_default : Significant ?] [? 
 
 @paramilitaries
 on-arrival: {!
-if (Q.sov_rg_strength) {
-    Q.sov_rg_strength_2 = Math.round(Q.sov_rg_strength);
-}
-if (Q.rg_strength) {
-    Q.rg_strength_2 = Math.round(Q.rg_strength);
-}
-if (Q.fdc_strength) {
-    Q.fdc_strength_2 = Math.round(Q.fdc_strength);
-}
-if (Q.ard_strength) {
-    Q.ard_strength_2 = Math.round(Q.ard_strength);
-}
-if (Q.adp_strength) {
-    Q.adp_strength_2 = Math.round(Q.adp_strength);
-}
-if (Q.abl_strength) {
-    Q.abl_strength_2 = Math.round(Q.abl_strength);
-}
-Q.communist_bomb_display = Q.communist_bomb_timer - Q.time;
-Q.republican_bomb_display = Q.republican_bomb_timer - Q.time;
-Q.fascist_bomb_display = Q.fascist_bomb_timer - Q.time;
-Q.foreign_invasion_display = Q.foreign_invasion_time - Q.time;
 !}
 
-= Paramilitaries of the PSI
+= National Defense
+
+[? if army_formed : Armata Rossa Italiana: [+ army_strength +],000 Strength ?]

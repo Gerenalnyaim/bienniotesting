@@ -173,7 +173,7 @@ if (window && d3) {
 !}
 go-to: decisions
 
-= Election results
+= First Congress of Soviets
 
 {!<svg id="chamber" style="width: 500px; height: 250px;"> </svg>!}
 
@@ -196,11 +196,13 @@ go-to: decisions
 
 {!<tr><td><div class="box" style='background-color:#FF9999; outline: 2px; outline-style: solid;'> </div>!} **Gradualists**: {!</td><td>!} [+ gradualist_r_disp +]% {!</td><td>!} [+ str_change_gradualist +]% {!</td><td>!} [+ gradualist_seating +] {!</td><td>!} [+ gradualist_seating_disp +]% {!</td></tr>!}
 
-{!<tr><td></div>!} **Independents**: {!</td><td>!} [+ other_r_disp +]% {!</td><td>!} [+ str_change_other +]% {!</td><td>!} [+ other_seating +] {!</td><td>!} [+ other_seating_disp +]% {!</td></tr>!}
+{!<br>!}
+
+{!<tr><td></div>!} **Independents**: {!</td><td>!} **[+ other_r_disp +]%** {!</td><td>!} **[+ str_change_other +]%** {!</td><td>!} **[+ other_seating +]** {!</td><td>!} **[+ other_seating_disp +]%** {!</td></tr>!}
 
 {!</table>!}
 
-With the formation of the First All-Italian Congress of Soviets, the agenda is pushed forwards.
+The First Italian Congress of Soviets is elected, consisting of members of the [+ psi_full_name +] and Independents aligned with our vision. With its formation and the formation of a Central Executive Committee and Premier, 
 
 @decisions
 on-arrival: {!
@@ -224,3 +226,195 @@ Q.public_education_minister = "Togliatti";
 Q.public_works_minister_party = Q.psi_name;
 Q.public_works_minister = "Vella";
 !}
+
+- @cc: The Formation of the Party's Central Committee.
+- @cec: The Formation of the State's Central Executive Committee.
+- @constitution: The Drafting of a Constitution.
+- @rg_dissolve: The Issue of the Red Guards and the Formation of an Army.
+- @foreign: Foreign Policy and International Relations.
+- @debts: Foreign Debts and Industry.
+- @decrees: Decrees and Legislative Laws.
+
+@cc
+max-visits: 1
+
+In conjunction with the first elections to the Italian Congress of Soviets, the [+ psi_name +] has been held, electing the party's new Secretary-General. The position remains largely administrative, with powers granted to control the party's organ in tandem with the state to further its goals.
+
+- @lazzari: Costantino Lazzari is chosen as Secretary-General of the [+ psi_full_name +].
+
+@lazzari
+on-arrival: psi_leader = "Lazzari"; psi_leader_faction = "Maximalist";
+go-to: decisions
+
+Constantino Lazzari is elected Secretary-General of the [+ psi_name +] by a wide margin, having formerly held the position and led the party. An uncontroversial figure within the party, it is certain he will lead be able to lead the party through the nation's instability, though his age remains a concern.
+
+@cec
+on-arrival: {!
+Q.left_support = Q.bordigist_seating_disp + Q.ordinovist_seating_disp;
+Q.maximalist_support = Q.maximalist_seating_disp + (Q.labour_seating_disp / 2) + Q.socpat_seating_disp;
+Q.reformist_support = Q.turatian_seating_disp + Q.gradualist_seating_disp + (Q.labour_seating_disp / 2);
+!}
+max-visits: 1
+
+The responsibility falls on the First Italian Congress of Soviets to elect the First Central Executive Committee of the Italian Soviet Republic who, more importantly, will elect the Chairman of the Committee. The election of the Chairman will allow the state to begin issuing decrees, resolutions and begin the cogs that turn the Italian Soviet Republic.
+
+- @left_elected: Amadeo Bordiga is elected Chairman of the Committee.
+- @maximalist_elected: Giacomo Menotti Serrati is elected Chairman of the Committee.
+- @reformist_elected: Filippo Turati is elected Chairman of the Committee.
+
+@left_elected
+on-arrival: premier = "Bordiga"; premier_party = "Bordigist";
+view-if: left_support > maximalist_support and left_support > reformist_support
+go-to: decisions
+
+With a plurality of votes, Amadeo Bordiga is elected Chairman of the Committee, having garnered the votes of Bordigists and reluctant Ordinovists. The factional difference between the Secretary-General and Chairman is concerning.
+
+Bordiga's ascension to power represents a significant ideological shift leftwards for the party, as well as harsher crackdowns on reactionaries and non-communists within the nation. Bordiga's divisive rhetoric against the Filippo Turati and his supporters do nothing to aid factional unity within the party, as well.
+
+@left_elected
+on-arrival: premier = "Serrati"; premier_party = "Maximalist";
+view-if: left_support <= maximalist_support and maximalist_support >= reformist_support
+go-to: decisions
+
+With a plurality of votes, Giacomo Menotti Serrati is elected Chairman of the Committee, having garnered the votes of Maximalists, Social Patriots and some of the more radical Unionists.
+
+Serrati's ascension to power represents the continuation of the ideological balance between two opposing ends of the left-wing spectrum, excaberated by the success of the revolution. It is unclear whether Serrati will be able to keep the party in tact, or keep the Maximalists in charge to restore order.
+
+@left_elected
+on-arrival: premier = "Turati"; premier_party = "Turatian";
+view-if: left_support < reformist_support and maximalist_support < reformist_support
+go-to: decisions
+
+With a plurality of votes, Filippo Turati is elected Chairman of the Committee, having garnered the votes of Turatians, Gradualists and the moderate Unionists. The factional difference between the Secretary-General and Chairman is concerning.
+
+Turati's ascension to power represents a significant ideological shift towards the right, as it is likely Turati will seek to forge pragmatic alliances outside the party in an effort to stabilise the nation.
+
+@constitution
+max-visits: 1
+
+The *Statuto Albertino*, the constitution of the Kingdom of Italy has been abolished. In it's place, naturally, suggestions for a new Constitution has been rampant. Though the current governmental structure derives from the Soviet Constitution, some on the left and right wings of the party suggest the drafting of a new constitution, arguing the conditions of revolution in Italy are significantly different as compared to Russia.
+
+On the other hand, the Maximalists argue that merely slight iterations to a Russian-inspired Constitution is necessary for a functional Constitution, and that the drafting of a new constituion would be pointless and only slow down efforts to stabilise the nation.
+
+What should we do?
+
+- @copy_russia: Emulate the 1918 Constitution of the Russian SFSR.
+- @copy_ussr: Emulate the 1924 Constitution of the Soviet Union.
+- @copy_none: Draft a new Constitution from sratch.
+
+@copy_russia
+view-if: year < 1924
+on-arrival: constituion = 1; stability += 1;
+go-to: decisions
+
+With inspiration from the 1918 Russian Constitution, the [+ year +] Italian Constitution is drafted, outlining **the abolition of private property, the transfer of the means to production to the workers and the nationalisation of industry**. It establishes, as agreed upon, the **dictatorship of the proletariat and the establishment of the current system of Congress of Soviets and the Central Executive Committee**. It further grants **freedom of religion, movement, speech and the press**.
+
+The Constitution is ratified 535-0.
+
+@copy_ussr 
+view-if: year >= 1924
+on-arrival: constituion = 1; stability += 1;
+go-to: decisions
+
+With inspiration from the 1924 Soviet Constitution, the [+ year +] Italian Constitution is drafted, outlining **the abolition of private property, the transfer of the means to production to the workers and the nationalisation of industry**. It establishes, as agreed upon, the **dictatorship of the proletariat and the establishment of the current system of Congress of Soviets and the Central Executive Committee**. It further grants **freedom of religion, movement, speech and the press**.
+
+The Constitution is ratified 535-0.
+
+@copy_none
+subtitle: A nation without a Constitution for a prolonged period is bound to suffer.
+on-arrival: constitution_event_trigger = time + 4; soviet_relation -= 1
+choose-if: ((bordigist_seating_disp + gradualist_seating_disp + turatian_seating_disp) >= 50) or ((bordigist_seating_disp + gradualist_seating_disp + turatian_seating_disp + ordinovist_seating_disp) >= 50 and premier = "Bordiga")
+unavailable-subtitle: There is not enough support for this.
+go-to: decisions
+
+Through a slim majority, the Congress of Soviets votes to instead draft up a new constitution rather than emulating the Soviet Constitution. Though the draft will likely take a fair bit of time, proponents assure that a Constitution tailored to Italy will bring about more stability.
+
+@rg_dissolve
+on-arrival: army_formed = 1; army_conduct = 50; army_experience = 20; army_morale = 70; army_strength = 0;
+max-visits: 1
+
+Following the end of the Civil War, the Red Guards, now fielding [+ rg_strength +] thousand men alongside forces within the Regio Esercito loyal to our side have succeeded in their goal. The question now lies on what to do with primarily, the Red Guards. Some on the Left argue for the reorganisation of the Red Guards into a strict military to be utilised for National Defence, arguing for its experience and loyalty to the party.
+
+On the other hand, members on the Right have voiced their opposition to this idea, citing the Red Guards as far too unorganised and disorderly to be trained into effective military forces responsibile for National Defence, instead opting to incorporate prominent paramilitary leaders into Army structure.
+
+- @convert_to_army: Reorganise the paramilitary to form the Italian Red Army.
+- @dissolve: Disband the Red Guards, forming a new, independent entity.
+
+@convert_to_army
+on-arrival: army_strength = rg_strength *= 0.7; army_conduct -= 10; army_experience += 20;
+go-to: decisions
+
+The Congress of Soviets passes a resolution, establishing a military structure within the Red Guards and officially establishing the Red Army as a successor entity to the Red Guards. The majority of the paramilitary forces are converted to military personnel, and a standing army will be able to more aptly defend Italy from threats, both internal and external, though some have expressed concern about the rowdiness of paramilitary forces.
+
+@dissolve
+on-arrival: army_strength = rg_strength *= 0.3; army_experience += 10; army_conduct += 10;
+
+With the support of the right, the Congress of Soviets votes to disband the Red Guards, establishing the Red Army as an independent entity responsibile for National Defense. Though some paramilitary leaders are incorporated into the new Army, the lack of experience might be detrimental to its capabilities.
+
+@foreign
+max-visits: 1
+
+Foreign recognition of the Soviet Republic has been scarce, with recognition only coming from our socialist allies with the East. However, the establishemt of the Ministry of Foreign Affairs will allow us to expand our international reach further and gain legitimacy as a nation around the world.
+
+[? if not reformists_expelled : Though our explusion from the Communist International was only a couple years ago, we have received yet another invitation to rejoin the International, having been able to overthrow its bourgeois oppressors. Although it will certainly take time and effort from the Foreign Ministry, the mending of ties between Italy and Russia would mean a step closer towards internationalism and perhaps mutual aid between the two nations. ?]
+
+[? if reformists_expelled : With the firm recognition and support of our Communist allies to the East, some within the party have suggested diplomatic overtures to the United Kingdom and France, our former allies, in an effort to open trade relations and diplomatic recognition. ?]
+
+- @join_comintern: Join the Communist International.
+- @mend_ties: Mend ties and reassure our former allies in the West.
+
+@join_comintern
+view-if: not reformists_expelled
+on-arrival: reformists_expelled = 1; soviet_relation += 1;
+go-to: decisions
+
+Through negotiations and diplomacy, we have rejoined the Comintern! This has further cultivated relations with the Soviet Union and allowed us to stand alongside them in the world.
+
+@mend_ties
+view-if: reformists_expelled
+on-arrival: entente_relation += 1;
+go-to: decisions
+
+Though distrust is rampant, we are able to cultivate at least some goodwill between Italy and our former allies, though it remains to be seen if this will continue.
+
+@debts
+max-visits: 1
+
+Similar to the Tsars of Russia, Vittorio Emanuele III, in his fruitless and useless entry into the First World War has accumulated momumental debt, owed primarily to British, French and American debtors. [? if uk_debts_over or us_debts_over : Significant debt negotiations and repayments have already been conducted by the previous state under our direction, nevertheless. ?]
+
+Though unfortunate, the financial stituation of the state is concerning, to say the least. As such, a motion to repudiate all debts owed from the Kingdom has been brought fourth, in an effort to the state remains fiscally stable in its infancy. Regardless, many on the right oppose the bill, calling it a 'death-blow' to Italo-Entente relations and the closing of trade or diplomatic opportunities with them.
+
+What should we do?
+
+- @debts_yes: Agree to assume responsibility of debts from the Kingdom.
+- @debts_no: Repudiate all sovereign debts owed and financial obligations!
+
+@debts_yes
+on-arrival: debt = 4; entente_relation += 1;
+go-to: decisions
+
+In an effort to continue cordial relations with the British and Americans, we assume responsibility of the debts left behind by the italian Kingdom, placing us in a relatively unstable financial position.
+
+@debts_no
+on-arrival: entente_relation -= 3;
+go-to: decisions
+
+Like the Russians, we repudiate all bonds issued by the Italian Kingdom, cancelling all previously issued debt and ceasing payment of foreign debt, declaring them to be void. Foreign assets within the nation have been expropriated.
+
+Expectedly, we have seen condemnations from the Entente, alongside a significant detrioriations of relations as diplomatic overtures have reaches a sreeching halt.
+
+@decrees 
+max-visits: 1
+go-to: decrees_menu
+
+The formation of the Central Executive Committee and the election of a Chariman of the Committee has allowed for the changing of legislative law and the passage of decrees necessary to stabilise the Soviet Republic in its short term.
+
+@decrees_menu
+
+- @decree_menu: Sign the Decree on Suppression of Hostile Newspapers.
+- @decree_menu: Sign the Decree to Liberalise Abortion Laws.
+- @decree_menu: Sign the Decree on Women's Suffrage.
+- @decree_menu: Sign the Decree on Abolishing the Death Penalty.
+- @decree_menu: Sign the Decree on the Expropriation of Wealth.
+- @decree_menu: Sign the Decree on the Outlaw of Child Labour.
+- @decisions: We have done enough.

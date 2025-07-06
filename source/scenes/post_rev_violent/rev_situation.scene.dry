@@ -6,3 +6,53 @@ is-special: true
 
 {!<img src='img/backgroundSituation.png' style="display: flex; justify-content: center; margin: auto; border: 10px solid grey">!}
 {!<p style="text-align: center; color: #900; font-weight: bold">Lavoratori di tutto il mundo, unitevi!</p>!}
+
+{!<hr>!}
+
+= State of the Union
+
+<span style="text-align: center">The Italian Soviet Republic is currently [+ stability : stability +].</span>
+
+[? if constitution = 0 : <span style="text-align: center">The Constitution of the Italian Soviet Republic <span style="color:#d42f2f">does not exist</span>.</span> ?]
+
+[? if constitution = 1 : <span style="text-align: center">The Constitution of the Italian Soviet Republic <span style="color:#FFB74D">emulates the Soviet Constitution</span>.</span> ?]
+
+= State of the Party
+
+<span style="text-align: center">The [+ psi_full_name +] is currently [+ party_unity : unity +].</span>
+
+= State of the Economy
+
+<span style="text-align: center">There is currently no Economic Plan.</span>
+
+<span style="text-align: center">Our Economic Direction leans neither way.</span>
+
+<span style="text-align: center">The Trade Unions view us amicably.</span>
+
+= State of the Military 
+
+[? if not army_formed : <span style="text-align: center">We have <span style="color:#d42f2f">no standing army</span>.</span> ?]
+
+[? if army_formed and rg_reorg : <span style="text-align: center">The<span style="color:#d42f2f">Italian Red Army</span> is formed from the Red Guards.</span> ?]
+
+[? if army_formed and not rg_reorg : <span style="text-align: center">The<span style="color:#d42f2f">Italian Red Army</span>exists as an independent entity.</span> ?]
+
+[? if army_formed : <span style="text-align: center">Morale within the Italian Red Army is [+ army_morale : low_high +]</span> ?]
+
+[? if army_formed : <span style="text-align: center">Experience within the Italian Red Army is [+ army_experience : low_high +]</span> ?]
+
+[? if army_formed : <span style="text-align: center">Conduct within the Italian Red Army is [+ army_conduct : conduct +]</span> ?]
+
+= State of the World
+
+<span style="text-align: center">Decolonisation has not begun.</span>
+
+[? if not reformists_expelled : <span style="text-align: center">We are currently a full member of the <span style="color:#DB261D">Communist International</span>.</span> ?]
+
+[? if reformists_expelled : <span style="text-align: center">We have been expelled from the<span style="color:#DB261D">Communist International</span>.</span> ]
+
+<span style="text-align: center">Our relations with the United Kingdom is [+ entente_relation : low_high +].</span>
+
+<span style="text-align: center">Our relations with the French Republic is [+ entente_relation : low_high +].</span>
+
+<span style="text-align: center">Our relations with the Union of Soviet Socialist Republics is [+ soviet_relation : low_high +].</span>
