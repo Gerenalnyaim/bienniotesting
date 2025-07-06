@@ -73,9 +73,9 @@ for (var faction of Q.rev_factions) {
     Q['change_' + faction + '_r'] = Math.abs(Q['change_' + faction + '_r']);
     Q['str_change_' + faction] = sign + parseFloat(Q['change_' + faction + '_r']).toFixed(1);
 
-    Q[faction+'_seating'] = (parseFloat(Q[faction+'_r_disp']) / 100) * Q.total_available_seats;
+    Q[faction+'_seating'] = (Q[faction+'_r_disp'] / 100) * Q.total_available_seats;
     Q[faction+'_seating'] = Math.round(Q[faction+'_seating']);
-    Q[faction+'_seating_disp'] = (parseFloat(Q[faction+'_seating']) / Q.total_available_seats) * 100;
+    Q[faction+'_seating_disp'] = Q[faction+'_seating'] / Q.total_available_seats * 100;
     Q[faction+'_seating_disp'] = parseFloat(Q[faction+'_seating']).toFixed(1);
 }
 
@@ -202,7 +202,7 @@ go-to: decisions
 
 {!</table>!}
 
-The First Italian Congress of Soviets is elected, consisting of members of the [+ psi_full_name +] and Independents aligned with our vision. With its formation and the formation of a Central Executive Committee and Premier, 
+The First Italian Congress of Soviets is elected, consisting of members of the [+ psi_full_name +] and Independents aligned with our vision. With its formation, both the state and the party can begin in its duties to govern and stabilise the nation.
 
 @decisions
 on-arrival: {!
