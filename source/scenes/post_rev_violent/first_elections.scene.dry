@@ -341,7 +341,7 @@ On the other hand, members on the Right have voiced their opposition to this ide
 - @dissolve: Disband the Red Guards, forming a new, independent entity.
 
 @convert_to_army
-on-arrival: army_strength = rg_strength *= 0.7; army_conduct -= 10; army_experience += 20;
+on-arrival: army_strength = rg_strength * 0.7; army_conduct -= 10; army_experience += 20;
 go-to: decisions
 
 The Congress of Soviets passes a resolution, establishing a military structure within the Red Guards and officially establishing the Red Army as a successor entity to the Red Guards. The majority of the paramilitary forces are converted to military personnel, and a standing army will be able to more aptly defend Italy from threats, both internal and external, though some have expressed concern about the rowdiness of paramilitary forces.
