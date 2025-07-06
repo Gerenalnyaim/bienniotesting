@@ -347,7 +347,7 @@ go-to: decisions
 The Congress of Soviets passes a resolution, establishing a military structure within the Red Guards and officially establishing the Red Army as a successor entity to the Red Guards. The majority of the paramilitary forces are converted to military personnel, and a standing army will be able to more aptly defend Italy from threats, both internal and external, though some have expressed concern about the rowdiness of paramilitary forces.
 
 @dissolve
-on-arrival: army_strength = rg_strength *= 0.3; army_experience += 10; army_conduct += 10;
+on-arrival: army_strength = rg_strength * 0.3; army_experience += 10; army_conduct += 10;
 
 With the support of the right, the Congress of Soviets votes to disband the Red Guards, establishing the Red Army as an independent entity responsibile for National Defense. Though some paramilitary leaders are incorporated into the new Army, the lack of experience might be detrimental to its capabilities.
 
