@@ -49,6 +49,14 @@
         window.dendryUI.dendryEngine.goToScene('mod_loader');
     }
   };
+
+  window.showSandbox = function() {
+      if (window.dendryUI.dendryEngine.state.sceneId.startsWith('sandbox')) {
+          window.dendryUI.dendryEngine.goToScene('backSpecialScene');
+      } else {
+          window.dendryUI.dendryEngine.goToScene('sandbox');
+      }
+  };
   
   window.showOptions = function() {
       var save_element = document.getElementById('options');
