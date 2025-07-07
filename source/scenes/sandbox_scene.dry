@@ -8,9 +8,7 @@ go-to: sandbox_menu
 
 @sandbox_menu
 
-- @editleftright: Edit how Left/Right a party is
 - @editdepression: Edit the Economy
-- @edit_hindenburg_angry: Edit how mad Hindenburg is at the SPD
 - @disable_end: Disable End In 1934
 - @enable_end: Enable End In 1934
 - @editresources: Edit Resources
@@ -26,67 +24,6 @@ go-to: sandbox_menu
 - @editironfront: Edit Iron Front
 - @editparamilitary: Edit Paramilitary Groups
 - @editreichswehr: Edit Reichswehr and Police
-
-@editleftright
-
-- @lvpleft: Increase <span style="color: #FFCC00;">**LVP**</span> Leftism
-- @lvpright: Increase <span style="color: #FFCC00;">**LVP**</span> Rightism
-- @ddpleft: Increase DDP Leftism
-- @ddpright: Increase DDP Rightism
-- @dvpleft: Increase DVP Leftism
-- @dvpright: Increase DVP Rightism
-- @goback: Return to the sandbox menu
-
-@lvpleft
-go-to: sandbox_menu
-on-arrival: {!
-lvp_left += 5;
-!}
-
-Made the LVP more left
-
-@lvpright
-go-to: sandbox_menu
-on-arrival: {!
-lvp_right += 5;
-!}
-
-Made the LVP more right
-
-@ddpleft
-go-to: editleftright
-on-arrival: {!
-ddp_left += 5;
-!}
-
-Made the DDP more left
-
-@ddpright
-go-to: editleftright
-on-arrival: {!
-ddp_right += 5;
-!}
-
-Made the DDP more right
-
-@dvpleft
-go-to: editleftright
-on-arrival: {!
-dvp_left += 5;
-!}
-
-Made the DVP more left
-
-@dvpright
-go-to: editleftright
-on-arrival: {!
-dvp_right += 5;
-!}
-
-Made the DVP more right
-
-@goback
-go-to: sandbox_menu
 
 
 @editdepression
@@ -153,24 +90,6 @@ on-arrival: economic_growth += 10
 go-to: sandbox_menu
 on-arrival: economic_growth -= 10
 
-@edit_hindenburg_angry
-
-- @maxangry: Make Hindenburg crash out
-- @noangry: Make Hindenburg love the SPD
-- @raiseangry: Hindenburg is starting to get a little angry
-- @lowerangry: Hindenburg is getting a little less angry
-
-@maxangry
-on-arrival: hindenburg_angry = 120
-
-@noangry
-on-arrival: hindenburg_angry = 0
-
-@raiseangry
-on-arrival: hindenburg_angry += 5
-
-@lowerangry
-on-arrival: hindenburg_angry -= 5
 
 @disable_end
 view-if: end_disabled != 1
